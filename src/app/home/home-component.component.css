@@ -1,0 +1,19 @@
+
+.titolo {
+    font-family:Georgia, 'Times New Roman', Times, serif; /* Sostituisci 'Arial' con il font desiderato */
+    font-size: 28px;
+    color: #333; /* Cambia il colore del testo */
+    text-align: center;
+    padding: 20px; /* Aggiunge spazio intorno al testo */
+    background-color: #f0f0f0; /* Colore di sfondo */
+    border-radius: 5px; /* Bordi arrotondati */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombra leggera */
+  }
+  
+  /* Effetto hover */
+  .titolo:hover {
+    background-color: #a97a5a; /* Cambia il colore di sfondo al passaggio del mouse */
+    color: #fff; /* Cambia il colore del testo al passaggio del mouse */
+    transition: background-color 0.3s, color 0.3s; /* Aggiunge una transizione al cambio di colore */
+  }
+
