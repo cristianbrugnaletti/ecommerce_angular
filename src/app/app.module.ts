@@ -13,12 +13,11 @@ import { FornitoriComponent } from './Fornitore/fornitori/fornitori-component.co
 import { AggiungiFornitoreComponent } from './Fornitore/aggiungi-fornitore/aggiungi-fornitore.component';
 import { ClienteComponent } from './Cliente/cliente/cliente-component.component';
 import { AggiungiClienteComponent } from './Cliente/aggiungi-cliente/aggiungi-cliente.component';
-import { ProdottiComponent } from './Prodotto/prodotti/prodotti-component.component';
-import { AggiungiProdottoComponent } from './Prodotto/aggiungi-prodotto/aggiungi-prodotto.component';
 import { MenuComponent } from './home/menu/menu.component';
 import { FornitoreService } from './Fornitore/fornitori/fornitore.service';
-
 import { AppRoutingModule } from './app-routing.module';
+import { MagazziniComponent } from './Magazzino/magazzini/magazzini.component';
+import { AggiungiMagazzinoComponent } from './Magazzino/aggiungi-magazzino/aggiungi-magazzino.component';
 
 
 
@@ -30,9 +29,9 @@ import { AppRoutingModule } from './app-routing.module';
     AggiungiFornitoreComponent,
     ClienteComponent,
     AggiungiClienteComponent,
-    ProdottiComponent,
-    AggiungiProdottoComponent,
     MenuComponent,
+    MagazziniComponent,
+    AggiungiMagazzinoComponent,
   ],
   providers: [
     FornitoreService, // Assicurati che il servizio sia fornito qui
