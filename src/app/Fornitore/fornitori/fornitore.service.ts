@@ -15,4 +15,8 @@ export class FornitoreService {
     console.log('Chiamato getFornitori()');
     return this.http.get<FornitoreDTO[]>(`${this.apiUrl}/trovaTuttiFornitori`);
   }
+
+  aggiungiFornitore(fornitore: FornitoreDTO): Observable<any> {
+    return this.http.post<FornitoreDTO>(`${this.apiUrl}/aggiungiFornitore`, fornitore);
+  }
 }
