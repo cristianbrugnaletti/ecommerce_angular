@@ -22,7 +22,7 @@ export class MenuComponent implements OnInit {
             label: 'Elenco Fornitori',
             icon: 'pi pi-fw pi-truck',
             command: () => {
-              this.router.navigate(['/fornitori']); // Reindirizza all'elenco dei fornitori
+              this.router.navigate(['/fornitori']); // Reindirizza alla pagina degli elenchi dei fornitori
             }
           },
           {
@@ -32,15 +32,18 @@ export class MenuComponent implements OnInit {
         ]
       },
       {
-        label: 'Prodotto',
+        label: 'Magazzino',
         icon: 'pi pi-fw pi-shopping-cart',
         items: [
           {
-            label: 'Elenco Prodotti',
-            icon: 'pi pi-fw pi-list'
+            label: 'Elenco Magazzini',
+            icon: 'pi pi-fw pi-list',
+            command: () => {
+              this.router.navigate(['/magazzini']); // Reindirizza alla pagina degli elenchi dei fornitori
+            }
           },
           {
-            label: 'Aggiungi Prodotto',
+            label: 'Aggiungi Magazzino',
             icon: 'pi pi-fw pi-plus'
           }
         ]

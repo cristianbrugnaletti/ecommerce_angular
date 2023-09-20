@@ -1,0 +1,26 @@
+<div *ngIf="magazzini.length > 0">
+    <table>
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Indirizzo</th>
+          <th>Sede</th>
+          <th>Capacità Massima</th>
+          <!-- Altre colonne, se necessario -->
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let magazzino of magazzini">
+          <td>{{ magazzino.nome }}</td>
+          <td>{{ magazzino.indirizzo }}</td>
+          <td>{{ magazzino.sede }}</td>
+          <td>{{ magazzino.capacitaMassima }}</td>
+          <!-- Altre colonne, se necessario -->
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div *ngIf="magazzini.length === 0">
+    Nessun magazzino trovato.
+  </div>
+  
