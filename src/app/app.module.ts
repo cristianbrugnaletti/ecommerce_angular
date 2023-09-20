@@ -1,6 +1,8 @@
+// app.module.ts
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http'; // Importa HttpClientModule
 import { MenubarModule } from 'primeng/menubar';
 import { ButtonModule } from 'primeng/button';
 import { TieredMenuModule } from 'primeng/tieredmenu';
@@ -14,6 +16,11 @@ import { AggiungiClienteComponent } from './Cliente/aggiungi-cliente/aggiungi-cl
 import { ProdottiComponent } from './Prodotto/prodotti/prodotti-component.component';
 import { AggiungiProdottoComponent } from './Prodotto/aggiungi-prodotto/aggiungi-prodotto.component';
 import { MenuComponent } from './home/menu/menu.component';
+import { FornitoreService } from './Fornitore/fornitori/fornitore.service';
+
+import { AppRoutingModule } from './app-routing.module';
+
+
 
 @NgModule({
   declarations: [
@@ -25,7 +32,11 @@ import { MenuComponent } from './home/menu/menu.component';
     AggiungiClienteComponent,
     ProdottiComponent,
     AggiungiProdottoComponent,
-    MenuComponent
+    MenuComponent,
+  ],
+  providers: [
+    FornitoreService, // Assicurati che il servizio sia fornito qui
+    // ...
   ],
   imports: [
     BrowserModule,
@@ -33,7 +44,11 @@ import { MenuComponent } from './home/menu/menu.component';
     MenubarModule,
     ButtonModule,
     TieredMenuModule,
-    PanelMenuModule
+    PanelMenuModule,
+    HttpClientModule,
+    
+    AppRoutingModule
+     // Aggiungi HttpClientModule ai tuoi imports
   ],
   bootstrap: [AppComponent]
 })
