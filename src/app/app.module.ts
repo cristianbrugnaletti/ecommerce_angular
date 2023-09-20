@@ -18,7 +18,7 @@ import { FornitoreService } from './Fornitore/fornitori/fornitore.service';
 import { AppRoutingModule } from './app-routing.module';
 import { MagazziniComponent } from './Magazzino/magazzini/magazzini.component';
 import { AggiungiMagazzinoComponent } from './Magazzino/aggiungi-magazzino/aggiungi-magazzino.component';
-
+import { MessagesModule } from 'primeng/messages';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +41,8 @@ import { AggiungiMagazzinoComponent } from './Magazzino/aggiungi-magazzino/aggiu
     PanelMenuModule,
     HttpClientModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MessagesModule
   ],
   bootstrap: [AppComponent]
 })
