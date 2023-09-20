@@ -1,5 +1,6 @@
 // app.module.ts
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms'; 
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http'; // Importa HttpClientModule
@@ -18,8 +19,6 @@ import { FornitoreService } from './Fornitore/fornitori/fornitore.service';
 import { AppRoutingModule } from './app-routing.module';
 import { MagazziniComponent } from './Magazzino/magazzini/magazzini.component';
 import { AggiungiMagazzinoComponent } from './Magazzino/aggiungi-magazzino/aggiungi-magazzino.component';
-
-
 
 @NgModule({
   declarations: [
@@ -45,10 +44,10 @@ import { AggiungiMagazzinoComponent } from './Magazzino/aggiungi-magazzino/aggiu
     TieredMenuModule,
     PanelMenuModule,
     HttpClientModule,
-    
+    FormsModule,
     AppRoutingModule
-     // Aggiungi HttpClientModule ai tuoi imports
   ],
+  
   bootstrap: [AppComponent]
 })
 export class AppModule { }
