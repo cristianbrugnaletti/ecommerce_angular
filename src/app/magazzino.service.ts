@@ -7,12 +7,15 @@ import { MagazzinoDTO } from './MagazzinoDTO';
   providedIn: 'root'
 })
 export class MagazzinoService {
-  private apiUrl = 'http://localhost:8080/MagazzinoController'; // URL relativo al tuo controller Spring
+  private apiUrl = 'http://localhost:8080/MagazzinoController';
 
   constructor(private http: HttpClient) { }
 
   getMagazzini(): Observable<MagazzinoDTO[]> {
-    // Effettua la chiamata HTTP per ottenere l'elenco dei magazzini dal tuo backend
-    return this.http.get<any[]>(`${this.apiUrl}/visualizzaTuttiIMagazzini`);
+    return this.http.get<MagazzinoDTO[]>(`${this.apiUrl}/visualizzaTuttiIMagazzini`);
+  }
+
+  aggiungiMagazzino(magazzino: MagazzinoDTO): Observable<any> {
+    return this.http.post<MagazzinoDTO[]>(`${this.apiUrl}/aggiungiMagazzino`, magazzino);
   }
 }

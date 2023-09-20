@@ -44,7 +44,10 @@ export class MenuComponent implements OnInit {
           },
           {
             label: 'Aggiungi Magazzino',
-            icon: 'pi pi-fw pi-plus'
+            icon: 'pi pi-fw pi-plus',
+            command: () => {
+              this.router.navigate(['/aggiungi-magazzino']); // Reindirizza alla pagina degli elenchi dei fornitori
+            }
           }
         ]
       },
