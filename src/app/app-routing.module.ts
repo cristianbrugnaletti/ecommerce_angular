@@ -16,7 +16,6 @@ const routes: Routes = [
   { path: 'aggiungi-cliente', component: AggiungiClienteComponent },
   { path: 'prodotti', component: ProdottiComponent },
   { path: 'aggiungi-prodotto', component: AggiungiProdottoComponent },
- 
   { path: '', redirectTo: '/home', pathMatch: 'full' },
 ];
 

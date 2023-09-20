@@ -1,20 +1,21 @@
-/* Stile per il menu personalizzato */
+@import '~primeicons/primeicons.css';
 .custom-menubar {
-    background-color: #852323;
+    background-color: #6e0808;
     color: #3f0a0a;
-    font-size: 20px;
+    font-size: 125%;
+    
   }
   
-  /* Spaziatura tra gli elementi del menu */
-  .custom-menubar .ui-menuitem {
-    margin-right: 20px;
-  }
-  
-  /* Stile per l'immagine del menu */
   img {
-    height: 25vh;
+    border-radius: 85%;
+    height: 18vh;
     width: auto;
     margin-top: 5%;
   }
+
+  .card{
+    background-color: rgb(255, 255, 255);
+  }
+
 
 

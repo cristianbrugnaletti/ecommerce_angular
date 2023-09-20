@@ -1,1 +1,15 @@
-<p>fornitori-component works!</p>
+<div *ngIf="fornitori">
+  <h2>Elenco Fornitori</h2>
+  <ul>
+    <li *ngFor="let fornitore of fornitori">
+      <h3>{{ fornitore.nome }}</h3>
+      <p><strong>Sede Legale:</strong> {{ fornitore.sedeLegale }}</p>
+      <p><strong>Nazione Sede:</strong> {{ fornitore.nazioneSede }}</p>
+      <p><strong>Partita IVA:</strong> {{ fornitore.partitaIVA }}</p>
+      <p><strong>Email:</strong> {{ fornitore.email }}</p>
+      <p><strong>Telefono:</strong> {{ fornitore.numeroTelefono }}</p>
+      <!-- Altre informazioni del fornitore -->
+      <hr>
+    </li>
+  </ul>
+</div>

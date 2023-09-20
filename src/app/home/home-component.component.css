@@ -1,5 +1,6 @@
 
 .titolo {
+
     font-family:Georgia, 'Times New Roman', Times, serif; /* Sostituisci 'Arial' con il font desiderato */
     font-size: 28px;
     color: #333; /* Cambia il colore del testo */
@@ -17,3 +18,13 @@
     transition: background-color 0.3s, color 0.3s; /* Aggiunge una transizione al cambio di colore */
   }
 
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+  }
+  
+  .center-content {
+    text-align: center;
+  }
