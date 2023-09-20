@@ -51,7 +51,10 @@ export class MenuComponent implements OnInit {
         items: [
           {
             label: 'Elenco Clienti',
-            icon: 'pi pi-fw pi-list'
+            icon: 'pi pi-fw pi-list',
+            command: () => {
+              this.router.navigate(['/clienti']); // Reindirizza all'elenco dei fornitori
+            }
           },
           {
             label: 'Aggiungi Cliente',
