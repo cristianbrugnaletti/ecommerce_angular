@@ -1,9 +1,8 @@
-// app.module.ts
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms'; 
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http'; // Importa HttpClientModule
+import { HttpClientModule } from '@angular/common/http';
 import { MenubarModule } from 'primeng/menubar';
 import { ButtonModule } from 'primeng/button';
 import { TieredMenuModule } from 'primeng/tieredmenu';
@@ -32,10 +31,7 @@ import { AggiungiMagazzinoComponent } from './Magazzino/aggiungi-magazzino/aggiu
     MagazziniComponent,
     AggiungiMagazzinoComponent,
   ],
-  providers: [
-    FornitoreService, // Assicurati che il servizio sia fornito qui
-    // ...
-  ],
+  providers: [FornitoreService],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -47,7 +43,6 @@ import { AggiungiMagazzinoComponent } from './Magazzino/aggiungi-magazzino/aggiu
     FormsModule,
     AppRoutingModule
   ],
-  
   bootstrap: [AppComponent]
 })
 export class AppModule { }
