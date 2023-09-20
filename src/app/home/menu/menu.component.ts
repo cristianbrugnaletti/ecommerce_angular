@@ -27,7 +27,10 @@ export class MenuComponent implements OnInit {
           },
           {
             label: 'Aggiungi Fornitore',
-            icon: 'pi pi-fw pi-plus'
+            icon: 'pi pi-fw pi-plus',
+            command: () => {
+              this.router.navigate(['/aggiungi-fornitore']); // Reindirizza alla pagina degli elenchi dei fornitori
+            }
           }
         ]
       },
