@@ -1,1 +1,13 @@
-<p>cliente-component works!</p>
+<div *ngIf="clienti">
+    <h2>Elenco clienti</h2>
+    <ul>
+      <li *ngFor="let cliente of clienti">
+        <h3>{{ cliente.nome }}</h3>
+        <p><strong>Cognome:</strong> {{ cliente.cognome }}</p>
+        <p><strong>Username:</strong> {{ cliente.username }}</p>
+        <p><strong>Email:</strong> {{ cliente.email }}</p>
+        <!-- Altre informazioni del fornitore -->
+        <hr>
+      </li>
+    </ul>
+  </div>
