@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'clienti', component: ClienteComponent },
   { path: 'aggiungi-cliente', component: AggiungiClienteComponent },
   { path: 'magazzini', component: MagazziniComponent },
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'home', redirectTo: '/home', pathMatch: 'full' },
 ];
 
 @NgModule({

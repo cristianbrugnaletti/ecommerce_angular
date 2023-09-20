@@ -1,7 +1,8 @@
-<div *ngIf="fornitori">
+<!-- Il tuo componente Angular -->
+<div *ngIf="fornitori" class="elenco-fornitori">
   <h2>Elenco Fornitori</h2>
   <ul>
-    <li *ngFor="let fornitore of fornitori">
+    <li *ngFor="let fornitore of fornitori" class="fornitore-item">
       <h3>{{ fornitore.nome }}</h3>
       <p><strong>Sede Legale:</strong> {{ fornitore.sedeLegale }}</p>
       <p><strong>Nazione Sede:</strong> {{ fornitore.nazioneSede }}</p>
