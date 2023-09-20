@@ -71,7 +71,9 @@ export class MenuComponent implements OnInit {
           }
         ]
       }
-      // Puoi aggiungere altre voci del menu qui
     ];
   }
+  navigateToHome() {
+    this.router.navigate(['/']);
+}
 }

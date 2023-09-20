@@ -14,8 +14,7 @@ export class MagazzinoService {
   getMagazzini(): Observable<MagazzinoDTO[]> {
     return this.http.get<MagazzinoDTO[]>(`${this.apiUrl}/visualizzaTuttiIMagazzini`);
   }
-
-  aggiungiMagazzino(magazzino: MagazzinoDTO): Observable<any> {
-    return this.http.post<MagazzinoDTO[]>(`${this.apiUrl}/aggiungiMagazzino`, magazzino);
-  }
+  aggiungiMagazzino(magazzino: MagazzinoDTO): Observable<MagazzinoDTO> {
+    return this.http.post<MagazzinoDTO>(`${this.apiUrl}/aggiungiMagazzino`, magazzino);
+  }  
 }

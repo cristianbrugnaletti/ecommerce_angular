@@ -1,11 +1,13 @@
-
 <div class="card">
-    <p-menubar [model]="items" class="custom-menubar">
-      <ng-template pTemplate="start">
-        <img src="https://th.bing.com/th/id/OIP.iItjx2XLoFx1Rwgt0ug0yQHaFw?pid=ImgDet&rs=1" height="60" class="menu-logo" />
-      </ng-template>
-      <ng-template pTemplate="end">
-        <input type="text" pInputText placeholder="Search" class="w-full" />
-      </ng-template>
-    </p-menubar>
-  </div>
+  <p-menubar [model]="items" class="custom-menubar">
+    <ng-template pTemplate="start">
+      <img src="https://th.bing.com/th/id/OIP.iItjx2XLoFx1Rwgt0ug0yQHaFw?pid=ImgDet&rs=1" 
+           height="60" 
+           class="menu-logo" 
+           (click)="navigateToHome()" /> <!-- Aggiungi l'evento di clic qui -->
+    </ng-template>
+    <ng-template pTemplate="end">
+      <input type="text" pInputText placeholder="Search" class="w-full" />
+    </ng-template>
+  </p-menubar>
+</div>
