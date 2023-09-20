@@ -1,0 +1,46 @@
+/* Stile per il contenitore principale */
+div.elenco-fornitori {
+    font-family: Arial, sans-serif; /* Cambia il font a tuo piacimento */
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ddd; /* Aggiunge un bordo sottile al contenitore */
+    border-radius: 5px; /* Bordi arrotondati */
+    background-color: #f7f7f7; /* Colore di sfondo */
+  }
+  
+  /* Stile per l'intestazione */
+  h2 {
+    font-size: 24px;
+    color: #333; /* Cambia il colore del titolo */
+    margin-bottom: 10px; /* Spazio tra il titolo e la lista */
+  }
+  
+  /* Stile per ogni fornitore */
+  li {
+    margin-bottom: 20px; /* Spazio tra i fornitori */
+    list-style-type: none; /* Rimuove i punti elenco */
+    border: 1px solid #ddd; /* Aggiunge un bordo sottile a ciascun fornitore */
+    border-radius: 5px; /* Bordi arrotondati per ciascun fornitore */
+    padding: 10px; /* Spazio interno */
+    background-color: #fff; /* Colore di sfondo per ciascun fornitore */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombra leggera */
+  }
+  
+  /* Stile per il nome del fornitore */
+  h3 {
+    font-size: 20px;
+    color: #007BFF; /* Colore del nome del fornitore */
+    margin-bottom: 5px;
+  }
+  
+  /* Stile per le altre informazioni */
+  p {
+    margin: 5px 0;
+  }
+  
+  /* Stile per la linea orizzontale */
+  hr {
+    border: none;
+    border-top: 1px solid #ddd; /* Linea orizzontale sottile */
+    margin: 10px 0;
+  }
