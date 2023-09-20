@@ -1,36 +1,51 @@
-<div>
-    <h2>Aggiungi Fornitore</h2>
-    <form (submit)="aggiungiFornitore()">
-      <div class="form-group">
-        <label for="nome">Nome:</label>
-        <input type="text" id="nome" name="nome" [(ngModel)]="fornitore.nome" required>
-      </div>
-  
-      <div class="form-group">
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" [(ngModel)]="fornitore.email" required>
-      </div>
-  
-      <div class="form-group">
-        <label for="sedeLegale">Sede Legale:</label>
-        <input type="text" id="sedeLegale" name="sedeLegale" [(ngModel)]="fornitore.sedeLegale" required>
-      </div>
+<div class="container">
+  <h2>Aggiungi Fornitore</h2>
 
-      <div class="form-group">
-        <label for="numeroTelefono">Numero di Telefono:</label>
-        <input type="text" id="numeroTelefono" name="numeroTelefono" [(ngModel)]="fornitore.numeroTelefono" required>
-      </div>
-  
-      <div class="form-group">
-        <label for="nazioneSede">Nazione della Sede:</label>
-        <input type="text" id="nazioneSede" name="nazioneSede" [(ngModel)]="fornitore.nazioneSede" required>
-      </div>
-  
-      <div class="form-group">
-        <label for="partitaIVA">Partita IVA:</label>
-        <input type="text" id="partitaIVA" name="partitaIVA" [(ngModel)]="fornitore.partitaIVA" required>
-      </div>
-  
-      <button (click)="aggiungiFornitore()">Aggiungi Fornitore</button>
-    </form>
+  <!-- Inizia la card con il componente p-messages -->
+ 
+  <!-- Fine della card -->
+
+  <!-- Form per l'aggiunta del fornitore -->
+  <form (submit)="aggiungiFornitore()">
+    <div class="form-group">
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" name="nome" [(ngModel)]="fornitore.nome" required>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" [(ngModel)]="fornitore.email" required>
+    </div>
+
+    <div class="form-group">
+      <label for="sedeLegale">Sede Legale:</label>
+      <input type="text" id="sedeLegale" name="sedeLegale" [(ngModel)]="fornitore.sedeLegale" required>
+    </div>
+
+    <div class="form-group">
+      <label for="numeroTelefono">Numero di Telefono:</label>
+      <input type="text" id="numeroTelefono" name="numeroTelefono" [(ngModel)]="fornitore.numeroTelefono" required>
+    </div>
+
+    <div class="form-group">
+      <label for="nazioneSede">Nazione della Sede:</label>
+      <input type="text" id="nazioneSede" name="nazioneSede" [(ngModel)]="fornitore.nazioneSede" required>
+    </div>
+
+    <div class="form-group">
+      <label for="partitaIVA">Partita IVA:</label>
+      <input type="text" id="partitaIVA" name="partitaIVA" [(ngModel)]="fornitore.partitaIVA" required>
+    </div>
+
+    <button type="submit">Aggiungi Fornitore</button>
+
+    <div *ngIf="successMessage" class="success-message">
+      {{ successMessage }}
+    </div>
+    
+    <div *ngIf="errorMessage" class="error-message">
+      {{ errorMessage }}
+    </div>
+  </form>
+  <!-- Fine del form per l'aggiunta del fornitore -->
 </div>

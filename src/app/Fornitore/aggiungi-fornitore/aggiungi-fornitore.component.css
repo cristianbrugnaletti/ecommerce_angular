@@ -51,3 +51,23 @@ button {
 button:hover {
     background-color: #472007;
 }
+
+/* Stile per il messaggio di successo */
+.success-message {
+    background-color: #4CAF50; /* Colore di sfondo verde */
+    color: white; /* Colore del testo bianco */
+    padding: 10px; /* Spaziatura interna */
+    margin-top: 10px; /* Margine superiore */
+    border-radius: 5px; /* Bordi arrotondati */
+    text-align: center; /* Testo centrato */
+  }
+  
+  /* Stile per il messaggio di errore */
+  .error-message {
+    background-color: #f44336; /* Colore di sfondo rosso */
+    color: white; /* Colore del testo bianco */
+    padding: 10px; /* Spaziatura interna */
+    margin-top: 10px; /* Margine superiore */
+    border-radius: 5px; /* Bordi arrotondati */
+    text-align: center; /* Testo centrato */
+  }
