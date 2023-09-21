@@ -101,12 +101,18 @@ export class MenuComponent implements OnInit {
               this.router.navigate(['/ordine-fornitore']);
             }
           }
-        ]
-      }
+        ]}
+        ,{
+          label: 'Prodotto', // Etichetta del menu
+          icon: 'pi pi-fw pi-shopping-cart', // Icona del menu (personalizzala secondo le tue esigenze)
+          command: () => {
+            this.router.navigate(['/prodotti']); // Reindirizza alla pagina "Prodotto"
+          }
+        } 
     ];
   }
 
   navigateToHome() {
     this.router.navigate(['/']);
   }
-
+}
