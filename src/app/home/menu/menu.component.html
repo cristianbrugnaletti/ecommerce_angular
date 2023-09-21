@@ -4,10 +4,8 @@
       <img src="https://th.bing.com/th/id/OIP.iItjx2XLoFx1Rwgt0ug0yQHaFw?pid=ImgDet&rs=1" 
            height="60" 
            class="menu-logo" 
-           (click)="navigateToHome()" /> <!-- Prima immagine con evento di clic -->
-      
-      <!-- Seconda immagine con evento di clic -->
-      <img src="https://www.mediakey.tv/fileadmin/user_upload/antoniobarbati.png" 
+           (click)="navigateToHome()" /> <!-- Prima immagine con evento di clic -->  <!-- Seconda immagine con evento di clic -->
+      <img [src]="images[currentImageIndex]" 
            height="60" 
            class="menu-logo" 
            (click)="navigateToHome()" /> 
@@ -17,3 +15,4 @@
     </ng-template>
   </p-menubar>
 </div>
+
