@@ -1,21 +1,26 @@
+/* Importa il file di stile di primeicons */
 @import '~primeicons/primeicons.css';
-.custom-menubar {
-    background-color: #6e0808;
-    color: #3f0a0a;
-    font-size: 125%;
-    
-  }
-  
-  img {
-    border-radius: 85%;
-    height: 18vh;
-    width: auto;
-    margin-top: 5%;
-  }
 
-  .card{
-    background-color: rgb(255, 255, 255);
-  }
+/* Stile per la barra del menu personalizzato */
+.custom-menubar {
+  background-color: #6e0808;
+  color: #3f0a0a;
+  font-size: 125%;
+}
+
+/* Stile per le immagini */
+img {
+  border-radius: 85%;
+  height: 18vh;
+  width: auto;
+  margin-top: 5%;
+}
+
+/* Stile per il contenitore della card */
+.card {
+  background-color: rgb(255, 255, 255);
+}
+
 
 
 
