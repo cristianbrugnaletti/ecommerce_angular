@@ -1,1 +1,13 @@
-<p>aggiungi-prodotto works!</p>
+<input type="file" (change)="onFileChange($event)" accept=".xlsx">
+<button (click)="aggiungiProdottoDaExcel()">Carica Prodotto da Excel</button>
+<!-- Messaggio di successo -->
+<div *ngIf="successMessage" class="success-message">
+    {{ successMessage }}
+  </div>
+  
+  <!-- Messaggio di errore -->
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+  
+

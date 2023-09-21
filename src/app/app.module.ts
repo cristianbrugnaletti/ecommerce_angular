@@ -22,9 +22,9 @@ import { MessagesModule } from 'primeng/messages';
 import { OrdineClienteComponent } from './OrdineCliente/ordine-cliente/ordine-cliente.component';
 import { OrdineFornitoreComponent } from './OrdineFornitore/ordine-fornitore/ordine-fornitore.component';
 import { ProdottiComponent } from './Prodotto/prodotti/prodotti.component';
-
 import { AggiungiOrdineClienteComponent } from './OrdineCliente/aggiungi-ordine-cliente/aggiungi-ordine-cliente.component';
 import { AggiungiOrdineFornitoreComponent } from './OrdineFornitore/aggiungi-ordine-fornitore/aggiungi-ordine-fornitore.component';
+import { AggiungiProdottoComponent } from './Prodotto/aggiungi-prodotto/aggiungi-prodotto.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +40,7 @@ import { AggiungiOrdineFornitoreComponent } from './OrdineFornitore/aggiungi-ord
     OrdineClienteComponent,
     OrdineFornitoreComponent,
     ProdottiComponent,
+    AggiungiProdottoComponent,
     AggiungiOrdineClienteComponent,
     AggiungiOrdineFornitoreComponent,
   ],

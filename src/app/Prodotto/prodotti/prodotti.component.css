@@ -1,0 +1,58 @@
+/* Stile generale della tabella */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 20px 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Stile dell'intestazione della tabella */
+  th {
+    background-color: #f2f2f2;
+    text-align: left;
+    padding: 8px;
+    border: 1px solid #ddd;
+  }
+  
+  /* Stile delle celle della tabella */
+  td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  /* Stile delle righe alternate */
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  /* Stile del titolo sopra la tabella */
+  h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  /* Stile del campo di ricerca */
+  input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  /* Stile del pulsante di ricerca */
+  button[type="submit"] {
+    background-color: #4caf50;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  /* Stile del pulsante di ricerca al passaggio del mouse */
+  button[type="submit"]:hover {
+    background-color: #45a049;
+  }
+  
