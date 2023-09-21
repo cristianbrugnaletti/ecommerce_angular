@@ -19,28 +19,36 @@ export class AggiungiProdottoComponent {
 
   aggiungiProdottoDaExcel() {
     if (!this.fileDaCaricare) {
-      this.errorMessage = 'Seleziona un file Excel prima di caricare il prodotto.';
-      this.successMessage = null; // Resetta il messaggio di successo in caso di errore
+      this.mostraMessaggioErrore('Seleziona un file Excel prima di caricare il prodotto.');
       return;
     }
 
     this.prodottoService.importaProdottiDaExcel(this.fileDaCaricare).subscribe(
       (response: any) => {
         console.log('Risposta del server:', response);
-        if (response.message === 'Prodotti importati con successo da Excel.') {
-          this.successMessage = 'Prodotti importati con successo da Excel.';
-          this.errorMessage = null; // Resetta il messaggio di errore in caso di successo
+        if (typeof response === 'string') {
+          this.mostraMessaggioSuccesso('Operazione completata con successo.');
         } else {
           console.error('Risposta del server sconosciuta:', response);
-          this.errorMessage = 'Errore durante l\'importazione del prodotto da Excel.';
-          this.successMessage = null; // Resetta il messaggio di successo in caso di errore
+          this.mostraMessaggioErrore('Errore durante l\'operazione.');
         }
       },
       (error) => {
-        console.error('Si è verificato un errore durante l\'importazione del prodotto da Excel:', error);
-        this.errorMessage = 'Errore durante l\'importazione del prodotto da Excel.';
-        this.successMessage = null; // Resetta il messaggio di successo in caso di errore
+        console.error('Si è verificato un errore durante l\'operazione:', error);
+        this.mostraMessaggioErrore('Errore durante l\'operazione.');
       }
     );
+  }
+
+  // Metodo per mostrare un messaggio di successo
+  mostraMessaggioSuccesso(messaggio: string) {
+    this.successMessage = messaggio;
+    this.errorMessage = null;
+  }
+
+  // Metodo per mostrare un messaggio di errore
+  mostraMessaggioErrore(messaggio: string) {
+    this.errorMessage = messaggio;
+    this.successMessage = null;
   }
 }
