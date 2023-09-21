@@ -9,10 +9,22 @@ import { Router } from '@angular/router';
 })
 export class MenuComponent implements OnInit {
   items: MenuItem[] = [];
+  currentImageIndex = 0;
+  images = [
+    'https://www.mediakey.tv/fileadmin/user_upload/antoniobarbati.png',
+   'https://i.vimeocdn.com/portrait/44944630_640x640'
+    // Aggiungi gli URL delle tue immagini aggiuntive qui
+  ];
 
   constructor(private router: Router) { }
 
   ngOnInit() {
+    // Inizializza la logica per il cambio automatico delle immagini
+    setInterval(() => {
+      this.currentImageIndex = (this.currentImageIndex + 1) % this.images.length;
+    }, 5000); // Cambia immagine ogni 5 secondi
+
+    // Configura il tuo menu come desideri
     this.items = [
       {
         label: 'Fornitore',
@@ -97,4 +109,4 @@ export class MenuComponent implements OnInit {
   navigateToHome() {
     this.router.navigate(['/']);
   }
-}
+
