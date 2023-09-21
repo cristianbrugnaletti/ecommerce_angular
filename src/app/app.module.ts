@@ -19,6 +19,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { MagazziniComponent } from './Magazzino/magazzini/magazzini.component';
 import { AggiungiMagazzinoComponent } from './Magazzino/aggiungi-magazzino/aggiungi-magazzino.component';
 import { MessagesModule } from 'primeng/messages';
+import { OrdineClienteComponent } from './OrdineCliente/ordine-cliente/ordine-cliente.component';
+import { OrdineFornitoreComponent } from './OrdineFornitore/ordine-fornitore/ordine-fornitore.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +32,8 @@ import { MessagesModule } from 'primeng/messages';
     MenuComponent,
     MagazziniComponent,
     AggiungiMagazzinoComponent,
+    OrdineClienteComponent,
+    OrdineFornitoreComponent,
   ],
   providers: [FornitoreService],
   imports: [

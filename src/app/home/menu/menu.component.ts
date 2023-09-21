@@ -34,14 +34,14 @@ export class MenuComponent implements OnInit {
             label: 'Elenco Fornitori',
             icon: 'pi pi-fw pi-list',
             command: () => {
-              this.router.navigate(['/fornitori']); // Reindirizza alla pagina degli elenchi dei fornitori
+              this.router.navigate(['/fornitori']);
             }
           },
           {
             label: 'Aggiungi Fornitore',
             icon: 'pi pi-fw pi-plus',
             command: () => {
-              this.router.navigate(['/aggiungi-fornitore']); // Reindirizza alla pagina degli elenchi dei fornitori
+              this.router.navigate(['/aggiungi-fornitore']);
             }
           }
         ]
@@ -54,14 +54,14 @@ export class MenuComponent implements OnInit {
             label: 'Elenco Magazzini',
             icon: 'pi pi-fw pi-list',
             command: () => {
-              this.router.navigate(['/magazzini']); // Reindirizza alla pagina degli elenchi dei fornitori
+              this.router.navigate(['/magazzini']);
             }
           },
           {
             label: 'Aggiungi Magazzino',
             icon: 'pi pi-fw pi-plus',
             command: () => {
-              this.router.navigate(['/aggiungi-magazzino']); // Reindirizza alla pagina degli elenchi dei fornitori
+              this.router.navigate(['/aggiungi-magazzino']);
             }
           }
         ]
@@ -74,12 +74,32 @@ export class MenuComponent implements OnInit {
             label: 'Elenco Clienti',
             icon: 'pi pi-fw pi-list',
             command: () => {
-              this.router.navigate(['/clienti']); // Reindirizza alla pagina degli elenchi dei fornitori
+              this.router.navigate(['/clienti']);
             }
           },
           {
             label: 'Aggiungi Cliente',
             icon: 'pi pi-fw pi-plus'
+          }
+        ]
+      },
+      {
+        label: 'Ordini',
+        icon: 'pi pi-fw pi-shopping-cart',
+        items: [
+          {
+            label: 'Ordine Cliente',
+            icon: 'pi pi-fw pi-user',
+            command: () => {
+              this.router.navigate(['/ordine-cliente']);
+            }
+          },
+          {
+            label: 'Ordine Fornitore',
+            icon: 'pi pi-fw pi-truck',
+            command: () => {
+              this.router.navigate(['/ordine-fornitore']);
+            }
           }
         ]
       }
@@ -89,4 +109,4 @@ export class MenuComponent implements OnInit {
   navigateToHome() {
     this.router.navigate(['/']);
   }
-}
+

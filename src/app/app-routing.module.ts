@@ -6,7 +6,9 @@ import { AggiungiFornitoreComponent } from './Fornitore/aggiungi-fornitore/aggiu
 import { ClienteComponent } from './Cliente/cliente/cliente-component.component';
 import { AggiungiClienteComponent } from './Cliente/aggiungi-cliente/aggiungi-cliente.component';
 import { MagazziniComponent } from './Magazzino/magazzini/magazzini.component'; 
-import { AggiungiMagazzinoComponent } from './Magazzino/aggiungi-magazzino/aggiungi-magazzino.component'; // Importa il componente
+import { AggiungiMagazzinoComponent } from './Magazzino/aggiungi-magazzino/aggiungi-magazzino.component'; 
+import { OrdineClienteComponent } from './OrdineCliente/ordine-cliente/ordine-cliente.component'; // Importa il componente OrdineClienteComponent
+import { OrdineFornitoreComponent } from './OrdineFornitore/ordine-fornitore/ordine-fornitore.component'; // Importa il componente OrdineFornitoreComponent
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -15,7 +17,9 @@ const routes: Routes = [
   { path: 'clienti', component: ClienteComponent },
   { path: 'aggiungi-cliente', component: AggiungiClienteComponent },
   { path: 'magazzini', component: MagazziniComponent },
-  { path: 'aggiungi-magazzino', component: AggiungiMagazzinoComponent }, // Aggiungi la route per il componente AggiungiMagazzinoComponent
+  { path: 'aggiungi-magazzino', component: AggiungiMagazzinoComponent },
+  { path: 'ordine-cliente', component: OrdineClienteComponent }, // Aggiungi la route per il componente OrdineClienteComponent
+  { path: 'ordine-fornitore', component: OrdineFornitoreComponent }, // Aggiungi la route per il componente OrdineFornitoreComponent
   { path: '', redirectTo: '/home', pathMatch: 'full' },
 ];
 
