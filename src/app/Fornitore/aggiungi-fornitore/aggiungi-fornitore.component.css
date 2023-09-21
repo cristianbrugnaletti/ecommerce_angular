@@ -1,6 +1,7 @@
 /* Stile per il contenitore principale */
 div {
-    max-width: 400px;
+    
+    max-width: 50vh;
     margin: 0 auto;
     padding: 20px;
     background-color: #f7f7f7;
