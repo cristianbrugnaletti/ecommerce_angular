@@ -1,6 +1,6 @@
 
 .titolo {
-
+  margin-top: 7%;
     font-family:Georgia, 'Times New Roman', Times, serif; /* Sostituisci 'Arial' con il font desiderato */
     font-size: 28px;
     color: #333; /* Cambia il colore del testo */
@@ -22,7 +22,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-  
+    
   }
   
   .center-content {
