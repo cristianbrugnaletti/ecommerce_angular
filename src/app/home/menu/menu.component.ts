@@ -116,14 +116,28 @@ export class MenuComponent implements OnInit {
               }
             ]
           }
-        ]}
-        ,{
+        ]},
+        {
           label: 'Prodotto', // Etichetta del menu
           icon: 'pi pi-fw pi-shopping-cart', // Icona del menu (personalizzala secondo le tue esigenze)
-          command: () => {
-            this.router.navigate(['/prodotti']); // Reindirizza alla pagina "Prodotto"
-          }
+          items: [
+            {
+              label: 'Elenco Prodotti', // Prima voce del menu a discesa
+              icon: 'pi pi-fw pi-list',
+              command: () => {
+                this.router.navigate(['/prodotti']); // Reindirizza alla pagina "Elenco Prodotti"
+              }
+            },
+            {
+              label: 'Aggiungi Prodotto', // Seconda voce del menu a discesa
+              icon: 'pi pi-fw pi-plus',
+              command: () => {
+                this.router.navigate(['/aggiungi-prodotto']); // Reindirizza alla pagina "Aggiungi Prodotto"
+              }
+            }
+          ]
         } 
+        
     ];
   }
 
