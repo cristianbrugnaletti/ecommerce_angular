@@ -1,1 +1,26 @@
-<p>aggiungi-ordine-fornitore works!</p>
+<div class="container">
+    <h2>Aggiungi Prodotti all'Ordine Fornitore</h2>
+    
+    <!-- Elenco dei prodotti -->
+    <div class="prodotti-list">
+      <div class="prodotto" *ngFor="let prodotto of prodotti">
+        <!-- Mostra i dettagli del prodotto -->
+        <div class="prodotto-details">
+          <h3>{{ prodotto.nome }}</h3>
+          <p>Quantità disponibile: {{ prodotto.quantita }}</p>
+          <p>Prezzo: {{ prodotto.prezzo }}</p>
+        </div>
+        
+        <!-- Pulsante Aggiungi al Carrello -->
+        <button (click)="aggiungiAlCarrello(prodotto)">Aggiungi al Carrello</button>
+      </div>
+    </div>
+    
+    <!-- Riga d'Ordine -->
+    <div class="riga-ordine" *ngIf="rigaOrdineVisible">
+      <h3>Riga d'Ordine</h3>
+      <p>Prodotto: {{ rigaOrdine.nomeProdotto }}</p>
+      <p>Quantità: <input type="" [(ngModel)]="rigaOrdine.quantita" /></p>
+      <button (click)="confermaOrdine()">Conferma Ordine</button>
+    </div>
+  </div>
