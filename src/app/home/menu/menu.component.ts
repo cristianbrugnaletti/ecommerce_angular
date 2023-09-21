@@ -9,21 +9,10 @@ import { Router } from '@angular/router';
 })
 export class MenuComponent implements OnInit {
   items: MenuItem[] = [];
-  currentImageIndex = 0;
-  images = [
-    'https://www.mediakey.tv/fileadmin/user_upload/antoniobarbati.png',
-   'https://i.vimeocdn.com/portrait/44944630_640x640'
-    // Aggiungi gli URL delle tue immagini aggiuntive qui
-  ];
 
   constructor(private router: Router) { }
 
   ngOnInit() {
-    // Inizializza la logica per il cambio automatico delle immagini
-    setInterval(() => {
-      this.currentImageIndex = (this.currentImageIndex + 1) % this.images.length;
-    }, 5000); // Cambia immagine ogni 5 secondi
-
     // Configura il tuo menu come desideri
     this.items = [
       {
@@ -90,16 +79,42 @@ export class MenuComponent implements OnInit {
           {
             label: 'Ordine Cliente',
             icon: 'pi pi-fw pi-user',
-            command: () => {
-              this.router.navigate(['/ordine-cliente']);
-            }
+            items: [
+              {
+                label: 'Elenco Ordini Cliente',
+                icon: 'pi pi-fw pi-list',
+                command: () => {
+                  this.router.navigate(['/ordine-cliente']);
+                }
+              },
+              {
+                label: 'Effettua Ordine Cliente',
+                icon: 'pi pi-fw pi-plus',
+                command: () => {
+                  this.router.navigate(['/aggiungi-ordine-cliente']);
+                }
+              }
+            ]
           },
           {
             label: 'Ordine Fornitore',
             icon: 'pi pi-fw pi-truck',
-            command: () => {
-              this.router.navigate(['/ordine-fornitore']);
-            }
+            items: [
+              {
+                label: 'Elenco Ordini Fornitore',
+                icon: 'pi pi-fw pi-list',
+                command: () => {
+                  this.router.navigate(['/ordine-fornitore']);
+                }
+              },
+              {
+                label: 'Effettua Ordine Fornitore',
+                icon: 'pi pi-fw pi-plus',
+                command: () => {
+                  this.router.navigate(['/aggiungi-ordine-fornitore']);
+                }
+              }
+            ]
           }
         ]
       }
@@ -109,4 +124,4 @@ export class MenuComponent implements OnInit {
   navigateToHome() {
     this.router.navigate(['/']);
   }
-
+}
