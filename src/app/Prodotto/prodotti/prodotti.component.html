@@ -1,0 +1,35 @@
+<div *ngIf="prodotti.length > 0">
+  <table>
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Marca</th>
+        <th>Descrizione</th>
+        <th>Prezzo</th>
+        <th>IVA</th>
+        <th>Quantità</th>
+        <th>Sotto Categoria</th>
+        <!-- Altre colonne, se necessario -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let prodotto of prodotti">
+        <td>{{ prodotto.nome }}</td>
+        <td>{{ prodotto.marca }}</td>
+        <td>{{ prodotto.descrizione }}</td>
+        <td>{{ prodotto.prezzo }}</td>
+        <td>{{ prodotto.iva }}</td>
+        <td>{{ prodotto.quantita }}</td>
+        <td>
+          <ng-container *ngFor="let categoria of prodotto.sottoCategoria; let last = last">
+            {{ categoria }}{{ last ? '' : ', ' }}
+          </ng-container>
+        </td>
+        <!-- Altre colonne, se necessario -->
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div *ngIf="prodotti.length === 0">
+  Nessun prodotto trovato.
+</div>

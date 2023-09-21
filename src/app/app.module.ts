@@ -21,8 +21,11 @@ import { AggiungiMagazzinoComponent } from './Magazzino/aggiungi-magazzino/aggiu
 import { MessagesModule } from 'primeng/messages';
 import { OrdineClienteComponent } from './OrdineCliente/ordine-cliente/ordine-cliente.component';
 import { OrdineFornitoreComponent } from './OrdineFornitore/ordine-fornitore/ordine-fornitore.component';
+import { ProdottiComponent } from './Prodotto/prodotti/prodotti.component';
+
 import { AggiungiOrdineClienteComponent } from './OrdineCliente/aggiungi-ordine-cliente/aggiungi-ordine-cliente.component';
 import { AggiungiOrdineFornitoreComponent } from './OrdineFornitore/aggiungi-ordine-fornitore/aggiungi-ordine-fornitore.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,6 +39,7 @@ import { AggiungiOrdineFornitoreComponent } from './OrdineFornitore/aggiungi-ord
     AggiungiMagazzinoComponent,
     OrdineClienteComponent,
     OrdineFornitoreComponent,
+    ProdottiComponent,
     AggiungiOrdineClienteComponent,
     AggiungiOrdineFornitoreComponent,
   ],
