@@ -16,6 +16,8 @@ export class FornitoriComponent implements OnInit {
 
   constructor(private fornitoreService: FornitoreService) { }
 
+ 
+
   ngOnInit() {
     this.caricaFornitori();
   }
@@ -27,20 +29,30 @@ export class FornitoriComponent implements OnInit {
     });
   }
 
-// Metodo per eliminare un fornitore
-eliminaFornitore(fornitore: FornitoreDTO) {
-  // Verifica se la proprietà id è definita prima di eliminarla
-  if (fornitore.id !== undefined) {
-    // Chiamata al servizio per eliminare il fornitore
-    this.fornitoreService.eliminaFornitore(fornitore.id).subscribe(() => {
-      // Rimuovi il fornitore dalla lista dopo l'eliminazione
-      this.fornitori = this.fornitori.filter(f => f !== fornitore);
-      console.log('Fornitore eliminato con successo.');
-    });
-  } else {
-    console.error('ID del fornitore non definito.');
+  eliminaFornitore(fornitore: FornitoreDTO) {
+    if (confirm('Sei sicuro di voler eliminare questo fornitore?')) {
+      if (fornitore.id) {
+        this.fornitoreService.eliminaFornitore(fornitore.id).subscribe(
+          () => {
+            // Eliminazione completata con successo
+            console.log('Fornitore eliminato con successo');
+
+            // Ora puoi rimuovere il fornitore dalla lista locale
+            this.fornitori = this.fornitori.filter((f) => f.id !== fornitore.id);
+
+            // Emetti un evento o esegui ulteriori azioni qui
+          },
+          (errore) => {
+            // Gestisci eventuali errori qui
+            alert('Non è possibile eliminare questo fornitore. Si è verificato un errore.');
+            console.error('Errore durante l\'eliminazione del fornitore:', errore);
+          }
+        );
+      } else {
+        console.error('ID del fornitore non definito.');
+      }
+    }
   }
-}
 
 
  // Funzione per avviare la modifica di un fornitore
@@ -63,4 +75,4 @@ avviaModifica(fornitore: FornitoreDTO): void {
   // Assegna il fornitore copiato alla variabile fornitoreInModifica
   this.fornitoreInModifica = fornitoreInModifica;
 }
-}
+    }

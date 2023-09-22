@@ -20,8 +20,8 @@ export class FornitoreService {
     return this.http.post<FornitoreDTO>(`${this.apiUrl}/aggiungiFornitore`, fornitore);
   }
 
-  eliminaFornitore(fornitoreNome: number): Observable<void> {
-    const url = `${this.apiUrl}/eliminaFornitore/${fornitoreNome}`;
+  eliminaFornitore(fornitoreId: number): Observable<void> {
+    const url = `${this.apiUrl}/elimina/${fornitoreId}`;
     return this.http.delete<void>(url);
   }
 

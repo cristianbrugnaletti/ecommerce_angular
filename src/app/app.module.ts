@@ -27,7 +27,8 @@ import { AggiungiOrdineFornitoreComponent } from './OrdineFornitore/aggiungi-ord
 import { AggiungiProdottoComponent } from './Prodotto/aggiungi-prodotto/aggiungi-prodotto.component';
 import { ProdottoService } from './Prodotto/prodotto.service';
 import { ModificaFornitoreComponent } from './Fornitore/modifica-fornitore/modifica-fornitore.component';
-
+import { EliminaFornitoreComponent } from './Fornitore/elimina-fornitore/elimina-fornitore.component';
+import { ToastrModule } from 'ngx-toastr'; // Importa ToastrModule
 
 @NgModule({
   declarations: [
@@ -46,9 +47,10 @@ import { ModificaFornitoreComponent } from './Fornitore/modifica-fornitore/modif
     AggiungiProdottoComponent,
     AggiungiOrdineClienteComponent,
     AggiungiOrdineFornitoreComponent,
-    ModificaFornitoreComponent
+    ModificaFornitoreComponent,
+    EliminaFornitoreComponent
   ],
-  providers: [FornitoreService,ProdottoService],
+  providers: [FornitoreService, ProdottoService],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -59,7 +61,8 @@ import { ModificaFornitoreComponent } from './Fornitore/modifica-fornitore/modif
     HttpClientModule,
     FormsModule,
     AppRoutingModule,
-    MessagesModule
+    MessagesModule,
+    ToastrModule.forRoot() // Configura ToastrModule
   ],
   bootstrap: [AppComponent]
 })
