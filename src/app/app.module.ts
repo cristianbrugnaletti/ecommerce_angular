@@ -26,6 +26,7 @@ import { AggiungiOrdineClienteComponent } from './OrdineCliente/aggiungi-ordine-
 import { AggiungiOrdineFornitoreComponent } from './OrdineFornitore/aggiungi-ordine-fornitore/aggiungi-ordine-fornitore.component';
 import { AggiungiProdottoComponent } from './Prodotto/aggiungi-prodotto/aggiungi-prodotto.component';
 import { ProdottoService } from './Prodotto/prodotto.service';
+import { ModificaFornitoreComponent } from './Fornitore/modifica-fornitore/modifica-fornitore.component';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { ProdottoService } from './Prodotto/prodotto.service';
     ProdottiComponent,
     AggiungiProdottoComponent,
     AggiungiOrdineClienteComponent,
-    AggiungiOrdineFornitoreComponent
+    AggiungiOrdineFornitoreComponent,
+    ModificaFornitoreComponent
   ],
   providers: [FornitoreService,ProdottoService],
   imports: [

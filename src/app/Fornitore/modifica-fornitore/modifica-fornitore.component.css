@@ -1,0 +1,54 @@
+/* Stile per il modulo di modifica del fornitore */
+.modifica-fornitore {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Stile per il titolo "Modifica Fornitore" */
+  .modifica-fornitore h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  /* Stile per i campi del modulo */
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  /* Stile per le etichette dei campi */
+  .form-group label {
+    font-weight: bold;
+  }
+  
+  /* Stile per gli input dei campi */
+  .form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  /* Stile per il pulsante "Conferma Modifica" */
+  .btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Stile per gli errori di validazione */
+  .error-message {
+    color: #d9534f;
+    font-size: 14px;
+    margin-top: 5px;
+  }
