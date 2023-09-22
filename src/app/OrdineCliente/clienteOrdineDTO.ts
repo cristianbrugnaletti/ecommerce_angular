@@ -3,6 +3,6 @@ import { ClienteDTO } from './ordine-cliente/ClienteDTO'; // Assumi che UtenteDT
 export class ClienteOrdineDTO {
   dataInvioOrdine?: string;
   cliente?: ClienteDTO;
-  prezzoTotale?: number;
+  prezzoTotale: number = 0;
 
 }
