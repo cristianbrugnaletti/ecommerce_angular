@@ -1,13 +1,35 @@
-<input type="file" (change)="onFileChange($event)" accept=".xlsx">
-<button (click)="aggiungiProdottoDaExcel()">Carica Prodotto da Excel</button>
-<!-- Messaggio di successo -->
-<div *ngIf="successMessage" class="success-message">
+<div class="parent-element">
+  <div class="file-input-wrapper"
+       (dragover)="onDragOver($event)"
+       (dragleave)="onDragLeave($event)"
+       (drop)="onDrop($event)">
+    <input type="file"
+           (change)="onFileChange($event)"
+           accept=".xlsx">
+    <div class="drag-text" *ngIf="!isDragging && !selectedFileName">
+      <p>Trascina qui il file o clicca per selezionarlo</p>
+    </div>
+    <div class="drag-text" *ngIf="isDragging && !selectedFileName">
+      <p>Rilascia il file qui</p>
+    </div>
+    <div class="selected-file-name" *ngIf="selectedFileName">
+      <div class="file-info">
+        <i class="file-icon"></i>
+        <div class="file-title">{{ selectedFileName }}</div>
+      </div>
+      <div class="image-wrapper">
+        <img src="https://e1.pngegg.com/pngimages/709/873/png-clipart-label-folders-purple-folder-icon.png" alt="Image">
+      </div>
+    </div>
+  </div>
+  <button class="upload-button"
+          (click)="aggiungiProdottoDaExcel()">
+    Carica prodotti da Excel
+  </button>
+  <div *ngIf="successMessage" class="success-message">
     {{ successMessage }}
   </div>
-  
-  <!-- Messaggio di errore -->
   <div *ngIf="errorMessage" class="error-message">
     {{ errorMessage }}
   </div>
-  
-
+</div>

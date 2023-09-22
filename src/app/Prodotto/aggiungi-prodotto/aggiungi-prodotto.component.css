@@ -1,0 +1,122 @@
+/* Parent element */
+.parent-element {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* File input wrapper */
+.file-input-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 200px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  color: #999;
+  cursor: pointer;
+  margin-bottom: 0;
+  margin-top: 20px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 2px dashed #999;
+}
+
+.file-input-wrapper.selected-file {
+  background-image: url('https://e1.pngegg.com/pngimages/709/873/png-clipart-label-folders-purple-folder-icon.png');
+  border: 2px solid #007bff;
+}
+
+.file-input-wrapper input[type="file"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* File name overlay */
+.file-name-overlay {
+  position: absolute;
+  top: calc(50% - 20px);
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #000;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Image wrapper */
+.image-wrapper {
+  position: absolute;
+  top: calc(50% - 70px);
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Upload button */
+.upload-button {
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: block;
+  margin: 20px auto 0;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Success message */
+.success-message {
+  position: absolute;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px;
+  border: 2px solid #28a745;
+  border-radius: 5px;
+  background-color: #d4edda;
+  color: #155724;
+}
+
+/* Error message */
+.error-message {
+  position: absolute;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px;
+  border: 2px solid #dc3545;
+  border-radius: 5px;
+  background-color: #f8d7da;
+  color: #721c24;
+}
