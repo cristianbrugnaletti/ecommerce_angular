@@ -39,12 +39,15 @@
     <ul>
       <li *ngFor="let prodotto of carrello">
         {{ prodotto.nome }} - {{ prodotto.prezzo }} - {{ prodotto.marca }}
+        <button (click)="rimuoviProdottoDalCarrello(prodotto)">Rimuovi</button>
       </li>
     </ul>
   </div>
 
   <div *ngIf="carrello.length > 0">
-    <button (click)="confermaOrdine()">Conferma Ordine</button>
+    <h2>Prezzo Totale: {{ prezzoTotaleOrdine }}</h2>
+    <button (click)="confermaOrdine(); carrello = []">Conferma Ordine</button>
+    <p *ngIf="carrello.length === 0">Ordine confermato! I prodotti sono stati rimossi dal carrello.</p>
   </div>
   
   <div *ngIf="prodotti.length === 0">

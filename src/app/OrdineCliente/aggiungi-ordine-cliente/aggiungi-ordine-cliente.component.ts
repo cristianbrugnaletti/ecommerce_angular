@@ -16,6 +16,8 @@ export class AggiungiOrdineClienteComponent {
   clienteRigaDOrdineRequest: ClienteRigaDOrdineRequest = new ClienteRigaDOrdineRequest();
   prodotti: ProdottoDTO[] = [];
   carrello: ProdottoDTO[] = [];
+  prezzoTotaleOrdine: number = 0; // Inizializzalo con un valore predefinito, ad esempio 0
+
 
   constructor(private clienteOrdineService: ClienteOrdineService, private prodottoService: ProdottoService) { }
 
@@ -34,13 +36,13 @@ export class AggiungiOrdineClienteComponent {
     // Prima di effettuare la chiamata, assicuriamoci che this.clienteRigaDOrdineRequest abbia tutti i dati richiesti.
     
     // Popoliamo il clienteOrdineId con un valore appropriato, ad esempio:
-    this.clienteRigaDOrdineRequest.clienteOrdineId = 123; // Sostituisci con il valore corretto
+    this.clienteRigaDOrdineRequest.clienteOrdineId = 50; // Sostituisci con il valore corretto
     
     // Popoliamo il nomeProdotto con il nome del prodotto selezionato.
     this.clienteRigaDOrdineRequest.nomeProdotto = prodotto.nome; // Sostituisci con il valore corretto
   
     // Popoliamo la quantità con un valore appropriato, ad esempio:
-    this.clienteRigaDOrdineRequest.quantita = 20; // Sostituisci con il valore corretto
+    this.clienteRigaDOrdineRequest.quantita = 20 ; // Sostituisci con il valore corretto
   
     this.clienteOrdineService.aggiungiClienteRigaDOrdine(this.clienteRigaDOrdineRequest)
       .subscribe(
@@ -60,19 +62,21 @@ export class AggiungiOrdineClienteComponent {
 
   aggiungiAlCarrello(prodotto: ProdottoDTO) {
     this.carrello.push(prodotto);
+    this.prezzoTotaleOrdine = this.calcolaPrezzoTotale();
   }
   
   confermaOrdine() {
     const clienteOrdineRequest: ClienteOrdineRequest = {
-      clienteOrdineId: 1,
+      clienteOrdineId: 5,
       usernameCliente: 'leorm02',
-     
     };
   
     this.clienteOrdineService.confermaOrdineCliente(clienteOrdineRequest)
       .subscribe(
         (response: ClienteOrdineDTO) => {
-          // Gestisci la risposta qui, ad esempio, aggiornando l'interfaccia utente o effettuando altre azioni necessarie
+          // Assegna il prezzo totale dalla risposta alla variabile prezzoTotaleOrdine
+          this.prezzoTotaleOrdine = response.prezzoTotale;
+  
           console.log('Ordine confermato con successo:', response);
         },
         (error) => {
@@ -80,5 +84,28 @@ export class AggiungiOrdineClienteComponent {
           console.error('Errore durante la conferma dell\'ordine:', error);
         }
       );
+  }
+
+  calcolaPrezzoTotale(): number {
+    let prezzoTotale = 0;
+    for (const prodotto of this.carrello) {
+      prezzoTotale += prodotto.prezzo? prodotto.prezzo : 0;
     }
-  } 
+    return prezzoTotale;
+  }
+
+  rimuoviProdottoDalCarrello(prodotto: ProdottoDTO) {
+    const index = this.carrello.indexOf(prodotto);
+    if (index >= 0) {
+      this.carrello.splice(index, 1);
+      this.prezzoTotaleOrdine = this.calcolaPrezzoTotale();
+    }
+  }
+
+  svuotaCarrello() {
+    this.carrello = [];
+    this.prezzoTotaleOrdine = 0;
+  }
+
+  
+}  
