@@ -19,4 +19,14 @@ export class FornitoreService {
   aggiungiFornitore(fornitore: FornitoreDTO): Observable<any> {
     return this.http.post<FornitoreDTO>(`${this.apiUrl}/aggiungiFornitore`, fornitore);
   }
+
+  eliminaFornitore(fornitoreNome: number): Observable<void> {
+    const url = `${this.apiUrl}/eliminaFornitore/${fornitoreNome}`;
+    return this.http.delete<void>(url);
+  }
+
+  modificaFornitore(partitaIVA: string, fornitore: FornitoreDTO): Observable<FornitoreDTO> {
+    const url = `${this.apiUrl}/modificafornitore/${partitaIVA}`;
+    return this.http.put<FornitoreDTO>(url, fornitore);
+  }
 }

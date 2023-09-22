@@ -1,0 +1,45 @@
+<h2>Modifica Fornitore</h2>
+<form (ngSubmit)="confermaModifica($event)">
+  <!-- Campo Nome -->
+  <div class="form-group">
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" [(ngModel)]="fornitore.nome" name="nome" class="form-control" required>
+  </div>
+
+  <!-- Campo Sede Legale -->
+  <div class="form-group">
+    <label for="sedeLegale">Sede Legale:</label>
+    <input type="text" id="sedeLegale" [(ngModel)]="fornitore.sedeLegale" name="sedeLegale" class="form-control">
+  </div>
+
+  <!-- Campo Nazione Sede -->
+  <div class="form-group">
+    <label for="nazioneSede">Nazione Sede:</label>
+    <input type="text" id="nazioneSede" [(ngModel)]="fornitore.nazioneSede" name="nazioneSede" class="form-control">
+  </div>
+
+  <!-- Campo Partita IVA -->
+  <div class="form-group">
+    <label for="partitaIVA">Partita IVA:</label>
+    <input type="text" id="partitaIVA" [(ngModel)]="fornitore.partitaIVA" name="partitaIVA" class="form-control">
+  </div>
+
+  <!-- Campo Email -->
+  <div class="form-group">
+    <label for="email">Email:</label>
+    <input type="email" id="email" [(ngModel)]="fornitore.email" name="email" class="form-control">
+  </div>
+
+  <!-- Campo Numero di Telefono -->
+  <div class="form-group">
+    <label for="numeroTelefono">Numero di Telefono:</label>
+    <input type="tel" id="numeroTelefono" [(ngModel)]="fornitore.numeroTelefono" name="numeroTelefono" class="form-control">
+  </div>
+
+  <!-- Messaggio di modifica avvenuta con successo -->
+  <div *ngIf="erroreModifica === 'Modifica avvenuta con successo'" class="alert alert-success">
+    {{ erroreModifica }}
+  </div>
+
+  <button type="submit" class="btn btn-primary">Conferma Modifica</button>
+</form>

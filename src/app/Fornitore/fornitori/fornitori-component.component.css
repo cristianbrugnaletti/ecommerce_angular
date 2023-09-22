@@ -44,3 +44,30 @@ div.elenco-fornitori {
     border-top: 1px solid #ddd; /* Linea orizzontale sottile */
     margin: 10px 0;
   }
+
+  /* Stile generico dei pulsanti */
+button {
+  
+  padding: 10px 20px; /* Spaziatura interna */
+  border: none; /* Rimuovi il bordo predefinito */
+  cursor: pointer; /* Cambia il cursore al passaggio del mouse */
+  font-size: 12px; /* Dimensione del testo */
+}
+
+/* Stile per il pulsante "Modifica" */
+button.modifica {
+  background-color: #6e849b; /* Colore di sfondo */
+  color: #fff; /* Colore del testo */
+  margin-right: 10px; /* Margine destro */
+}
+
+/* Stile per il pulsante "Elimina" */
+button.elimina {
+  background-color: #dc3545; /* Colore di sfondo */
+  color: #fff; /* Colore del testo */
+}
+
+/* Stile al passaggio del mouse (hover) */
+button:hover {
+  opacity: 0.8; /* Riduce leggermente l'opacità al passaggio del mouse */
+}
