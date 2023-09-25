@@ -13,10 +13,16 @@ export class MenuComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit() {
-    // Configura il tuo menu come desideri
     this.items = [
       {
-        label: 'Fornitore',
+        label: 'Home',
+        icon: 'pi pi-fw pi-home',
+        command: () => {
+          this.router.navigate(['/']);
+        }
+      },
+      {
+        label: 'Gestione Fornitori',
         icon: 'pi pi-fw pi-truck',
         items: [
           {
@@ -36,8 +42,8 @@ export class MenuComponent implements OnInit {
         ]
       },
       {
-        label: 'Magazzino',
-        icon: 'pi pi-building',
+        label: 'Gestione Magazzini',
+        icon: 'pi pi-fw pi-building',
         items: [
           {
             label: 'Elenco Magazzini',
@@ -56,7 +62,7 @@ export class MenuComponent implements OnInit {
         ]
       },
       {
-        label: 'Cliente',
+        label: 'Gestione Clienti',
         icon: 'pi pi-fw pi-user',
         items: [
           {
@@ -68,76 +74,73 @@ export class MenuComponent implements OnInit {
           },
           {
             label: 'Aggiungi Cliente',
-            icon: 'pi pi-fw pi-plus'
+            icon: 'pi pi-fw pi-plus',
+            command: () => {
+              this.router.navigate(['/aggiungi-cliente']);
+            }
           }
         ]
       },
       {
-        label: 'Ordini',
+        label: 'Ordini Cliente',
+        icon: 'pi pi-fw pi-user',
+        items: [
+          {
+            label: 'Elenco Ordini Cliente',
+            icon: 'pi pi-fw pi-list',
+            command: () => {
+              this.router.navigate(['/ordine-cliente']);
+            }
+          },
+          {
+            label: 'Nuovo Ordine Cliente',
+            icon: 'pi pi-fw pi-plus',
+            command: () => {
+              this.router.navigate(['/aggiungi-ordine-cliente']);
+            }
+          }
+        ]
+      },
+      {
+        label: 'Ordini Fornitore',
+        icon: 'pi pi-fw pi-truck',
+        items: [
+          {
+            label: 'Elenco Ordini Fornitore',
+            icon: 'pi pi-fw pi-list',
+            command: () => {
+              this.router.navigate(['/ordine-fornitore']);
+            }
+          },
+          {
+            label: 'Nuovo Ordine Fornitore',
+            icon: 'pi pi-fw pi-plus',
+            command: () => {
+              this.router.navigate(['/aggiungi-ordine-fornitore']);
+            }
+          }
+        ]
+      },
+      {
+        label: 'Gestione Prodotti',
         icon: 'pi pi-fw pi-shopping-cart',
         items: [
           {
-            label: 'Ordine Cliente',
-            icon: 'pi pi-fw pi-user',
-            items: [
-              {
-                label: 'Elenco Ordini Cliente',
-                icon: 'pi pi-fw pi-list',
-                command: () => {
-                  this.router.navigate(['/ordine-cliente']);
-                }
-              },
-              {
-                label: 'Effettua Ordine Cliente',
-                icon: 'pi pi-fw pi-plus',
-                command: () => {
-                  this.router.navigate(['/aggiungi-ordine-cliente']);
-                }
-              }
-            ]
+            label: 'Elenco Prodotti',
+            icon: 'pi pi-fw pi-list',
+            command: () => {
+              this.router.navigate(['/prodotti']);
+            }
           },
           {
-            label: 'Ordine Fornitore',
-            icon: 'pi pi-fw pi-truck',
-            items: [
-              {
-                label: 'Elenco Ordini Fornitore',
-                icon: 'pi pi-fw pi-list',
-                command: () => {
-                  this.router.navigate(['/ordine-fornitore']);
-                }
-              },
-              {
-                label: 'Effettua Ordine Fornitore',
-                icon: 'pi pi-fw pi-plus',
-                command: () => {
-                  this.router.navigate(['/aggiungi-ordine-fornitore']);
-                }
-              }
-            ]
-          }
-        ]},
-        {
-          label: 'Prodotto', // Etichetta del menu
-          icon: 'pi pi-fw pi-shopping-cart', // Icona del menu (personalizzala secondo le tue esigenze)
-          items: [
-            {
-              label: 'Elenco Prodotti', // Prima voce del menu a discesa
-              icon: 'pi pi-fw pi-list',
-              command: () => {
-                this.router.navigate(['/prodotti']); // Reindirizza alla pagina "Elenco Prodotti"
-              }
-            },
-            {
-              label: 'Aggiungi Prodotto', // Seconda voce del menu a discesa
-              icon: 'pi pi-fw pi-plus',
-              command: () => {
-                this.router.navigate(['/aggiungi-prodotto']); // Reindirizza alla pagina "Aggiungi Prodotto"
-              }
+            label: 'Aggiungi Prodotto',
+            icon: 'pi pi-fw pi-plus',
+            command: () => {
+              this.router.navigate(['/aggiungi-prodotto']);
             }
-          ]
-        } 
-        
+          }
+        ]
+      }
     ];
   }
 

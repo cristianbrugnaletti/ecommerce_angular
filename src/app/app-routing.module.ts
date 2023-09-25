@@ -29,10 +29,10 @@ const routes: Routes = [
   { path: 'aggiungi-ordine-cliente', component: AggiungiOrdineClienteComponent },
   { path: 'aggiungi-ordine-fornitore', component: AggiungiOrdineFornitoreComponent },
   { path: 'aggiungi-prodotto', component: AggiungiProdottoComponent }, // Aggiungi la route per il componente AggiungiProdottoComponent
-    // Aggiungi una route per la modifica di un fornitore
+    
     { path: 'modifica-fornitore/:partitaIVA', component: ModificaFornitoreComponent },
 
-    // Aggiungi una route per l'eliminazione di un fornitore
+   
     { path: 'elimina-fornitore/:id', component: EliminaFornitoreComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
 ];

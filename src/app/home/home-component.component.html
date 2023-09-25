@@ -1,1 +1,23 @@
 <div class="titolo">Benvenuti nel nostro Negozio!</div>
+<div *ngIf="prodotti.length > 0">
+    <div class="prodotti-container">
+      <div class="card" *ngFor="let prodotto of prodotti">
+        <img [src]="" alt="{{ prodotto.nome }}" class="card-img">
+        <div class="card-body">
+          <h4 class="card-title">{{ prodotto.nome }}</h4>
+          <p class="card-text">Marca: {{ prodotto.marca }}</p>
+          <p class="card-text">Descrizione: {{ prodotto.descrizione }}</p>
+          <p class="card-text">Prezzo: {{ prodotto.prezzo }}</p>
+          <p class="card-text">IVA: {{ prodotto.iva }}</p>
+          <p class="card-text">Quantità: {{ prodotto.quantita }}</p>
+         <p> Sottocategoria:<ng-container *ngFor="let categoria of prodotto.sottoCategoria; let last = last">
+            {{ categoria }}{{ last ? '' : ', ' }}
+          </ng-container> </p>
+          <button (click)="(prodotto)" class="btn btn-primary">Aggiungi al Carrello</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="prodotti.length === 0">
+    Nessun prodotto trovato.
+  </div>
