@@ -24,8 +24,11 @@
           <ng-container *ngFor="let categoria of prodotto.sottoCategoria; let last = last">
             {{ categoria }}{{ last ? '' : ', ' }}
           </ng-container>
+          
         </td>
-        <!-- Altre colonne, se necessario -->
+        <td>
+          <button (click)="(prodotto)">Aggiungi al Carrello</button>
+        </td>
       </tr>
     </tbody>
   </table>

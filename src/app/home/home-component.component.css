@@ -1,30 +1,79 @@
-
 .titolo {
-  margin-top: 7%;
-    font-family:Georgia, 'Times New Roman', Times, serif; /* Sostituisci 'Arial' con il font desiderato */
-    font-size: 28px;
-    color: #333; /* Cambia il colore del testo */
-    text-align: center;
-    padding: 20px; /* Aggiunge spazio intorno al testo */
-    background-color: #f0f0f0; /* Colore di sfondo */
-    border-radius: 5px; /* Bordi arrotondati */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombra leggera */
-  }
-  
-  /* Effetto hover */
-  .titolo:hover {
-    background-color: #a97a5a; /* Cambia il colore di sfondo al passaggio del mouse */
-    color: #fff; /* Cambia il colore del testo al passaggio del mouse */
-    transition: background-color 0.3s, color 0.3s; /* Aggiunge una transizione al cambio di colore */
-  }
+  margin-top: 3%;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 28px;
+  color: #333;
+  text-align: center;
+  padding: 20px;
+  background-color: #a97a5a;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
-  .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-  }
+/* Effetto hover */
+.titolo:hover {
+  background-color: #6b4e3a;
+  color: #fff;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.center-content {
+  text-align: center;
+}
+
+.prodotti-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.card {
+  width: 300px;
+  margin: 10px;
+  padding: 15px; /* Incrementato il padding per dare più spazio */
+  border: 1px solid #ccc;
+  border-radius: 10px; /* Aumentato il raggio dei bordi per un aspetto più morbido */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  transition: transform 0.2s ease-in-out; /* Aggiunta una transizione per l'effetto hover */
+}
+
+.card:hover {
+  transform: scale(1.05); /* Effetto di ingrandimento al passaggio del mouse */
+}
+
+.card-img {
+  max-width: 100%;
+  height: auto;
+}
+
+.card-title {
+  font-size: 1.5rem; /* Incrementato il font-size per renderlo più grande e leggibile */
+  margin-bottom: 0.5rem;
+  color: #333; /* Cambiato il colore del testo */
+}
+
+.card-text {
+  margin-bottom: 0.5rem; /* Aumentato il margine inferiore */
+  color: #666; /* Cambiato il colore del testo */
+}
+
+.btn-primary {
+  background-color: #a97a5a;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem; /* Incrementato il padding per una maggiore visibilità */
+  cursor: pointer;
+  border-radius: 5px; /* Aggiunto il raggio dei bordi */
+}
+
+.btn-primary:hover {
+  background-color: #6b4e3a;
+}
   
-  .center-content {
-    text-align: center;
-  }
