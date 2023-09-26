@@ -1,27 +1,38 @@
-<div *ngIf="magazzini.length > 0">
-    <table>
-      <thead>
-        <tr>
-          <th>Nome</th>
-          <th>Indirizzo</th>
-          <th>Sede</th>
-          <th>Capacità Massima</th>
-          <!-- Altre colonne, se necessario -->
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let magazzino of magazzini">
-          <td>{{ magazzino.nome }}</td>
-          <td>{{ magazzino.indirizzo }}</td>
-          <td>{{ magazzino.sede }}</td>
-          <td>{{ magazzino.capacitaMassima }}</td>
-          
-          <!-- Altre colonne, se necessario aa-->
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <div *ngIf="magazzini.length === 0">
-    Nessun magazzino trovato.
-  </div>
-  
+<table>
+  <thead>
+    <!-- Intestazioni di colonna -->
+    <tr>
+      <th>Nome</th>
+      <th>Indirizzo</th>
+      <th>Sede</th>
+      <th>Capacità Massima</th>
+      <th>Azioni</th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngFor="let magazzino of magazzini; let i = index">
+      <tr>
+        <td>{{ magazzino.nome }}</td>
+        <td>{{ magazzino.indirizzo }}</td>
+        <td>{{ magazzino.sede }}</td>
+        <td>{{ magazzino.capacitaMassima }}</td>
+        <td>
+          <!-- Quando viene cliccato "Modifica", chiamiamo il metodo modificaMagazzino del componente MagazziniComponent -->
+          <button (click)="modificaMagazzino(i)">Modifica</button>
+        </td>
+      </tr>
+      <!-- Form per la modifica, inizialmente nascosto -->
+      <tr *ngIf="magazzioDaModificare === i">
+        <td colspan="5">
+          <!-- Utilizziamo il componente ModificaMagazzinoComponent -->
+          <app-modifica-magazzino
+            *ngIf="magazzioDaModificare === i"
+            [magazzino]="magazzini[i]"
+            [nomeOriginale]="magazzini[i].nome || null"
+          ></app-modifica-magazzino>
+        </td>
+      </tr>
+    </ng-container>
+  </tbody>
+</table>
+
