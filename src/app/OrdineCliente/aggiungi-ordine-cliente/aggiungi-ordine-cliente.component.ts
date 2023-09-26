@@ -42,7 +42,7 @@ export class AggiungiOrdineClienteComponent {
     this.clienteRigaDOrdineRequest.nomeProdotto = prodotto.nome; // Sostituisci con il valore corretto
   
     // Popoliamo la quantità con un valore appropriato, ad esempio:
-    this.clienteRigaDOrdineRequest.quantita = 20 ; // Sostituisci con il valore corretto
+    this.clienteRigaDOrdineRequest.quantita = 2 ; // Sostituisci con il valore corretto
   
     this.clienteOrdineService.aggiungiClienteRigaDOrdine(this.clienteRigaDOrdineRequest)
       .subscribe(
