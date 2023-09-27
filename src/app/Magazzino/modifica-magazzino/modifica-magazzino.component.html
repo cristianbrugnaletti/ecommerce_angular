@@ -1,0 +1,21 @@
+<div *ngIf="magazzino" class="modifica-form">
+  <h2>Modifica Magazzino</h2>
+  <!-- Includi i campi e i controlli per la modifica dei dati -->
+  <div>
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" [(ngModel)]="magazzino.nome" placeholder="Nome">
+  </div>
+  <div>
+    <label for="indirizzo">Indirizzo:</label>
+    <input type="text" id="indirizzo" [(ngModel)]="magazzino.indirizzo" placeholder="Indirizzo">
+  </div>
+  <div>
+    <label for="sede">Sede:</label>
+    <input type="text" id="sede" [(ngModel)]="magazzino.sede" placeholder="Sede">
+  </div>
+  <div>
+    <label for="capacitaMassima">Capacità Massima:</label>
+    <input type="text" id="capacitaMassima" [(ngModel)]="magazzino.capacitaMassima" placeholder="Capacità Massima">
+  </div>
+</div>
+

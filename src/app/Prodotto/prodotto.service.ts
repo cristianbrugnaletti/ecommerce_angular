@@ -7,7 +7,7 @@ import { ProdottoDTO } from './prodottoDTO';
   providedIn: 'root'
 })
 export class ProdottoService {
-  private apiUrl = 'http://localhost:8080';
+  private apiUrl = 'http://192.168.239.133:8080';
 
   constructor(private http: HttpClient) { }
 

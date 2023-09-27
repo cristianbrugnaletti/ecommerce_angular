@@ -34,17 +34,32 @@
   
   /* Stile per il pulsante "Conferma Modifica" */
   .btn-primary {
-    background-color: #007bff;
+    background-color: #38813a;
     color: #fff;
     border: none;
     border-radius: 4px;
     padding: 10px 20px;
     cursor: pointer;
-  }
-  
-  .btn-primary:hover {
-    background-color: #0056b3;
-  }
+    margin-right: 2%;
+}
+
+.btn-primary:hover {
+    background-color: #449b47;
+}
+
+/* Pulsante Annulla */
+.btn-secondary {
+    background-color: #D32F2F;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.btn-secondary:hover {
+    background-color: #b22b2b;
+}
   
   /* Stile per gli errori di validazione */
   .error-message {
