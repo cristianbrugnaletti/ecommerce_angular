@@ -19,10 +19,13 @@
       </ng-container>
       <!-- Modulo di modifica del fornitore -->
       <ng-template #modificaFornitoreRiga>
-        <app-modifica-fornitore [fornitore]="fornitore" (modificaCompletata)="modificaFornitore(fornitore)"></app-modifica-fornitore>
+        <app-modifica-fornitore
+        *ngIf="fornitoreInModifica"
+        [fornitore]="fornitoreInModifica"
+        (modificaCompletata)="gestisciModificaCompletata()">
+        [annullaModifica]="annullaModifica">
+      </app-modifica-fornitore>
       </ng-template>
-
-      
     </li>
   </ul>
 </div>

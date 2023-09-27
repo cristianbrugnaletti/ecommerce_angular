@@ -1,45 +1,69 @@
-<h2>Modifica Fornitore</h2>
-<form (ngSubmit)="confermaModifica($event)">
-  <!-- Campo Nome -->
-  <div class="form-group">
-    <label for="nome">Nome:</label>
-    <input type="text" id="nome" [(ngModel)]="fornitore.nome" name="nome" class="form-control" required>
-  </div>
+<div class="modifica-fornitore" [class.in-modifica]="modificaInCorso">
+  <h2>Modifica Fornitore</h2>
 
-  <!-- Campo Sede Legale -->
-  <div class="form-group">
-    <label for="sedeLegale">Sede Legale:</label>
-    <input type="text" id="sedeLegale" [(ngModel)]="fornitore.sedeLegale" name="sedeLegale" class="form-control">
-  </div>
+  <form (ngSubmit)="confermaModifica($event)" class="form-horizontal">
+    <!-- Campo Nome -->
+    <div class="form-group">
+      <label for="nome" class="col-sm-2 control-label">Nome:</label>
+      <div class="col-sm-10">
+        <input type="text" id="nome" [(ngModel)]="fornitore.nome" name="nome" class="form-control" required>
+      </div>
+    </div>
 
-  <!-- Campo Nazione Sede -->
-  <div class="form-group">
-    <label for="nazioneSede">Nazione Sede:</label>
-    <input type="text" id="nazioneSede" [(ngModel)]="fornitore.nazioneSede" name="nazioneSede" class="form-control">
-  </div>
+    <!-- Campo Sede Legale -->
+    <div class="form-group">
+      <label for="sedeLegale" class="col-sm-2 control-label">Sede Legale:</label>
+      <div class="col-sm-10">
+        <input type="text" id="sedeLegale" [(ngModel)]="fornitore.sedeLegale" name="sedeLegale" class="form-control">
+      </div>
+    </div>
 
-  <!-- Campo Partita IVA -->
-  <div class="form-group">
-    <label for="partitaIVA">Partita IVA:</label>
-    <input type="text" id="partitaIVA" [(ngModel)]="fornitore.partitaIVA" name="partitaIVA" class="form-control">
-  </div>
+    <!-- Campo Nazione Sede -->
+    <div class="form-group">
+      <label for="nazioneSede" class="col-sm-2 control-label">Nazione Sede:</label>
+      <div class="col-sm-10">
+        <input type="text" id="nazioneSede" [(ngModel)]="fornitore.nazioneSede" name="nazioneSede" class="form-control">
+      </div>
+    </div>
 
-  <!-- Campo Email -->
-  <div class="form-group">
-    <label for="email">Email:</label>
-    <input type="email" id="email" [(ngModel)]="fornitore.email" name="email" class="form-control">
-  </div>
+    <!-- Campo Partita IVA -->
+    <div class="form-group">
+      <label for="partitaIVA" class="col-sm-2 control-label">Partita IVA:</label>
+      <div class="col-sm-10">
+        <input type="text" id="partitaIVA" [(ngModel)]="fornitore.partitaIVA" name="partitaIVA" class="form-control">
+      </div>
+    </div>
 
-  <!-- Campo Numero di Telefono -->
-  <div class="form-group">
-    <label for="numeroTelefono">Numero di Telefono:</label>
-    <input type="tel" id="numeroTelefono" [(ngModel)]="fornitore.numeroTelefono" name="numeroTelefono" class="form-control">
-  </div>
+    <!-- Campo Email -->
+    <div class="form-group">
+      <label for="email" class="col-sm-2 control-label">Email:</label>
+      <div class="col-sm-10">
+        <input type="email" id="email" [(ngModel)]="fornitore.email" name="email" class="form-control">
+      </div>
+    </div>
 
-  <!-- Messaggio di modifica avvenuta con successo -->
-  <div *ngIf="erroreModifica === 'Modifica avvenuta con successo'" class="alert alert-success">
-    {{ erroreModifica }}
-  </div>
+    <!-- Campo Numero di Telefono -->
+    <div class="form-group">
+      <label for="numeroTelefono" class="col-sm-2 control-label">Numero di Telefono:</label>
+      <div class="col-sm-10">
+        <input type="tel" id="numeroTelefono" [(ngModel)]="fornitore.numeroTelefono" name="numeroTelefono" class="form-control">
+      </div>
+    </div>
 
-  <button type="submit" class="btn btn-primary">Conferma Modifica</button>
-</form>
+    <!-- Messaggio di modifica avvenuta con successo -->
+    <div *ngIf="erroreModifica === 'Modifica avvenuta con successo'" class="alert alert-success">
+      {{ erroreModifica }}
+    </div>
+
+    <!-- Barra di caricamento -->
+    <div class="loading-bar" *ngIf="modificaInCorso"></div>
+
+    <!-- Pulsanti -->
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-primary">Conferma Modifica</button>
+        <button type="button" class="btn btn-secondary" (click)="annullaModifica()">Annulla</button>
+      </div>
+    </div>
+  </form>
+</div>
