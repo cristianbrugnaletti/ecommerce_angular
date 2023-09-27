@@ -1,27 +1,27 @@
-<div *ngIf="magazzini.length > 0">
-    <table>
-      <thead>
-        <tr>
-          <th>Nome</th>
-          <th>Indirizzo</th>
-          <th>Sede</th>
-          <th>Capacità Massima</th>
-          <!-- Altre colonne, se necessario -->
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let magazzino of magazzini">
-          <td>{{ magazzino.nome }}</td>
-          <td>{{ magazzino.indirizzo }}</td>
-          <td>{{ magazzino.sede }}</td>
-          <td>{{ magazzino.capacitaMassima }}</td>
-          
-          <!-- Altre colonne, se necessario aa-->
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <div *ngIf="magazzini.length === 0">
-    Nessun magazzino trovato.
-  </div>
+
+<div class="container">
+  <h2>Elenco Magazzini</h2>
+
+  <div *ngFor="let magazzino of magazzini; let i = index" class="magazzino">
+    <!-- Visualizza i dettagli del magazzino -->
+    <div *ngIf="i !== magazzinoDaModificareIndex">
+      <h3><strong>Nome:</strong> <span class="nome-magazzino">{{ magazzino.nome }}</span></h3>
+      <p><strong>Indirizzo:</strong> {{ magazzino.indirizzo }}</p>
+      <p><strong>Sede:</strong> {{ magazzino.sede }}</p>
+      <p><strong>Capacità Massima:</strong> {{ magazzino.capacitaMassima }}</p>
   
+      <!-- Aggiungi un pulsante o un link per attivare la modifica -->
+      <button (click)="modificaMagazzino(i)">Modifica</button>
+    </div>
+  
+    <!-- Visualizza il form di modifica quando si modifica un magazzino -->
+    <div *ngIf="i === magazzinoDaModificareIndex">
+      <app-modifica-magazzino
+      [magazzino]="magazzino"
+      [nomeOriginale]="nomeOriginale ?? null"
+      (confermaModifica)="confermaModifica($event)"
+      (annullaModifica)="annullaModifica(i)"
+    ></app-modifica-magazzino>    
+    </div>
+  </div>
+</div>

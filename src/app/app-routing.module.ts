@@ -15,6 +15,7 @@ import { AggiungiOrdineFornitoreComponent } from './OrdineFornitore/aggiungi-ord
 import { AggiungiProdottoComponent } from './Prodotto/aggiungi-prodotto/aggiungi-prodotto.component'; // Importa il componente AggiungiProdottoComponent
 import {ModificaFornitoreComponent} from './Fornitore/modifica-fornitore/modifica-fornitore.component';
 import {EliminaFornitoreComponent} from './Fornitore/elimina-fornitore/elimina-fornitore.component'
+
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'fornitori', component: FornitoriComponent },
@@ -29,10 +30,7 @@ const routes: Routes = [
   { path: 'aggiungi-ordine-cliente', component: AggiungiOrdineClienteComponent },
   { path: 'aggiungi-ordine-fornitore', component: AggiungiOrdineFornitoreComponent },
   { path: 'aggiungi-prodotto', component: AggiungiProdottoComponent }, // Aggiungi la route per il componente AggiungiProdottoComponent
-    
     { path: 'modifica-fornitore/:partitaIVA', component: ModificaFornitoreComponent },
-
-   
     { path: 'elimina-fornitore/:id', component: EliminaFornitoreComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
 ];

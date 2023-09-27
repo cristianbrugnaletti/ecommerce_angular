@@ -1,44 +1,67 @@
-/* Stile per il modulo di modifica magazzino */
-.modifica-form {
-    background-color: #f4f4f4;
-    border: 1px solid #ccc;
-    padding: 20px;
-    margin: 20px 0;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .modifica-form h2 {
-    font-size: 20px;
-    margin-bottom: 10px;
-    color: #333;
-  }
-  
-  .modifica-form label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-  
-  .modifica-form input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-  }
-  
-  .modifica-form button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 3px;
-    cursor: pointer;
-    margin-right: 10px;
-  }
-  
-  .modifica-form button:hover {
-    background-color: #0056b3;
-  }
-  
+/* Stile per il contenitore principale della pagina di modifica del magazzino */
+div.modifica-magazzino {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f7f7f7;
+}
+
+/* Stile per il titolo della pagina */
+h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* Stile per il form di modifica */
+form {
+  margin-top: 20px;
+}
+
+/* Stile per le etichette dei campi del form */
+label {
+  font-weight: bold;
+}
+
+/* Stile per gli input dei campi del form */
+input[type="text"],
+input[type="number"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* Stile per i pulsanti del form */
+.button-group {
+  margin-top: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+/* Stile per il pulsante "Salva Modifiche" */
+button.salva {
+  background-color: #28a745;
+  color: #fff;
+  margin-right: 10px;
+}
+
+/* Stile per il pulsante "Annulla" */
+button.annulla {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+/* Stile al passaggio del mouse (hover) */
+button:hover {
+  opacity: 0.8;
+}

@@ -18,6 +18,7 @@ import { FornitoreService } from './Fornitore/fornitori/fornitore.service';
 import { AppRoutingModule } from './app-routing.module';
 import { MagazziniComponent } from './Magazzino/magazzini/magazzini.component';
 import { AggiungiMagazzinoComponent } from './Magazzino/aggiungi-magazzino/aggiungi-magazzino.component';
+import { ModificaMagazzinoComponent } from './Magazzino/modifica-magazzino/modifica-magazzino.component';
 import { MessagesModule } from 'primeng/messages';
 import { OrdineClienteComponent } from './OrdineCliente/ordine-cliente/ordine-cliente.component';
 import { OrdineFornitoreComponent } from './OrdineFornitore/ordine-fornitore/ordine-fornitore.component';
@@ -29,6 +30,7 @@ import { ProdottoService } from './Prodotto/prodotto.service';
 import { ModificaFornitoreComponent } from './Fornitore/modifica-fornitore/modifica-fornitore.component';
 import { EliminaFornitoreComponent } from './Fornitore/elimina-fornitore/elimina-fornitore.component';
 import { ToastrModule } from 'ngx-toastr'; // Importa ToastrModule
+import { EliminaMagazzinoComponent } from './Magazzino/elimina-magazzino/elimina-magazzino.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +50,9 @@ import { ToastrModule } from 'ngx-toastr'; // Importa ToastrModule
     AggiungiOrdineClienteComponent,
     AggiungiOrdineFornitoreComponent,
     ModificaFornitoreComponent,
-    EliminaFornitoreComponent
+    EliminaFornitoreComponent,
+    ModificaMagazzinoComponent,
+    EliminaMagazzinoComponent,
   ],
   providers: [FornitoreService, ProdottoService],
   imports: [
@@ -62,7 +66,11 @@ import { ToastrModule } from 'ngx-toastr'; // Importa ToastrModule
     FormsModule,
     AppRoutingModule,
     MessagesModule,
-    ToastrModule.forRoot() // Configura ToastrModule
+    ToastrModule.forRoot({
+      timeOut: 3000, // Durata in millisecondi della notifica (3 secondi)
+      positionClass: 'toast-top-right', // Posizione della notifica (in alto a destra)
+      preventDuplicates: true, // Impedisci la visualizzazione di notifiche duplicate
+    }),// Configura ToastrModule
   ],
   bootstrap: [AppComponent]
 })

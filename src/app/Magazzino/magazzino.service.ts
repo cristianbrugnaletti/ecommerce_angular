@@ -14,7 +14,15 @@ export class MagazzinoService {
   getMagazzini(): Observable<MagazzinoDTO[]> {
     return this.http.get<MagazzinoDTO[]>(`${this.apiUrl}/visualizzaTuttiIMagazzini`);
   }
+
   aggiungiMagazzino(magazzino: MagazzinoDTO): Observable<MagazzinoDTO> {
     return this.http.post<MagazzinoDTO>(`${this.apiUrl}/aggiungiMagazzino`, magazzino);
-  }  
-}
+  }
+
+  modificaMagazzino(nome: string, magazzino: MagazzinoDTO): Observable<MagazzinoDTO> {
+    return this.http.put<MagazzinoDTO>(`${this.apiUrl}/modificaMagazzino/${nome}`, magazzino);
+  }
+
+  eliminaMagazzino(nome: string): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/eliminaMagazzino?nome=${nome}`);
+  } }
