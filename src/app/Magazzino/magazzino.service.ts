@@ -7,7 +7,7 @@ import { MagazzinoDTO } from './MagazzinoDTO';
   providedIn: 'root'
 })
 export class MagazzinoService {
-  private apiUrl = 'http://localhost:8080/MagazzinoController';
+  private apiUrl = 'http://192.168.239.133:8080/MagazzinoController';
 
   constructor(private http: HttpClient) { }
 
