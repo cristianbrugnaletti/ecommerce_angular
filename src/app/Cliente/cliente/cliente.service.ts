@@ -7,7 +7,7 @@ import { ClienteDTO } from './clienteDTO';
   providedIn: 'root'
 })
 export class ClienteService {
-  private apiUrl = 'http://localhost:8080'; // URL di base del tuo backend
+  private apiUrl = 'http://192.168.239.133:8080'; // URL di base del tuo backend
 
   constructor(private http: HttpClient) { }
   
