@@ -19,11 +19,10 @@ export class MagazzinoService {
     return this.http.post<MagazzinoDTO>(`${this.apiUrl}/aggiungiMagazzino`, magazzino);
   }
 
-  modificaMagazzino(magazzino: MagazzinoDTO): Observable<MagazzinoDTO> {
-    return this.http.put<MagazzinoDTO>(`${this.apiUrl}/modificaMagazzino/${magazzino.nome}`, magazzino);
+  modificaMagazzino(nome: string, magazzino: MagazzinoDTO): Observable<MagazzinoDTO> {
+    return this.http.put<MagazzinoDTO>(`${this.apiUrl}/modificaMagazzino/${nome}`, magazzino);
   }
 
-  eliminaMagazzino(nomeMagazzino: string): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/eliminaMagazzino?nome=${nomeMagazzino}`);
-  }
-}
+  eliminaMagazzino(nome: string): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/eliminaMagazzino?nome=${nome}`);
+  } }

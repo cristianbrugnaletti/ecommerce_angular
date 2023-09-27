@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MagazzinoService } from '../magazzino.service';
 import { MagazzinoDTO } from '../MagazzinoDTO';
+import { ModificaMagazzinoComponent } from '../modifica-magazzino/modifica-magazzino.component';
+import { ToastrService } from 'ngx-toastr'; // Importa ToastrService
+
 
 @Component({
   selector: 'app-magazzini',
@@ -9,10 +12,17 @@ import { MagazzinoDTO } from '../MagazzinoDTO';
 })
 export class MagazziniComponent implements OnInit {
   magazzini: MagazzinoDTO[] = [];
-  magazzioDaModificare: number | null = null;
+
+  magazzinoDaModificareIndex: number | null = null;
+
   nomeOriginale: string | null = null;
 
-  constructor(private magazzinoService: MagazzinoService) { }
+  @ViewChild(ModificaMagazzinoComponent) modificaMagazzinoComponent: ModificaMagazzinoComponent | undefined;
+
+  constructor(private magazzinoService: MagazzinoService, private toastr: ToastrService) {
+    // Inizializza nomeOriginale come null nel costruttore
+    this.nomeOriginale = null;
+  }
 
   ngOnInit() {
     this.getMagazzini();
@@ -30,7 +40,34 @@ export class MagazziniComponent implements OnInit {
   }
 
   modificaMagazzino(index: number) {
-    this.magazzioDaModificare = index;
-    this.nomeOriginale = this.magazzini[index].nome ?? null; 
+
+    this.magazzinoDaModificareIndex = index;
+    // Assegna il nome originale qui
+    this.nomeOriginale = this.magazzini[index]?.nome || null; 
+  }
+
+  confermaModifica(magazzinoModificato: MagazzinoDTO) {
+    // Aggiorna l'elenco dei magazzini con il magazzino modificato
+    if (this.magazzinoDaModificareIndex !== null) {
+      this.magazzini[this.magazzinoDaModificareIndex] = magazzinoModificato;
+    }
+
+    // Resetta le variabili per uscire dalla modalità di modifica
+    this.magazzinoDaModificareIndex = null;
+    this.nomeOriginale = null;
+
+    // Mostra una notifica popup di successo
+    this.toastr.success('Magazzino modificato con successo!', 'Successo');
+
+    this.getMagazzini();
+  }
+
+  annullaModifica(index: number) {
+    if (this.magazzinoDaModificareIndex !== null && this.modificaMagazzinoComponent) {
+      this.modificaMagazzinoComponent.annulla();
+    }
+    this.magazzinoDaModificareIndex = null;
+    this.nomeOriginale = null;
+
   }
 }

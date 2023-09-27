@@ -9,18 +9,18 @@ import { MagazzinoDTO } from '../MagazzinoDTO';
 })
 export class ModificaMagazzinoComponent {
   @Input() magazzino: MagazzinoDTO | null = null;
-  @Input() nomeOriginale: string | null = null; // Input per il nome originale
-  @Output() confermaModifica = new EventEmitter();
-  @Output() annullaModifica = new EventEmitter();
+  @Input() nomeOriginale: string | null = null;
+  @Output() confermaModifica = new EventEmitter<MagazzinoDTO>();
+  @Output() annullaModifica = new EventEmitter<void>();
 
   constructor(private magazzinoService: MagazzinoService) { }
 
   salvaModifiche() {
     if (this.magazzino && this.nomeOriginale) {
-      // Effettua il salvataggio dei dati utilizzando this.nomeOriginale come necessario
-      this.magazzinoService.modificaMagazzino(this.magazzino).subscribe(
-        () => {
-          this.confermaModifica.emit();
+      this.magazzinoService.modificaMagazzino(this.nomeOriginale, this.magazzino).subscribe(
+        (magazzinoModificato: MagazzinoDTO) => {
+          // Emetti l'evento confermaModifica con il magazzino modificato
+          this.confermaModifica.emit(magazzinoModificato);
         },
         (error) => {
           console.error('Si è verificato un errore durante la modifica del magazzino:', error);
@@ -30,7 +30,6 @@ export class ModificaMagazzinoComponent {
   }
 
   annulla() {
-    // Implementa la logica per annullare le modifiche
     this.annullaModifica.emit();
   }
 }

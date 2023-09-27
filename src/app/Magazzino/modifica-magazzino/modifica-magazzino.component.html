@@ -1,21 +1,26 @@
-<div *ngIf="magazzino" class="modifica-form">
+<div *ngIf="magazzino">
   <h2>Modifica Magazzino</h2>
-  <!-- Includi i campi e i controlli per la modifica dei dati -->
-  <div>
-    <label for="nome">Nome:</label>
-    <input type="text" id="nome" [(ngModel)]="magazzino.nome" placeholder="Nome">
-  </div>
-  <div>
-    <label for="indirizzo">Indirizzo:</label>
-    <input type="text" id="indirizzo" [(ngModel)]="magazzino.indirizzo" placeholder="Indirizzo">
-  </div>
-  <div>
-    <label for="sede">Sede:</label>
-    <input type="text" id="sede" [(ngModel)]="magazzino.sede" placeholder="Sede">
-  </div>
-  <div>
-    <label for="capacitaMassima">Capacità Massima:</label>
-    <input type="text" id="capacitaMassima" [(ngModel)]="magazzino.capacitaMassima" placeholder="Capacità Massima">
-  </div>
-</div>
+  <form>
+    <div class="form-group">
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" [(ngModel)]="magazzino.nome" name="nome" required>
+    </div>
+    <div class="form-group">
+      <label for="indirizzo">Indirizzo:</label>
+      <input type="text" id="indirizzo" [(ngModel)]="magazzino.indirizzo" name="indirizzo" required>
+    </div>
+    <div class="form-group">
+      <label for="sede">Sede:</label>
+      <input type="text" id="sede" [(ngModel)]="magazzino.sede" name="sede" required>
+    </div>
+    <div class="form-group">
+      <label for="capacitaMassima">Capacità Massima:</label>
+      <input type="number" id="capacitaMassima" [(ngModel)]="magazzino.capacitaMassima" name="capacitaMassima" required>
+    </div>
 
+    <div class="button-group">
+      <button type="button" class="btn btn-primary" (click)="salvaModifiche()">Salva Modifiche</button>
+      <button type="button" class="btn btn-secondary" (click)="annulla()">Annulla</button>
+    </div>
+  </form>
+</div>

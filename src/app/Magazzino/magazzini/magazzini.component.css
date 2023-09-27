@@ -1,57 +1,114 @@
-/* Stile generale della tabella */
-table {
-    border-collapse: collapse;
-    width: 100%;
-    margin: 20px 0;
-    font-family: Arial, sans-serif;
-  }
-  
-  /* Stile dell'intestazione della tabella */
-  th {
-    background-color: #f2f2f2;
-    text-align: left;
-    padding: 8px;
-  }
-  
-  /* Stile delle celle della tabella */
-  td {
-    border: 1px solid #ddd;
-    padding: 8px;
-  }
-  
-  /* Stile delle righe alternate */
-  tr:nth-child(even) {
-    background-color: #f2f2f2;
-  }
-  
-  /* Stile del titolo sopra la tabella */
-  h2 {
-    font-size: 18px;
-    margin-bottom: 10px;
-  }
-  
-  /* Stile del campo di ricerca */
-  input[type="text"] {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
-  
-  /* Stile del pulsante di ricerca */
-  button[type="submit"] {
-    background-color: #4caf50;
-    color: white;
-    padding: 8px 12px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  /* Stile del pulsante di ricerca al passaggio del mouse */
-  button[type="submit"]:hover {
-    background-color: #45a049;
-  }
-  
+/* Stile per il contenitore principale dell'elenco dei magazzini */
+div.container {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f7f7f7;
+}
+
+/* Stile per l'intestazione */
+h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* Stile per ogni magazzino */
+div.magazzino {
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Stile per il nome del magazzino */
+h3 {
+  font-size: 20px;
+  color: #007BFF;
+  margin-bottom: 5px;
+}
+
+/* Stile per le altre informazioni del magazzino */
+p {
+  margin: 5px 0;
+}
+
+/* Stile per la linea orizzontale */
+hr {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 10px 0;
+}
+
+/* Stile generico dei pulsanti */
+button {
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+/* Stile per il pulsante "Modifica" */
+button.modifica {
+  background-color: #6e849b;
+  color: #fff;
+  margin-right: 10px;
+}
+
+/* Stile per il pulsante "Annulla" */
+button.annulla {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+/* Stile al passaggio del mouse (hover) */
+button:hover {
+  opacity: 0.8;
+}
+.toast {
+  position: absolute; /* Cambia da fixed a absolute */
+  top: 50%; /* Posiziona il toast verticalmente al centro della pagina */
+  left: 50%; /* Posiziona il toast orizzontalmente al centro della pagina */
+  transform: translate(-50%, -50%); /* Centra il toast rispetto al suo punto di origine (50% dal bordo superiore e 50% dal bordo sinistro) */
+  background-color: #333;
+  color: #fff;
+  padding: 16px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+  display: none; /* Inizialmente nascosto */
+}
+/* Stile per il toast di successo */
+.toast.success {
+  background-color: #28a745;
+}
+
+/* Stile per il toast di errore */
+.toast.error {
+  background-color: #dc3545;
+}
+
+/* Stile per il testo del toast */
+.toast-message {
+  font-size: 16px;
+  margin: 0;
+}
+
+/* Stile per il pulsante di chiusura del toast */
+.toast-close-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  cursor: pointer;
+  color: #fff;
+  font-size: 18px;
+}
+
+/* Stile al passaggio del mouse (hover) per il pulsante di chiusura del toast */
+.toast-close-button:hover {
+  color: #ccc;
+}

@@ -1,38 +1,28 @@
-<table>
-  <thead>
-    <!-- Intestazioni di colonna -->
-    <tr>
-      <th>Nome</th>
-      <th>Indirizzo</th>
-      <th>Sede</th>
-      <th>Capacità Massima</th>
-      <th>Azioni</th>
-    </tr>
-  </thead>
-  <tbody>
-    <ng-container *ngFor="let magazzino of magazzini; let i = index">
-      <tr>
-        <td>{{ magazzino.nome }}</td>
-        <td>{{ magazzino.indirizzo }}</td>
-        <td>{{ magazzino.sede }}</td>
-        <td>{{ magazzino.capacitaMassima }}</td>
-        <td>
-          <!-- Quando viene cliccato "Modifica", chiamiamo il metodo modificaMagazzino del componente MagazziniComponent -->
-          <button (click)="modificaMagazzino(i)">Modifica</button>
-        </td>
-      </tr>
-      <!-- Form per la modifica, inizialmente nascosto -->
-      <tr *ngIf="magazzioDaModificare === i">
-        <td colspan="5">
-          <!-- Utilizziamo il componente ModificaMagazzinoComponent -->
-          <app-modifica-magazzino
-            *ngIf="magazzioDaModificare === i"
-            [magazzino]="magazzini[i]"
-            [nomeOriginale]="magazzini[i].nome || null"
-          ></app-modifica-magazzino>
-        </td>
-      </tr>
-    </ng-container>
-  </tbody>
-</table>
 
+
+<div class="container">
+  <h2>Elenco Magazzini</h2>
+
+  <div *ngFor="let magazzino of magazzini; let i = index" class="magazzino">
+    <!-- Visualizza i dettagli del magazzino -->
+    <div *ngIf="i !== magazzinoDaModificareIndex">
+      <h3><strong>Nome:</strong> <span class="nome-magazzino">{{ magazzino.nome }}</span></h3>
+      <p><strong>Indirizzo:</strong> {{ magazzino.indirizzo }}</p>
+      <p><strong>Sede:</strong> {{ magazzino.sede }}</p>
+      <p><strong>Capacità Massima:</strong> {{ magazzino.capacitaMassima }}</p>
+  
+      <!-- Aggiungi un pulsante o un link per attivare la modifica -->
+      <button (click)="modificaMagazzino(i)">Modifica</button>
+    </div>
+  
+    <!-- Visualizza il form di modifica quando si modifica un magazzino -->
+    <div *ngIf="i === magazzinoDaModificareIndex">
+      <app-modifica-magazzino
+      [magazzino]="magazzino"
+      [nomeOriginale]="nomeOriginale ?? null"
+      (confermaModifica)="confermaModifica($event)"
+      (annullaModifica)="annullaModifica(i)"
+    ></app-modifica-magazzino>    
+    </div>
+  </div>
+</div>
