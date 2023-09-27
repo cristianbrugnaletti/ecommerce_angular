@@ -1,19 +1,106 @@
-<div class="card">
-  <p-menubar [model]="items" class="custom-menu">
-    <ng-template pTemplate="start">
-      <img src="https://th.bing.com/th/id/OIP.iItjx2XLoFx1Rwgt0ug0yQHaFw?pid=ImgDet&rs=1"
-           height="60"
-           class="menu-logo"
-           (click)="navigateToHome()" />
-    </ng-template>
-    <ng-template pTemplate="end">
-      <input type="text" pInputText placeholder="Cerca" class="w-full" (input)="ricercaFornitori()" [(ngModel)]="searchTerm" />
+<!-- menu.component.html -->
+<div class="topbar">
+  
+  <div class="logo">
+    <img src="https://th.bing.com/th/id/OIP.iItjx2XLoFx1Rwgt0ug0yQHaFw?pid=ImgDet&rs=1" alt="Logo" />
+  </div>
+  <ul>
+    <!-- Voci principali del menu -->
+    <li>
+      <a routerLink="/" routerLinkActive="active">
+        <i class="pi pi-fw pi-home"></i>
+        <span>Home</span>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/fornitori" routerLinkActive="active">
+        <i class="pi pi-fw pi-truck"></i>
+        <span>Gestione Fornitori</span>
+      </a>
+      <ul class="submenu">
+        <li>
+          <a routerLink="/aggiungi-fornitore" routerLinkActive="active">
+            <i class="pi pi-fw pi-plus"></i>
+            <span>Aggiungi Fornitore</span>
+          </a>
+        </li>
+      </ul>
+    </li>
+    <!-- Altre voci principali del menu con sottomenu -->
+    <li>
+      <a routerLink="/magazzini" routerLinkActive="active">
+        <i class="pi pi-fw pi-building"></i>
+        <span>Gestione Magazzini</span>
+      </a>
+      <ul class="submenu">
+        <li>
+          <a routerLink="/aggiungi-magazzino" routerLinkActive="active">
+            <i class="pi pi-fw pi-plus"></i>
+            <span>Aggiungi Magazzino</span>
+          </a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a routerLink="/clienti" routerLinkActive="active">
+        <i class="pi pi-fw pi-user"></i>
+        <span>Gestione Clienti</span>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/ordine-cliente" routerLinkActive="active">
+        <i class="pi pi-fw pi-user"></i>
+        <span>Ordini Cliente</span>
+      </a>
+      <ul class="submenu">
+        <li>
+          <a routerLink="/aggiungi-ordine-cliente" routerLinkActive="active">
+            <i class="pi pi-fw pi-plus"></i>
+            <span>Aggiungi Ordine Cliente</span>
+          </a>
+        </li>
+      </ul>
+     
+    <li>
+      <a routerLink="/ordine-fornitore" routerLinkActive="active">
+        <i class="pi pi-fw pi-truck"></i>
+        <span>Ordini Fornitore</span>
+      </a>
+
+      <ul class="submenu">
+        <li>
+          <a routerLink="/aggiungi-ordine-fornitore" routerLinkActive="active">
+            <i class="pi pi-fw pi-plus"></i>
+            <span>Aggiungi Ordine Fornitore</span>
+          </a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a routerLink="/prodotti" routerLinkActive="active">
+        <i class="pi pi-fw pi-shopping-cart"></i>
+        <span>Gestione Prodotti</span>
+      </a>
+      <ul class="submenu">
+        <li>
+          <a routerLink="/aggiungi-prodotto" routerLinkActive="active">
+            <i class="pi pi-fw pi-plus"></i>
+            <span>Aggiungi Prodotto</span>
+          </a>
+        </li>
+      </ul>
+    </li>
+
+    <!-- Barra di ricerca -->
+    
+    <li class="search" >
+      
+      <input type="text" pInputText placeholder="Cerca" (input)="ricercaFornitori()" [(ngModel)]="searchTerm" />
       <ul *ngIf="searchTerm && searchResults.length > 0" class="search-results">
         <li *ngFor="let result of searchResults">
           {{ result.nome }}
         </li>
       </ul>
-    </ng-template>
-  </p-menubar>
+    </li>
+  </ul>
 </div>
-
