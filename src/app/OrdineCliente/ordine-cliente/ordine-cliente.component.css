@@ -1,0 +1,46 @@
+/* Stile per la tabella */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  table, th, td {
+    border: 1px solid #ddd;
+  }
+  
+  th, td {
+    padding: 10px;
+    text-align: left;
+  }
+  
+  /* Stile per l'intestazione della tabella */
+  thead {
+    background-color: #f2f2f2;
+  }
+  
+  /* Stile per le righe dispari della tabella */
+  tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+  }
+  
+  /* Stile per il pulsante */
+  button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Stile per il messaggio Nessun ordine trovato */
+  p {
+    font-style: italic;
+    color: #888;
+    margin-top: 10px;
+  }
+  

@@ -30,6 +30,8 @@ import { ModificaFornitoreComponent } from './Fornitore/modifica-fornitore/modif
 import { EliminaFornitoreComponent } from './Fornitore/elimina-fornitore/elimina-fornitore.component';
 import { ToastrModule } from 'ngx-toastr'; // Importa ToastrModule
 
+
+
 @NgModule({
   declarations: [
     AppComponent,

@@ -1,0 +1,30 @@
+/* Stile per la tabella degli ordini */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+  }
+  
+  /* Stile per l'intestazione della pagina */
+  h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  /* Stile per il messaggio "Nessun ordine trovato" */
+  p {
+    font-size: 18px;
+    color: #777;
+    margin-top: 20px;
+  }
+  

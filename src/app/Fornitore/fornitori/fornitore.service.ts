@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { FornitoreDTO } from './fornitoreDTO';
+import { FornitoreOrdineDTO } from 'src/app/OrdineFornitore/fornitoreOrdineDTO';
 
 @Injectable({
   providedIn: 'root'
@@ -28,5 +29,9 @@ export class FornitoreService {
   modificaFornitore(partitaIVA: string, fornitore: FornitoreDTO): Observable<FornitoreDTO> {
     const url = `${this.apiUrl}/modificafornitore/${partitaIVA}`;
     return this.http.put<FornitoreDTO>(url, fornitore);
+  }
+  caricaFornitoreOrdine(): Observable<FornitoreOrdineDTO[]> {
+    console.log('Chiamato caricaFornitoreOrdine()');
+    return this.http.get<FornitoreOrdineDTO[]>(`${this.apiUrl}/fornitore-ordine/ordini`);
   }
 }
