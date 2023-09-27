@@ -23,5 +23,9 @@ export class ClienteOrdineService {
     const url = `${this.apiUrl}/ClienteController/clienteOrdine/conferma`;
     return this.http.post<ClienteOrdineDTO>(url, request);
   }
-  
+
+  trovaOrdiniCliente(): Observable<ClienteOrdineDTO[]> {
+    console.log('Chiamato getOrdiniCliente()');
+    return this.http.get<ClienteOrdineDTO[]>(`${this.apiUrl}/ClienteController/clienteOrdine/findAll`);
+  }
 }

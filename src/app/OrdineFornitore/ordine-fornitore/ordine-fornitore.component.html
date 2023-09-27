@@ -1,1 +1,27 @@
-<p>ordine-fornitore works!</p>
+<div>
+    <h1>Ordini Fornitore</h1>
+  
+    <div *ngIf="ordiniFornitore.length > 0">
+      <table>
+        <thead>
+          <tr>
+            <th>Fornitore</th>
+            <th>Data Invio Ordine</th>
+            <th>Prezzo Totale</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let ordine of ordiniFornitore">
+            <td>{{ ordine.fornitore?.email}}</td>
+            <td>{{ ordine.dataInvioOrdine | date:'dd/MM/yyyy HH:mm:ss' }}</td>
+            <td>{{ ordine.prezzoTotale | number:'1.2-2' }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <div *ngIf="ordiniFornitore.length === 0">
+      <p>Nessun ordine trovato.</p>
+    </div>
+  </div>
+  

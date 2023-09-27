@@ -7,7 +7,13 @@
            (click)="navigateToHome()" />
     </ng-template>
     <ng-template pTemplate="end">
-      <input type="text" pInputText placeholder="Cerca" class="w-full" />
+      <input type="text" pInputText placeholder="Cerca" class="w-full" (input)="ricercaFornitori()" [(ngModel)]="searchTerm" />
+      <ul *ngIf="searchTerm && searchResults.length > 0" class="search-results">
+        <li *ngFor="let result of searchResults">
+          {{ result.nome }}
+        </li>
+      </ul>
     </ng-template>
   </p-menubar>
 </div>
+

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { Router } from '@angular/router';
-
+import { FornitoreDTO } from 'src/app/Fornitore/fornitori/fornitoreDTO';
+import { FornitoreService } from 'src/app/Fornitore/fornitori/fornitore.service';
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
@@ -9,8 +10,11 @@ import { Router } from '@angular/router';
 })
 export class MenuComponent implements OnInit {
   items: MenuItem[] = [];
+  searchTerm: string = '';
+  fornitori: FornitoreDTO[] = [];
+  searchResults: FornitoreDTO[] = [];
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private fornitoreService: FornitoreService) { }
 
   ngOnInit() {
     this.items = [
@@ -146,5 +150,20 @@ export class MenuComponent implements OnInit {
 
   navigateToHome() {
     this.router.navigate(['/']);
+  }
+
+  ricercaFornitori() {
+    // Chiama il metodo del servizio per ottenere i fornitori
+    this.fornitoreService.getFornitori().subscribe(
+      (fornitori: FornitoreDTO[]) => {
+        // Filtra i fornitori in base a ciò che ha digitato l'utente
+        this.searchResults = fornitori.filter((fornitore) => {
+          return fornitore.nome?.toLowerCase().includes(this.searchTerm.toLowerCase());
+        });
+      },
+      (error) => {
+        console.error('Si è verificato un errore durante il recupero dei fornitori:', error);
+      }
+    );
   }
 }

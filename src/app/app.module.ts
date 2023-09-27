@@ -32,6 +32,8 @@ import { EliminaFornitoreComponent } from './Fornitore/elimina-fornitore/elimina
 import { ModificaMagazzinoComponent } from './Magazzino/modifica-magazzino/modifica-magazzino.component';
 import { EliminaMagazzinoComponent } from './Magazzino/elimina-magazzino/elimina-magazzino.component';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
