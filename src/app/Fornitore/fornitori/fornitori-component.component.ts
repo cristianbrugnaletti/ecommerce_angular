@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FornitoreService } from './fornitore.service';
 import { FornitoreDTO } from './fornitoreDTO';
-
+import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-fornitori',
   templateUrl: './fornitori-component.component.html',
@@ -11,10 +11,13 @@ export class FornitoriComponent implements OnInit {
 
   fornitoreInModifica: FornitoreDTO | null = null;
 
-
+  // Inietta il servizio Router
+  
   fornitori: FornitoreDTO[] = [];
 
-  constructor(private fornitoreService: FornitoreService) { }
+  constructor(private fornitoreService: FornitoreService,
+    private router: Router
+    ) { }
 
  
 
@@ -55,17 +58,21 @@ export class FornitoriComponent implements OnInit {
   }
 
 
- // Funzione per avviare la modifica di un fornitore
- modificaFornitore(fornitore: FornitoreDTO) {
-  this.fornitoreInModifica = fornitore;
-}
+  // Funzione per avviare la modifica di un fornitore
+  modificaFornitore(fornitore: FornitoreDTO) {
+    this.fornitoreInModifica = fornitore;
+  }
+
+  // Funzione per gestire la modifica completata
+  gestisciModificaCompletata() {
+    // Qui puoi eseguire il reindirizzamento alla pagina dei fornitori
+    this.fornitoreInModifica = null; // Imposta il fornitoreInModifica su null
+    this.router.navigate(['/fornitori']);
+    this.caricaFornitori(); // Assicurati che la rotta sia configurata correttamente
+  }
 
 
 
-annullaModifica() {
-  // Puoi inserire qui la logica per annullare la modifica
-  this.fornitoreInModifica = null; // Imposta il fornitoreInModifica su null o a un valore appropriato
-}
 
 
 avviaModifica(fornitore: FornitoreDTO): void {
@@ -75,4 +82,10 @@ avviaModifica(fornitore: FornitoreDTO): void {
   // Assegna il fornitore copiato alla variabile fornitoreInModifica
   this.fornitoreInModifica = fornitoreInModifica;
 }
+
+gestisciAnnullaModifica() {
+  this.fornitoreInModifica = null; // Imposta il fornitoreInModifica su null
+  this.caricaFornitori(); // Ricarica l'elenco dei fornitori
+}
+
     }

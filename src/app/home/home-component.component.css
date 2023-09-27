@@ -1,5 +1,5 @@
 .titolo {
-  margin-top: 3%;
+  margin-top: 1%;
   font-family: Georgia, 'Times New Roman', Times, serif;
   font-size: 28px;
   color: #333;
@@ -37,7 +37,7 @@
   width: 300px;
   margin: 10px;
   padding: 15px; /* Incrementato il padding per dare più spazio */
-  border: 1px solid #ccc;
+  border: 1px solid #6b4e3a;
   border-radius: 10px; /* Aumentato il raggio dei bordi per un aspetto più morbido */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   background-color: #fff;
