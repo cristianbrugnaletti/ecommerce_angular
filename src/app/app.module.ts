@@ -7,6 +7,8 @@ import { MenubarModule } from 'primeng/menubar';
 import { ButtonModule } from 'primeng/button';
 import { TieredMenuModule } from 'primeng/tieredmenu';
 import { PanelMenuModule } from 'primeng/panelmenu';
+import { MessagesModule } from 'primeng/messages';
+import { ToastrModule } from 'ngx-toastr'; // Importa ToastrModule
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home-component.component';
 import { FornitoriComponent } from './Fornitore/fornitori/fornitori-component.component';
@@ -29,13 +31,17 @@ import { AggiungiProdottoComponent } from './Prodotto/aggiungi-prodotto/aggiungi
 import { ProdottoService } from './Prodotto/prodotto.service';
 import { ModificaFornitoreComponent } from './Fornitore/modifica-fornitore/modifica-fornitore.component';
 import { EliminaFornitoreComponent } from './Fornitore/elimina-fornitore/elimina-fornitore.component';
+
 import { ToastrModule } from 'ngx-toastr'; // Importa ToastrModule
 import { EliminaMagazzinoComponent } from './Magazzino/elimina-magazzino/elimina-magazzino.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    ModificaMagazzinoComponent,
+    EliminaMagazzinoComponent,
     FornitoriComponent,
     AggiungiFornitoreComponent,
     ClienteComponent,

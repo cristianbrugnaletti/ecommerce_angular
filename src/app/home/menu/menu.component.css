@@ -1,38 +1,126 @@
-/* Importa il file di stile di primeicons */
-@import '~primeicons/primeicons.css';
-/* Stile generale del menu */
-::ng-deep .custom-menu {
-  background-color: #007bff; /* Colore di sfondo */
-  color: #0c0c0c; /* Colore del testo */
-  border-bottom: 3px solid #0056b3; /* Linea inferiore */
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* Ombra */
+/* menu.component.css */
+.topbar {
+  background-color: #feffff;
+  height: auto;
+  display: flex;
+  align-items: center;
+  
 }
 
-/* Stile del logo */
-::ng-deep .menu-logo {
-  height: 60px; /* Altezza dell'immagine */
-  cursor: pointer; /* Cambia il cursore al passaggio del mouse */
+span{
+color: black;
+font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+}
+.logo img {
+  height: 13vh; /* Altezza dell'immagine */
+  cursor: pointer; 
+  border-radius: 50%;
 }
 
-/* Stile dell'input di ricerca */
-::ng-deep .w-full {
-  padding: 8px 12px; /* Spaziatura interna */
- 
-  border-radius: 10px; /* Bordi arrotondati */
-  background-color: #ffffff; /* Colore di sfondo */
-  color: #333; /* Colore del testo */
-  transition: background-color 0.3s, box-shadow 0.3s; /* Transizione al passaggio del mouse */
+.topbar ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
 }
 
-/* Cambia il colore di sfondo dell'input al passaggio del mouse */
-::ng-deep .w-full:hover {
-  background-color: #f0f0f0;
+.topbar li {
+  border-top: solid #91694e;
+  margin-right: 20px;
+  position: relative;
 }
 
-/* Aggiungi un effetto ombra all'input al passaggio del mouse */
-::ng-deep .w-full:focus {
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+.topbar a {
+  
+  text-decoration: none;
+  color: #fff;
+  display: flex;
+  align-items: center;
 }
-::ng-deep .menu-logo {
-  height: 15vh !important; /* Altezza dell'immagine aumentata a 80px */
+
+.topbar a i {
+  margin-right: 5px;
+}
+
+
+
+/* Stile dei sottomenu */
+.submenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #a97a5a;
+  display: none;
+  flex-direction: column;
+  min-width: 200px;
+   /* Aggiunge un po' di stile ai bordi inferiori */
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2); /* Aggiunge un'ombra sottile */
+  z-index: 1; /* Assicura che il sottomenu sia sopra gli altri elementi */
+}
+
+.topbar li:hover .submenu {
+  display: flex;
+  animation: fadeIn 0.3s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.submenu li {
+  margin: 0;
+}
+
+.submenu a {
+  padding: 10px 20px;
+}
+
+.submenu a:hover {
+  background-color: #91694e;
+}
+
+/* Stile dei sottomenu delle voci principali */
+.topbar li:hover .submenu {
+  display: flex; /* Visualizza il sottomenu solo quando passi il mouse sopra */
+}
+
+/* Nascondi i sottomenu delle voci principali per impostazione predefinita */
+.topbar li .submenu {
+  display: none;
+}
+
+
+
+
+/* Stile generale delle icone */
+.topbar .pi {
+  font-size: 1.5rem; /* Dimensione delle icone */
+  margin-right: 0.5rem; /* Spaziatura a destra delle icone */
+  color: #000; /* Colore nero per le icone */
+}
+/* Stile delle icone nei sottomenu */
+.submenu .pi {
+  font-size: 1rem; /* Dimensione delle icone nei sottomenu */
+  margin-right: 0.3rem; /* Spaziatura a destra delle icone nei sottomenu */
+}
+
+/* Stile delle icone nei sottomenu al passaggio del mouse */
+.submenu a:hover .pi {
+  color: #000000; /* Cambia il colore delle icone nei sottomenu al passaggio del mouse */
+}
+
+/* Stile delle icone attive nel menu principale */
+.topbar a.active .pi {
+  color: #000000; /* Cambia il colore delle icone delle voci attive nel menu principale */
+}
+
+/* Stile delle icone attive nei sottomenu */
+.submenu a.active .pi {
+  color: #000000; /* Cambia il colore delle icone delle voci attive nei sottomenu */
 }

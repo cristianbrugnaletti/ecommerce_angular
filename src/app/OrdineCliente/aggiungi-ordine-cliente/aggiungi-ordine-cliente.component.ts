@@ -17,8 +17,7 @@ export class AggiungiOrdineClienteComponent {
   prodotti: ProdottoDTO[] = [];
   carrello: ProdottoDTO[] = [];
   prezzoTotaleOrdine: number = 0; // Inizializzalo con un valore predefinito, ad esempio 0
-
-
+  
   constructor(private clienteOrdineService: ClienteOrdineService, private prodottoService: ProdottoService) { }
 
   ngOnInit() {
@@ -29,7 +28,7 @@ export class AggiungiOrdineClienteComponent {
       (error) => {
         console.error('Si è verificato un errore durante il recupero dei prodotti:', error);
       }
-    );
+    ); 
   }
 
   aggiungiRigaDOrdine(prodotto: ProdottoDTO) {
@@ -42,7 +41,9 @@ export class AggiungiOrdineClienteComponent {
     this.clienteRigaDOrdineRequest.nomeProdotto = prodotto.nome; // Sostituisci con il valore corretto
   
     // Popoliamo la quantità con un valore appropriato, ad esempio:
-    this.clienteRigaDOrdineRequest.quantita = 20 ; // Sostituisci con il valore corretto
+
+    this.clienteRigaDOrdineRequest.quantita = 2; // Sostituisci con il valore corretto
+
   
     this.clienteOrdineService.aggiungiClienteRigaDOrdine(this.clienteRigaDOrdineRequest)
       .subscribe(
@@ -63,11 +64,11 @@ export class AggiungiOrdineClienteComponent {
   aggiungiAlCarrello(prodotto: ProdottoDTO) {
     this.carrello.push(prodotto);
     this.prezzoTotaleOrdine = this.calcolaPrezzoTotale();
-  }
+  } 
   
   confermaOrdine() {
     const clienteOrdineRequest: ClienteOrdineRequest = {
-      clienteOrdineId: 5,
+      clienteOrdineId: 56,
       usernameCliente: 'leorm02',
     };
   

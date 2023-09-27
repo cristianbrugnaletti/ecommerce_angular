@@ -10,7 +10,7 @@ import { ClienteOrdineDTO } from '../clienteOrdineDTO';
   providedIn: 'root'
 })
 export class ClienteOrdineService {
-  private apiUrl = 'http://localhost:8080'; // Sostituisci con l'URL del tuo backend
+  private apiUrl = 'http://localhost:8080'; 
 
   constructor(private http: HttpClient) { }
 
@@ -23,5 +23,9 @@ export class ClienteOrdineService {
     const url = `${this.apiUrl}/ClienteController/clienteOrdine/conferma`;
     return this.http.post<ClienteOrdineDTO>(url, request);
   }
-  
+
+  trovaOrdiniCliente(): Observable<ClienteOrdineDTO[]> {
+    console.log('Chiamato getOrdiniCliente()');
+    return this.http.get<ClienteOrdineDTO[]>(`${this.apiUrl}/ClienteController/clienteOrdine/findAll`);
+  }
 }

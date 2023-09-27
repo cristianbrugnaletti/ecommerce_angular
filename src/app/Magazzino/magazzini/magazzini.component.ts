@@ -4,6 +4,7 @@ import { MagazzinoDTO } from '../MagazzinoDTO';
 import { ModificaMagazzinoComponent } from '../modifica-magazzino/modifica-magazzino.component';
 import { ToastrService } from 'ngx-toastr'; // Importa ToastrService
 
+
 @Component({
   selector: 'app-magazzini',
   templateUrl: './magazzini.component.html',
@@ -11,7 +12,9 @@ import { ToastrService } from 'ngx-toastr'; // Importa ToastrService
 })
 export class MagazziniComponent implements OnInit {
   magazzini: MagazzinoDTO[] = [];
+
   magazzinoDaModificareIndex: number | null = null;
+
   nomeOriginale: string | null = null;
 
   @ViewChild(ModificaMagazzinoComponent) modificaMagazzinoComponent: ModificaMagazzinoComponent | undefined;
@@ -37,6 +40,7 @@ export class MagazziniComponent implements OnInit {
   }
 
   modificaMagazzino(index: number) {
+
     this.magazzinoDaModificareIndex = index;
     // Assegna il nome originale qui
     this.nomeOriginale = this.magazzini[index]?.nome || null; 
@@ -64,5 +68,6 @@ export class MagazziniComponent implements OnInit {
     }
     this.magazzinoDaModificareIndex = null;
     this.nomeOriginale = null;
+
   }
 }
