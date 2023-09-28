@@ -23,7 +23,7 @@ export class ModificaMagazzinoComponent {
           // Emetti l'evento confermaModifica con il magazzino modificato
           alert('Magazzino modificato con successo!');
           this.confermaModifica.emit(magazzinoModificato);
-            
+
         },
         (error) => {
           alert('Errore durante la modifica del magazzino');

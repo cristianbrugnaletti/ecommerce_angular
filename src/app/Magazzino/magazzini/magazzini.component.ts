@@ -50,7 +50,11 @@ export class MagazziniComponent implements OnInit {
   annullaModifica() {
     this.magazzinoDaModificareIndex = null;
     this.nomeOriginale = null;
-
+  }
+  
+  annullaEliminazioneMagazzino() {
+    this.magazzinoDaEliminareIndex = null;
+    this.nomeOriginale = null;
   }
 
   eliminaMagazzino(nomeMagazzino: string | undefined, index: number) {
