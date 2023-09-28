@@ -67,7 +67,6 @@ import { EliminaMagazzinoComponent } from './Magazzino/elimina-magazzino/elimina
     HttpClientModule,
     FormsModule,
     AppRoutingModule,
-    MessagesModule,
     ToastrModule.forRoot({
       timeOut: 3000, // Durata in millisecondi della notifica (3 secondi)
       positionClass: 'toast-top-right', // Posizione della notifica (in alto a destra)
