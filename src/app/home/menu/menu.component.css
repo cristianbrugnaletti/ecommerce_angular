@@ -1,13 +1,17 @@
+
 /* menu.component.css */
+
+
 .topbar {
   background-color: #feffff;
   height: auto;
   display: flex;
   align-items: center;
-  
+  font-size: 85%;
 }
 
 span{
+ 
 color: black;
 font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 
@@ -46,6 +50,7 @@ font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 
 /* Stile dei sottomenu */
 .submenu {
+  font-size: 80%;
   position: absolute;
   top: 100%;
   left: 0;
@@ -78,7 +83,7 @@ font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 .submenu a {
-  padding: 10px 20px;
+  padding: 5px 10px;
 }
 
 .submenu a:hover {
@@ -124,3 +129,8 @@ font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 .submenu a.active .pi {
   color: #000000; /* Cambia il colore delle icone delle voci attive nei sottomenu */
 }
+
+.search {
+ margin-left: 75%;
+}
+

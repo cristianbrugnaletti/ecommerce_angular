@@ -1,6 +1,7 @@
-<!-- menu.component.html -->
+
 <div class="topbar">
-  
+
+
   <div class="logo">
     <img src="https://th.bing.com/th/id/OIP.iItjx2XLoFx1Rwgt0ug0yQHaFw?pid=ImgDet&rs=1" alt="Logo" />
   </div>
@@ -91,16 +92,15 @@
       </ul>
     </li>
 
-    <!-- Barra di ricerca -->
-    
-    <li class="search" >
-      
-      <input type="text" pInputText placeholder="Cerca" (input)="ricercaFornitori()" [(ngModel)]="searchTerm" />
-      <ul *ngIf="searchTerm && searchResults.length > 0" class="search-results">
-        <li *ngFor="let result of searchResults">
-          {{ result.nome }}
-        </li>
-      </ul>
-    </li>
+    <ul>
+      <li class="search">
+        <input type="text" pInputText placeholder="search" (input)="ricercaFornitori()" [(ngModel)]="searchTerm" />
+        <ul *ngIf="searchTerm && searchResults.length > 0" class="search-results">
+          <li *ngFor="let result of searchResults">
+            {{ result.nome }}
+          </li>
+        </ul>
+      </li>
+    </ul>
   </ul>
 </div>
