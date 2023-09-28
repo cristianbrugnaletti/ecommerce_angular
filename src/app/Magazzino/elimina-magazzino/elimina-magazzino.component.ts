@@ -7,15 +7,17 @@ import { MagazzinoService } from '../magazzino.service';
   styleUrls: ['./elimina-magazzino.component.css']
 })
 export class EliminaMagazzinoComponent {
-  @Input() nomeMagazzino: string = '';
-  @Output() eliminazioneConfermata = new EventEmitter();
-  @Output() eliminazioneAnnullata = new EventEmitter();
+  @Input() nomeOriginale: string | null = null;
+  @Output() eliminazioneConfermata = new EventEmitter<void>();
+  @Output() eliminazioneAnnullata = new EventEmitter<void>();
+  
   
   constructor(private magazzinoService: MagazzinoService) {
   }
 
   eliminaMagazzino(): void {
-    this.magazzinoService.eliminaMagazzino(this.nomeMagazzino).subscribe(
+    if (this.nomeOriginale)
+    this.magazzinoService.eliminaMagazzino(this.nomeOriginale).subscribe(
       () => {
         this.eliminazioneConfermata.emit();
       },
@@ -23,10 +25,6 @@ export class EliminaMagazzinoComponent {
         console.error('Si è verificato un errore durante l\'eliminazione del magazzino:', error);
       }
     );
-  }
-
-  confermaEliminazione() {
-    this.eliminaMagazzino();
   }
 
   annullaEliminazione() {

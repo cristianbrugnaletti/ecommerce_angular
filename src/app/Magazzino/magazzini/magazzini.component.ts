@@ -1,9 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MagazzinoService } from '../magazzino.service';
 import { MagazzinoDTO } from '../MagazzinoDTO';
-import { ModificaMagazzinoComponent } from '../modifica-magazzino/modifica-magazzino.component';
-import { ToastrService } from 'ngx-toastr'; // Importa ToastrService
-
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-magazzini',
@@ -12,17 +10,12 @@ import { ToastrService } from 'ngx-toastr'; // Importa ToastrService
 })
 export class MagazziniComponent implements OnInit {
   magazzini: MagazzinoDTO[] = [];
-
   magazzinoDaModificareIndex: number | null = null;
-
   nomeOriginale: string | null = null;
+  magazzinoDaEliminareIndex: number | null = null;
+  eliminazioneAttiva: boolean = false;
 
-  @ViewChild(ModificaMagazzinoComponent) modificaMagazzinoComponent: ModificaMagazzinoComponent | undefined;
-
-  constructor(private magazzinoService: MagazzinoService, private toastr: ToastrService) {
-    // Inizializza nomeOriginale come null nel costruttore
-    this.nomeOriginale = null;
-  }
+  constructor(private magazzinoService: MagazzinoService, private toastr: ToastrService) {}
 
   ngOnInit() {
     this.getMagazzini();
@@ -40,34 +33,46 @@ export class MagazziniComponent implements OnInit {
   }
 
   modificaMagazzino(index: number) {
-
     this.magazzinoDaModificareIndex = index;
-    // Assegna il nome originale qui
-    this.nomeOriginale = this.magazzini[index]?.nome || null; 
+    this.nomeOriginale = this.magazzini[index]?.nome || null;
   }
 
   confermaModifica(magazzinoModificato: MagazzinoDTO) {
-    // Aggiorna l'elenco dei magazzini con il magazzino modificato
     if (this.magazzinoDaModificareIndex !== null) {
       this.magazzini[this.magazzinoDaModificareIndex] = magazzinoModificato;
     }
 
-    // Resetta le variabili per uscire dalla modalità di modifica
     this.magazzinoDaModificareIndex = null;
     this.nomeOriginale = null;
 
-    // Mostra una notifica popup di successo
-    this.toastr.success('Magazzino modificato con successo!', 'Successo');
+    alert('Magazzino modificato con successo!');
 
     this.getMagazzini();
   }
 
-  annullaModifica(index: number) {
-    if (this.magazzinoDaModificareIndex !== null && this.modificaMagazzinoComponent) {
-      this.modificaMagazzinoComponent.annulla();
-    }
+  annullaModifica() {
     this.magazzinoDaModificareIndex = null;
     this.nomeOriginale = null;
+  }
 
+
+  eliminaMagazzino(nomeMagazzino: string | undefined) {
+    if (nomeMagazzino) {
+      this.nomeOriginale = nomeMagazzino;
+      this.eliminazioneAttiva = true; // Attiva l'eliminazione
+    }
+  }
+
+  eliminazioneConfermata() {
+          this.nomeOriginale = null;
+          this.eliminazioneAttiva = false; // Disattiva l'eliminazione
+          alert('Magazzino eliminato con successo!');
+          this.getMagazzini();
+  }
+  
+  annullaEliminazioneMagazzino() {
+    this.magazzinoDaEliminareIndex = null;
+    this.nomeOriginale = null;
+    this.eliminazioneAttiva = false; // Disattiva l'eliminazione
   }
 }

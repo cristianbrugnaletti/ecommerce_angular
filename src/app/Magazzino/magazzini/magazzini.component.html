@@ -1,28 +1,33 @@
+<div *ngFor="let magazzino of magazzini; let i = index" class="magazzino">
+  <!-- Visualizza i dettagli del magazzino -->
+  <div *ngIf="i !== magazzinoDaModificareIndex">
+    <h3><strong>Nome:</strong> <span class="nome-magazzino">{{ magazzino.nome }}</span></h3>
+    <p><strong>Indirizzo:</strong> {{ magazzino.indirizzo }}</p>
+    <p><strong>Sede:</strong> {{ magazzino.sede }}</p>
+    <p><strong>Capacità Massima:</strong> {{ magazzino.capacitaMassima }}</p>
 
+    <!-- Aggiungi un pulsante per attivare l'eliminazione -->
+    <button (click)="modificaMagazzino(i)">Modifica</button>
+    <!-- Aggiungi un pulsante per attivare l'eliminazione -->
+    <button (click)="eliminaMagazzino(magazzino.nome)">Elimina</button>
+  </div>
 
-<div class="container">
-  <h2>Elenco Magazzini</h2>
-
-  <div *ngFor="let magazzino of magazzini; let i = index" class="magazzino">
-    <!-- Visualizza i dettagli del magazzino -->
-    <div *ngIf="i !== magazzinoDaModificareIndex">
-      <h3><strong>Nome:</strong> <span class="nome-magazzino">{{ magazzino.nome }}</span></h3>
-      <p><strong>Indirizzo:</strong> {{ magazzino.indirizzo }}</p>
-      <p><strong>Sede:</strong> {{ magazzino.sede }}</p>
-      <p><strong>Capacità Massima:</strong> {{ magazzino.capacitaMassima }}</p>
-  
-      <!-- Aggiungi un pulsante o un link per attivare la modifica -->
-      <button (click)="modificaMagazzino(i)">Modifica</button>
-    </div>
-  
-    <!-- Visualizza il form di modifica quando si modifica un magazzino -->
-    <div *ngIf="i === magazzinoDaModificareIndex">
-      <app-modifica-magazzino
+  <!-- Visualizza il form di modifica quando si modifica un magazzino -->
+  <div *ngIf="i === magazzinoDaModificareIndex">
+    <app-modifica-magazzino
       [magazzino]="magazzino"
       [nomeOriginale]="nomeOriginale ?? null"
       (confermaModifica)="confermaModifica($event)"
-      (annullaModifica)="annullaModifica(i)"
+      (annullaModifica)="annullaModifica()"
     ></app-modifica-magazzino>    
-    </div>
   </div>
+</div>
+
+<div *ngIf="eliminazioneAttiva">
+  <!-- Include il componente EliminaMagazzinoComponent solo se è attivo -->
+  <app-elimina-magazzino 
+    [nomeOriginale]="nomeOriginale ?? null"
+    (eliminazioneConfermata)="eliminazioneConfermata()"
+    (eliminazioneAnnullata)="annullaEliminazioneMagazzino()"
+  ></app-elimina-magazzino>
 </div>
