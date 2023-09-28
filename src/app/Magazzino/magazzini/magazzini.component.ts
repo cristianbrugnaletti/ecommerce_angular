@@ -14,6 +14,7 @@ export class MagazziniComponent implements OnInit {
   nomeOriginale: string | null = null;
   magazzinoDaEliminareIndex: number | null = null;
 
+
   constructor(private magazzinoService: MagazzinoService, private toastr: ToastrService) {}
 
   ngOnInit() {
@@ -43,12 +44,16 @@ export class MagazziniComponent implements OnInit {
 
     this.magazzinoDaModificareIndex = null;
     this.nomeOriginale = null;
-
     this.getMagazzini();
   }
 
   annullaModifica() {
     this.magazzinoDaModificareIndex = null;
+    this.nomeOriginale = null;
+  }
+  
+  annullaEliminazioneMagazzino() {
+    this.magazzinoDaEliminareIndex = null;
     this.nomeOriginale = null;
   }
 

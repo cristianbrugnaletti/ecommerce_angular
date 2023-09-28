@@ -35,7 +35,7 @@ export class AggiungiOrdineClienteComponent {
     // Prima di effettuare la chiamata, assicuriamoci che this.clienteRigaDOrdineRequest abbia tutti i dati richiesti.
     
     // Popoliamo il clienteOrdineId con un valore appropriato, ad esempio:
-    this.clienteRigaDOrdineRequest.clienteOrdineId = 50; // Sostituisci con il valore corretto
+    this.clienteRigaDOrdineRequest.clienteOrdineId =46; // Sostituisci con il valore corretto
     
     // Popoliamo il nomeProdotto con il nome del prodotto selezionato.
     this.clienteRigaDOrdineRequest.nomeProdotto = prodotto.nome; // Sostituisci con il valore corretto
@@ -68,8 +68,8 @@ export class AggiungiOrdineClienteComponent {
   
   confermaOrdine() {
     const clienteOrdineRequest: ClienteOrdineRequest = {
-      clienteOrdineId: 56,
-      usernameCliente: 'leorm02',
+      clienteOrdineId: 49,
+      usernameCliente: 'toni',
     };
   
     this.clienteOrdineService.confermaOrdineCliente(clienteOrdineRequest)

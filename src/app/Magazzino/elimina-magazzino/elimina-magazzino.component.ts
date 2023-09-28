@@ -16,6 +16,7 @@ export class EliminaMagazzinoComponent {
   }
 
   eliminaMagazzino(): void {
+
     if (this.nomeOriginale) {
       this.magazzinoService.eliminaMagazzino(this.nomeOriginale).subscribe(
         () => {
