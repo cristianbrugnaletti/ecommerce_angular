@@ -21,7 +21,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { MagazziniComponent } from './Magazzino/magazzini/magazzini.component';
 import { AggiungiMagazzinoComponent } from './Magazzino/aggiungi-magazzino/aggiungi-magazzino.component';
 import { ModificaMagazzinoComponent } from './Magazzino/modifica-magazzino/modifica-magazzino.component';
-import { MessagesModule } from 'primeng/messages';
 import { OrdineClienteComponent } from './OrdineCliente/ordine-cliente/ordine-cliente.component';
 import { OrdineFornitoreComponent } from './OrdineFornitore/ordine-fornitore/ordine-fornitore.component';
 import { ProdottiComponent } from './Prodotto/prodotti/prodotti.component';
@@ -31,8 +30,6 @@ import { AggiungiProdottoComponent } from './Prodotto/aggiungi-prodotto/aggiungi
 import { ProdottoService } from './Prodotto/prodotto.service';
 import { ModificaFornitoreComponent } from './Fornitore/modifica-fornitore/modifica-fornitore.component';
 import { EliminaFornitoreComponent } from './Fornitore/elimina-fornitore/elimina-fornitore.component';
-
-import { ToastrModule } from 'ngx-toastr'; // Importa ToastrModule
 import { EliminaMagazzinoComponent } from './Magazzino/elimina-magazzino/elimina-magazzino.component';
 
 
