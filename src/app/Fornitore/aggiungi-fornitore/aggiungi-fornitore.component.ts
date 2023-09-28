@@ -14,8 +14,9 @@ export class AggiungiFornitoreComponent {
   errorMessage: string | null = null;
   telefonoInvalid = false;
   partitaIVAInvalid = false;
+  emailInvalid = false;
 
-
+  suggerite: string[] = [];
 
 
 
@@ -34,6 +35,16 @@ if (this.fornitore && this.fornitore.partitaIVA) {
   this.partitaIVAInvalid = !/^[0-9]*$/.test(this.fornitore.partitaIVA) || this.fornitore.partitaIVA.length !== 11;
 } else {
   this.partitaIVAInvalid = true;
+}
+
+if (this.fornitore && this.fornitore.email) {
+  // Espressione regolare per verificare il formato dell'email
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(?:\.[a-zA-Z]{2,})?$/;
+  
+  // Verifica se l'email segue il formato corretto
+  this.emailInvalid = !emailRegex.test(this.fornitore.email) || !this.fornitore.email.includes('@') || this.fornitore.email.split('@')[0].length === 0 || this.fornitore.email.split('@')[1].length === 0;
+} else {
+  this.emailInvalid = true;  // Email mancante
 }
 
 // Se la validazione fallisce, puoi gestire l'errore o mostrare un messaggio all'utente
@@ -61,5 +72,27 @@ if (this.telefonoInvalid || this.partitaIVAInvalid) {
         this.successMessage = null;
       }
     );
+  }
+
+  isEmailValid(): boolean {
+    if (!this.fornitore.email) {
+      return false; // L'email è undefined, quindi non è valida
+    }
+  
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(?:\.[a-zA-Z]{2,})?$/;
+    return emailRegex.test(this.fornitore.email) && this.fornitore.email.includes('@');
+  }
+
+  lunghezzaMassima = 20;
+
+  isNomeValid(): boolean {
+    const nome = this.fornitore.nome;
+    if (!nome || nome.length === 0 || nome.length > this.lunghezzaMassima) {
+      return false;
+    }
+
+    // Aggiungi altre condizioni se necessario, ad esempio controlli sul formato
+
+    return /^[a-zA-Z]+$/.test(nome);  // Esempio: solo lettere
   }
 }

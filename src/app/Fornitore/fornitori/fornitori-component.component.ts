@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FornitoreService } from './fornitore.service';
 import { FornitoreDTO } from './fornitoreDTO';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr'; 
 @Component({
   selector: 'app-fornitori',
   templateUrl: './fornitori-component.component.html',
@@ -16,7 +17,7 @@ export class FornitoriComponent implements OnInit {
   fornitori: FornitoreDTO[] = [];
 
   constructor(private fornitoreService: FornitoreService,
-    private router: Router
+    private router: Router,private toastr: ToastrService
     ) { }
 
  
@@ -39,7 +40,7 @@ export class FornitoriComponent implements OnInit {
           () => {
             // Eliminazione completata con successo
             console.log('Fornitore eliminato con successo');
-
+            alert('Fornitore eliminato con successo');
             // Ora puoi rimuovere il fornitore dalla lista locale
             this.fornitori = this.fornitori.filter((f) => f.id !== fornitore.id);
 
@@ -67,8 +68,17 @@ export class FornitoriComponent implements OnInit {
   gestisciModificaCompletata() {
     // Qui puoi eseguire il reindirizzamento alla pagina dei fornitori
     this.fornitoreInModifica = null; // Imposta il fornitoreInModifica su null
-    this.router.navigate(['/fornitori']);
-    this.caricaFornitori(); // Assicurati che la rotta sia configurata correttamente
+    this.caricaFornitori();
+    // Mostra una notifica popup di successo
+    this.toastr.success('Fornitore modificato con successo!', 'Successo', {
+      timeOut: 2000, // Durata del toast in millisecondi
+      
+      progressBar: true, // Barra di progresso
+      positionClass: 'toast-bottom-right', // Posizione del toast
+      enableHtml: true, // Abilita HTML nel messaggio
+      toastClass: 'custom-toast' // Classe CSS personalizzata per il toast
+    });
+     // Assicurati che la rotta sia configurata correttamente
   }
 
 

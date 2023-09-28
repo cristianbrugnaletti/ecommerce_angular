@@ -7,7 +7,7 @@
   height: auto;
   display: flex;
   align-items: center;
-  font-size: 85%;
+  font-size: 100%;
 }
 
 span{
@@ -50,7 +50,8 @@ font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 
 /* Stile dei sottomenu */
 .submenu {
-  font-size: 80%;
+  
+  font-size: 100%;
   position: absolute;
   top: 100%;
   left: 0;
@@ -128,6 +129,10 @@ font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 /* Stile delle icone attive nei sottomenu */
 .submenu a.active .pi {
   color: #000000; /* Cambia il colore delle icone delle voci attive nei sottomenu */
+}
+
+li.search input[type="text"] {
+  width: 70%; /* Imposta la larghezza desiderata */
 }
 
 
