@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { MagazzinoService } from '../magazzino.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-elimina-magazzino',
@@ -7,26 +8,27 @@ import { MagazzinoService } from '../magazzino.service';
   styleUrls: ['./elimina-magazzino.component.css']
 })
 export class EliminaMagazzinoComponent {
-  @Input() nomeMagazzino: string = '';
-  @Output() eliminazioneConfermata = new EventEmitter();
-  @Output() eliminazioneAnnullata = new EventEmitter();
+  @Input() nomeOriginale: string | null = null;
+  @Output() eliminazioneConfermata = new EventEmitter<void>();
+  @Output() eliminazioneAnnullata = new EventEmitter<void>();
   
-  constructor(private magazzinoService: MagazzinoService) {
+  constructor(private magazzinoService: MagazzinoService, private toastr: ToastrService) {
   }
 
   eliminaMagazzino(): void {
-    this.magazzinoService.eliminaMagazzino(this.nomeMagazzino).subscribe(
-      () => {
-        this.eliminazioneConfermata.emit();
-      },
-      (error) => {
-        console.error('Si è verificato un errore durante l\'eliminazione del magazzino:', error);
-      }
-    );
-  }
-
-  confermaEliminazione() {
-    this.eliminaMagazzino();
+    if (this.nomeOriginale) {
+      this.magazzinoService.eliminaMagazzino(this.nomeOriginale).subscribe(
+        () => {
+          alert('Magazzino eliminato con successo!');
+          this.eliminazioneConfermata.emit();
+          
+        },
+        (error) => {
+          console.error('Si è verificato un errore durante l\'eliminazione del magazzino:', error);
+          alert('Errore durante l\'eliminazione del magazzino.');
+        }
+      );
+    }
   }
 
   annullaEliminazione() {

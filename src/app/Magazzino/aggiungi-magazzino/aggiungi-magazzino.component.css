@@ -1,4 +1,4 @@
-/* Aggiungi stili al contenitore principale */
+/* Stile per il contenitore principale */
 .container {
   max-width: 400px;
   margin: 0 auto;
@@ -48,19 +48,109 @@ button[type="submit"] {
   color: #fff;
   border: none;
   border-radius: 3px;
-  font-size: 16px; /* Aggiunto un valore valido per la dimensione del carattere */
+  font-size: 18px; /* Aumentato il valore della dimensione del carattere */
+  cursor: pointer; /* Aggiunto cursore puntatore al passaggio del mouse */
 }
 
 /* Stile per il messaggio di successo */
 .success-message {
   color: green;
   font-weight: bold;
-  margin-top: 10px; /* Aggiunto margine superiore per separare dal modulo */
+  margin-top: 10px;
 }
 
 /* Stile per il messaggio di errore */
 .error-message {
   color: red;
   font-weight: bold;
-  margin-top: 10px; /* Aggiunto margine superiore per separare dal modulo */
+  margin-top: 10px;
+}
+/* Stile per i pulsanti nella sezione di successo */
+.success-message button {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-right: 10px; /* Aggiunge spazio tra i pulsanti */
+  transition: background-color 0.3s; /* Aggiunge una transizione per il cambio di colore */
+}
+
+/* Stile quando il mouse è sopra il pulsante */
+.success-message button:hover {
+  background-color: #0056b3;
+}
+
+/* Stile per il pulsante "Aggiungi un altro Magazzino" */
+.success-message button:nth-child(1) {
+  background-color: #28a745; /* Colore verde */
+}
+
+/* Stile quando il mouse è sopra il pulsante "Aggiungi un altro Magazzino" */
+.success-message button:nth-child(1):hover {
+  background-color: #1e7e34; /* Verde più scuro */
+}
+
+/* Stile per il pulsante "Torna alla lista di Magazzini" */
+.success-message button:nth-child(2) {
+  background-color: #dc3545; /* Colore rosso */
+}
+
+/* Stile quando il mouse è sopra il pulsante "Torna alla lista di Magazzini" */
+.success-message button:nth-child(2):hover {
+  background-color: #bd2130; /* Rosso più scuro */
+}
+/* Stile per il messaggio di successo */
+.success-message {
+  background-color: #200bdc; /* Colore verde */
+  color: #fff;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 3px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Stile per i pulsanti nella sezione di successo */
+.success-message button {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-right: 10px; /* Aggiunge spazio tra i pulsanti */
+  transition: background-color 0.3s; /* Aggiunge una transizione per il cambio di colore */
+}
+
+/* Stile quando il mouse è sopra il pulsante */
+.success-message button:hover {
+  background-color: #0056b3;
+}
+
+/* Stile per il pulsante "Aggiungi un altro Magazzino" */
+.success-message button:nth-child(1) {
+  background-color: #28a745; /* Colore verde */
+}
+
+/* Stile quando il mouse è sopra il pulsante "Aggiungi un altro Magazzino" */
+.success-message button:nth-child(1):hover {
+  background-color: #1e7e34; /* Verde più scuro */
+}
+
+/* Stile per il pulsante "Torna alla lista di Magazzini" */
+.success-message button:nth-child(2) {
+  background-color: #dc3545; /* Colore rosso */
+}
+
+/* Stile quando il mouse è sopra il pulsante "Torna alla lista di Magazzini" */
+.success-message button:nth-child(2):hover {
+  background-color: #bd2130; /* Rosso più scuro */
 }
