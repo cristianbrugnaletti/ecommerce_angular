@@ -40,7 +40,7 @@
   border: 1px solid #6b4e3a;
   border-radius: 10px; /* Aumentato il raggio dei bordi per un aspetto più morbido */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
+  background-color: #e6d3bf;
   transition: transform 0.2s ease-in-out; /* Aggiunta una transizione per l'effetto hover */
 }
 
