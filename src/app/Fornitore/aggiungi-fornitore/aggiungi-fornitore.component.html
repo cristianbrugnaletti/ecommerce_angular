@@ -3,14 +3,40 @@
 
   <!-- Form per l'aggiunta del fornitore -->
   <form (submit)="aggiungiFornitore()">
+
+
+
     <div class="form-group">
       <label for="nome">Nome:</label>
-      <input type="text" id="nome" name="nome" [(ngModel)]="fornitore.nome" required>
+      <input type="text" id="nome" name="nome" [(ngModel)]="fornitore.nome" required minlength="1" maxlength="30" pattern="[a-zA-Z]+" #nome="ngModel">
+      <div *ngIf="nome.invalid && (nome.dirty || nome.touched)">
+        <div *ngIf="nome.hasError('required')" class="error-message">
+          Il nome è obbligatorio.
+        </div>
+        <div *ngIf="nome.hasError('minlength')" class="error-message">
+          Il nome deve contenere almeno 1 carattere.
+        </div>
+        <div *ngIf="nome.hasError('maxlength')" class="error-message">
+          Il nome non deve superare 20 caratteri.
+        </div>
+        <div *ngIf="nome.hasError('pattern')" class="error-message">
+          Il nome deve contenere solo lettere.
+        </div>
+      </div>
     </div>
 
     <div class="form-group">
       <label for="email">Email:</label>
-      <input type="email" id="email" name="email" [(ngModel)]="fornitore.email" required>
+      <input type="email" id="email" name="email" [(ngModel)]="fornitore.email" required #email="ngModel">
+    
+      <!-- Mostra il messaggio solo se il campo è "dirty" e l'email non è valida -->
+      <div *ngIf="email.dirty && (email?.errors?.['email'] || !isEmailValid())" class="error-message">
+        L'indirizzo email inserito non è valido.
+      </div>
+
+      <div *ngIf="emailInvalid" class="error-message">
+        Inserire un email valida.
+      </div>
     </div>
 
     <div class="form-group">
