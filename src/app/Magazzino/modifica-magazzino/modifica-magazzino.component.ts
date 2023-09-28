@@ -1,6 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { MagazzinoService } from '../magazzino.service';
 import { MagazzinoDTO } from '../MagazzinoDTO';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-modifica-magazzino',
@@ -13,7 +14,7 @@ export class ModificaMagazzinoComponent {
   @Output() confermaModifica = new EventEmitter<MagazzinoDTO>();
   @Output() annullaModifica = new EventEmitter<void>();
 
-  constructor(private magazzinoService: MagazzinoService) { }
+  constructor(private magazzinoService: MagazzinoService, private toastr: ToastrService) { }
 
   salvaModifiche() {
     if (this.magazzino && this.nomeOriginale) {
@@ -22,7 +23,7 @@ export class ModificaMagazzinoComponent {
           // Emetti l'evento confermaModifica con il magazzino modificato
           alert('Magazzino modificato con successo!');
           this.confermaModifica.emit(magazzinoModificato);
-        
+
         },
         (error) => {
           alert('Errore durante la modifica del magazzino');

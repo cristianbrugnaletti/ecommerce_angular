@@ -32,6 +32,7 @@ import { EliminaFornitoreComponent } from './Fornitore/elimina-fornitore/elimina
 import { EliminaMagazzinoComponent } from './Magazzino/elimina-magazzino/elimina-magazzino.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,6 +56,7 @@ import { EliminaMagazzinoComponent } from './Magazzino/elimina-magazzino/elimina
     EliminaFornitoreComponent,
     ModificaMagazzinoComponent,
     EliminaMagazzinoComponent,
+    
   ],
   providers: [FornitoreService, ProdottoService],
   imports: [
@@ -68,10 +70,12 @@ import { EliminaMagazzinoComponent } from './Magazzino/elimina-magazzino/elimina
     FormsModule,
     AppRoutingModule,
     ToastrModule.forRoot({
-      timeOut: 3000, // Durata in millisecondi della notifica (3 secondi)
-      positionClass: 'toast-top-right', // Posizione della notifica (in alto a destra)
-      preventDuplicates: true, // Impedisci la visualizzazione di notifiche duplicate
-    }),// Configura ToastrModule
+      timeOut: 3000,
+      positionClass: 'toast-top-right',
+      preventDuplicates: true,
+      toastClass: 'toast-success' // Classe CSS personalizzata
+    })
+    
   ],
   bootstrap: [AppComponent]
 })
