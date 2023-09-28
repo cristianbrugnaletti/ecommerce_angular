@@ -9,6 +9,13 @@ import { FornitoreService } from 'src/app/Fornitore/fornitori/fornitore.service'
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
+
+  isMenuOpen: boolean = false;  // Variabile di stato per indicare se il menu è aperto
+
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;  // Cambia lo stato del menu (aperto/chiuso)
+  }
+
   items: MenuItem[] = [];
   searchTerm: string = '';
   fornitori: FornitoreDTO[] = [];
