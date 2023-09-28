@@ -1,114 +1,81 @@
-/* Stile per il contenitore principale dell'elenco dei magazzini */
-div.container {
+/* Stili per il tuo componente Angular */
+.elenco-magazzini {
   font-family: Arial, sans-serif;
-  margin: 20px;
+  background-color: #f0e1d2; /* Colore di sfondo marroncino chiaro */
+  border: 1px solid #d7b899; /* Bordo leggero */
+  border-radius: 5px; /* Bordi arrotondati */
   padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  background-color: #f7f7f7;
 }
 
-/* Stile per l'intestazione */
-h2 {
+/* Stile per il titolo */
+.elenco-magazzini h2 {
   font-size: 24px;
-  color: #333;
-  margin-bottom: 10px;
+  color: #6b4e3a; /* Colore titolo marroncino scuro */
+  margin-bottom: 20px; /* Spazio tra il titolo e la tabella */
 }
 
-/* Stile per ogni magazzino */
-div.magazzino {
-  margin-bottom: 20px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
+/* Stile per la tabella responsive */
+.table-responsive {
+  overflow-x: auto; /* Permette lo scorrimento orizzontale su schermi più piccoli */
+}
+
+/* Stile per la tabella */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px; /* Spazio tra la tabella e il prossimo elemento */
+  background-color: #fff; /* Colore di sfondo bianco */
+}
+
+table th,
+table td {
   padding: 10px;
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: left;
 }
 
-/* Stile per il nome del magazzino */
-h3 {
-  font-size: 20px;
-  color: #007BFF;
-  margin-bottom: 5px;
+table th {
+  background-color: #6b4e3a; /* Colore marrone per l'intestazione */
+  color: #fff; /* Testo bianco */
+  font-weight: bold; /* Testo in grassetto */
 }
 
-/* Stile per le altre informazioni del magazzino */
-p {
-  margin: 5px 0;
+table tbody tr:nth-child(even) {
+  background-color: #f2e9e1; /* Colore marroncino chiaro per le righe pari */
 }
 
-/* Stile per la linea orizzontale */
-hr {
-  border: none;
-  border-top: 1px solid #ddd;
-  margin: 10px 0;
+table tbody tr:nth-child(odd) {
+  background-color: #e6d3bf; /* Colore marroncino chiaro per le righe dispari */
 }
 
-/* Stile generico dei pulsanti */
-button {
-  padding: 10px 20px;
-  border: none;
+/* Stile per i pulsanti Modifica ed Elimina */
+table .btn {
   cursor: pointer;
-  font-size: 12px;
-}
-
-/* Stile per il pulsante "Modifica" */
-button.modifica {
-  background-color: #6e849b;
-  color: #fff;
+  padding: 8px 16px;
   margin-right: 10px;
+  border-radius: 5px;
 }
 
-/* Stile per il pulsante "Annulla" */
-button.annulla {
-  background-color: #dc3545;
+table .btn-primary {
+  background-color: #5e402f; /* Marrone scuro per il pulsante Modifica */
   color: #fff;
 }
 
-/* Stile al passaggio del mouse (hover) */
-button:hover {
+table .btn-danger {
+  background-color: #823d3d; /* Marrone più scuro per il pulsante Elimina */
+  color: #fff;
+}
+
+table .btn:hover {
   opacity: 0.8;
 }
-.toast {
-  position: absolute; /* Cambia da fixed a absolute */
-  top: 50%; /* Posiziona il toast verticalmente al centro della pagina */
-  left: 50%; /* Posiziona il toast orizzontalmente al centro della pagina */
-  transform: translate(-50%, -50%); /* Centra il toast rispetto al suo punto di origine (50% dal bordo superiore e 50% dal bordo sinistro) */
-  background-color: #333;
-  color: #fff;
-  padding: 16px;
-  border-radius: 5px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  z-index: 9999;
-  display: none; /* Inizialmente nascosto */
-}
-/* Stile per il toast di successo */
-.toast.success {
-  background-color: #28a745;
+
+/* Stile per i dettagli del magazzino */
+table .nome-magazzino {
+  font-weight: bold; /* Testo in grassetto */
+  color: #5e402f; /* Colore marrone scuro */
 }
 
-/* Stile per il toast di errore */
-.toast.error {
-  background-color: #dc3545;
-}
-
-/* Stile per il testo del toast */
-.toast-message {
-  font-size: 16px;
-  margin: 0;
-}
-
-/* Stile per il pulsante di chiusura del toast */
-.toast-close-button {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  cursor: pointer;
-  color: #fff;
-  font-size: 18px;
-}
-
-/* Stile al passaggio del mouse (hover) per il pulsante di chiusura del toast */
-.toast-close-button:hover {
-  color: #ccc;
+table .attributi-magazzino {
+  font-style: italic; /* Testo in corsivo per gli attributi */
+  color: #6b4e3a; /* Colore marroncino scuro per gli attributi */
 }

@@ -1,33 +1,49 @@
-<div *ngFor="let magazzino of magazzini; let i = index" class="magazzino">
-  <!-- Visualizza i dettagli del magazzino -->
-  <div *ngIf="i !== magazzinoDaModificareIndex">
-    <h3><strong>Nome:</strong> <span class="nome-magazzino">{{ magazzino.nome }}</span></h3>
-    <p><strong>Indirizzo:</strong> {{ magazzino.indirizzo }}</p>
-    <p><strong>Sede:</strong> {{ magazzino.sede }}</p>
-    <p><strong>Capacità Massima:</strong> {{ magazzino.capacitaMassima }}</p>
-
-    <!-- Aggiungi un pulsante per attivare l'eliminazione -->
-    <button (click)="modificaMagazzino(i)">Modifica</button>
-    <!-- Aggiungi un pulsante per attivare l'eliminazione -->
-    <button (click)="eliminaMagazzino(magazzino.nome,i)">Elimina</button>
-  </div>
-  
-  <!-- Include il componente EliminaMagazzinoComponent solo se magazzinoDaEliminareIndex è definito -->
-<div *ngIf="i === magazzinoDaEliminareIndex ">
-  <app-elimina-magazzino 
-    [nomeOriginale]="nomeOriginale ?? null"
-    (eliminazioneConfermata)="eliminazioneConfermata()"
-    (eliminazioneAnnullata)="annullaEliminazioneMagazzino()"></app-elimina-magazzino>
-</div>
-
-
-  <!-- Visualizza il form di modifica quando si modifica un magazzino -->
-  <div *ngIf="i === magazzinoDaModificareIndex">
-    <app-modifica-magazzino
-      [magazzino]="magazzino"
-      [nomeOriginale]="nomeOriginale ?? null"
-      (confermaModifica)="confermaModifica($event)"
-      (annullaModifica)="annullaModifica()"
-    ></app-modifica-magazzino>    
-  </div>
-</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Indirizzo</th>
+      <th>Sede</th>
+      <th>Capacità Massima</th>
+      <th>Azioni</th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngFor="let magazzino of magazzini; let i = index">
+      <tr class="magazzino">
+        <!-- Visualizza i dettagli del magazzino -->
+        <td><strong>Nome:</strong> <span class="nome-magazzino">{{ magazzino.nome }}</span></td>
+        <td><strong>Indirizzo:</strong> {{ magazzino.indirizzo }}</td>
+        <td><strong>Sede:</strong> {{ magazzino.sede }}</td>
+        <td><strong>Capacità Massima:</strong> {{ magazzino.capacitaMassima }}</td>
+        <td>
+          <!-- Aggiungi un pulsante per attivare l'eliminazione -->
+          <button (click)="modificaMagazzino(i)">Modifica</button>
+          <!-- Aggiungi un pulsante per attivare l'eliminazione -->
+          <button (click)="eliminaMagazzino(magazzino.nome, i)">Elimina</button>
+        </td>
+      </tr>
+      <!-- Include il componente EliminaMagazzinoComponent solo se magazzinoDaEliminareIndex è definito -->
+      <tr *ngIf="i === magazzinoDaEliminareIndex ">
+        <td colspan="5">
+          <app-elimina-magazzino 
+            [nomeOriginale]="nomeOriginale ?? null"
+            (eliminazioneConfermata)="eliminazioneConfermata()"
+            (eliminazioneAnnullata)="annullaEliminazioneMagazzino()">
+          </app-elimina-magazzino>
+        </td>
+      </tr>
+      <!-- Visualizza il form di modifica quando si modifica il magazzino corrente -->
+      <tr *ngIf="i === magazzinoDaModificareIndex">
+        <td colspan="5">
+          <app-modifica-magazzino
+            [magazzino]="magazzino"
+            [nomeOriginale]="nomeOriginale ?? null"
+            (confermaModifica)="confermaModifica($event)"
+            (annullaModifica)="annullaModifica()">
+          </app-modifica-magazzino>    
+        </td>
+      </tr>
+    </ng-container>
+  </tbody>
+</table>
