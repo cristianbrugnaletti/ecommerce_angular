@@ -13,7 +13,7 @@ export class MagazziniComponent implements OnInit {
   magazzinoDaModificareIndex: number | null = null;
   nomeOriginale: string | null = null;
   magazzinoDaEliminareIndex: number | null = null;
-  eliminazioneAttiva: boolean = false;
+
 
   constructor(private magazzinoService: MagazzinoService, private toastr: ToastrService) {}
 
@@ -50,25 +50,26 @@ export class MagazziniComponent implements OnInit {
   annullaModifica() {
     this.magazzinoDaModificareIndex = null;
     this.nomeOriginale = null;
+
   }
 
-
-  eliminaMagazzino(nomeMagazzino: string | undefined) {
+  eliminaMagazzino(nomeMagazzino: string | undefined, index: number) {
     if (nomeMagazzino) {
       this.nomeOriginale = nomeMagazzino;
-      this.eliminazioneAttiva = true; // Attiva l'eliminazione
+      this.magazzinoDaEliminareIndex = index;
     }
   }
 
   eliminazioneConfermata() {
+    if (this.nomeOriginale && this.magazzinoDaEliminareIndex !== null) {
           this.nomeOriginale = null;
-          this.eliminazioneAttiva = false; // Disattiva l'eliminazione
+          this.magazzinoDaEliminareIndex = null;
           this.getMagazzini();
+    }
   }
   
   annullaEliminazioneMagazzino() {
     this.magazzinoDaEliminareIndex = null;
     this.nomeOriginale = null;
-    this.eliminazioneAttiva = false; // Disattiva l'eliminazione
   }
 }

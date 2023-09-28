@@ -21,11 +21,12 @@ export class ModificaMagazzinoComponent {
       this.magazzinoService.modificaMagazzino(this.nomeOriginale, this.magazzino).subscribe(
         (magazzinoModificato: MagazzinoDTO) => {
           // Emetti l'evento confermaModifica con il magazzino modificato
+          alert('Magazzino modificato con successo!');
           this.confermaModifica.emit(magazzinoModificato);
-         alert('Magazzino modificato con successo!')
             
         },
         (error) => {
+          alert('Errore durante la modifica del magazzino');
           console.error('Si è verificato un errore durante la modifica del magazzino:', error);
         }
       );
