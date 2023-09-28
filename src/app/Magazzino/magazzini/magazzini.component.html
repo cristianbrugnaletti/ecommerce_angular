@@ -11,6 +11,14 @@
     <!-- Aggiungi un pulsante per attivare l'eliminazione -->
     <button (click)="eliminaMagazzino(magazzino.nome)">Elimina</button>
   </div>
+  
+  <!-- Include il componente EliminaMagazzinoComponent solo se magazzinoDaEliminareIndex è definito -->
+  <div *ngIf="i === magazzinoDaEliminareIndex">
+    <app-elimina-magazzino 
+      [nomeOriginale]="nomeOriginale ?? null"
+      (eliminazioneConfermata)="eliminazioneConfermata()"
+      (eliminazioneAnnullata)="annullaEliminazioneMagazzino()"></app-elimina-magazzino>
+  </div>
 
   <!-- Visualizza il form di modifica quando si modifica un magazzino -->
   <div *ngIf="i === magazzinoDaModificareIndex">
@@ -21,13 +29,4 @@
       (annullaModifica)="annullaModifica()"
     ></app-modifica-magazzino>    
   </div>
-</div>
-
-<div *ngIf="eliminazioneAttiva">
-  <!-- Include il componente EliminaMagazzinoComponent solo se è attivo -->
-  <app-elimina-magazzino 
-    [nomeOriginale]="nomeOriginale ?? null"
-    (eliminazioneConfermata)="eliminazioneConfermata()"
-    (eliminazioneAnnullata)="annullaEliminazioneMagazzino()"
-  ></app-elimina-magazzino>
 </div>

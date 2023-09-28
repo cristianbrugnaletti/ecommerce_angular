@@ -44,9 +44,6 @@ export class MagazziniComponent implements OnInit {
 
     this.magazzinoDaModificareIndex = null;
     this.nomeOriginale = null;
-
-    alert('Magazzino modificato con successo!');
-
     this.getMagazzini();
   }
 
@@ -66,7 +63,6 @@ export class MagazziniComponent implements OnInit {
   eliminazioneConfermata() {
           this.nomeOriginale = null;
           this.eliminazioneAttiva = false; // Disattiva l'eliminazione
-          alert('Magazzino eliminato con successo!');
           this.getMagazzini();
   }
   
