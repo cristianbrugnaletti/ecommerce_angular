@@ -45,5 +45,6 @@ label{
   opacity: 0.8;
 }
 .modifica-fornitore button{
+  cursor: pointer;
   font-weight: bold;
 }
