@@ -1,3 +1,4 @@
+@import "primeicons/primeicons.css";
 /* Stile generale per il contenitore della pagina */
 .container {
   max-width: 800px;
@@ -18,20 +19,29 @@ div {
   margin-bottom: 20px;
 }
 
-/* Stile per i pulsanti Modifica ed Elimina */
+/* Aggiungi queste regole al tuo foglio di stile CSS */
+/* Rendi il contenitore dei pulsanti un flex container */
 button {
-  margin-right: 10px;
+  display: flex;
+  justify-content: space-between; /* Allinea orizzontalmente i pulsanti e lo spazio tra di essi */
+  align-items: center; /* Allinea verticalmente il testo e l'icona */
   padding: 5px 10px;
-  background-color: #007bff;
+  background-color: #ffffff;
   color: #fff;
   border: none;
   cursor: pointer;
 }
 
-/* Stile specifico per il pulsante Elimina */
-.elimina-button {
-  background-color: #dc3545;
+/* Stile per il pulsante Elimina (rosso) */
+button.custom-red-icon .pi {
+  color: red !important; /* Sovrascrivi il colore predefinito con rosso */
 }
+
+/* Stile per il pulsante Modifica (verde) */
+button.custom-green-icon .pi {
+  color: green !important; /* Sovrascrivi il colore predefinito con verde */
+}
+
 
 /* Stile per il testo in grassetto */
 strong {
@@ -73,4 +83,13 @@ input[type="number"] {
 /* Stile per il pulsante Annulla */
 .button-group button.btn-secondary {
   background-color: #ccc;
+}
+
+/* Aggiungi questa regola nel tuo foglio di stile CSS */
+.custom-red-icon {
+  color: red !important; /* Sovrascrivi il colore predefinito con rosso */
+}
+
+.custom-green-icon {
+  color: green !important; /* Sovrascrivi il colore predefinito con verde */
 }

@@ -33,7 +33,8 @@ import { EliminaMagazzinoComponent } from './Magazzino/elimina-magazzino/elimina
 import { ModificaProdottoComponent } from './Prodotto/modifica-prodotto/modifica-prodotto.component';
 import { AddProdottoComponent } from './Prodotto/add-prodotto/add-prodotto.component';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { TableModule } from 'primeng/table';
+import { InputTextModule } from 'primeng/inputtext';
 
 @NgModule({
   declarations: [
@@ -73,6 +74,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     FormsModule,
     AppRoutingModule,
+    TableModule,
+    InputTextModule,
     ReactiveFormsModule,
     ToastrModule.forRoot({
       timeOut: 3000,

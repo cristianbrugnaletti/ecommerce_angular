@@ -1,8 +1,8 @@
-<div >
+<div>
   <h2>Elenco Prodotti</h2>
 
-  <div *ngFor="let prodotto of prodotti; let i = index" >
-    <!-- Visualizza i dettagli del magazzino -->
+  <div *ngFor="let prodotto of prodotti; let i = index" class="prodotto">
+    <!-- Visualizza i dettagli del prodotto -->
     <div *ngIf="i !== prodottoDaModificareIndex">
       <h3><strong>Nome:</strong> <span>{{ prodotto.nome }}</span></h3>
       <p><strong>Marca:</strong> {{ prodotto.marca }}</p>
@@ -12,21 +12,22 @@
       <p><strong>Quantità:</strong>{{ prodotto.quantita }}</p>
       
       <!-- Aggiungi un pulsante o un link per attivare la modifica -->
-      <button (click)="modificaProdotto(i)">Modifica</button>
-      <button class="elimina-button" (click)="rimuoviProdotto(prodotto)">Elimina</button>
+      <button class="pi pi-file-edit custom-green-icon" (click)="modificaProdotto(i)"></button>
+      <button class="pi pi-trash custom-red-icon" (click)="rimuoviProdotto(prodotto)"></button>
     </div>
   
-    <!-- Visualizza il form di modifica quando si modifica un magazzino -->
+    <!-- Visualizza il form di modifica quando si modifica un prodotto -->
     <div *ngIf="i === prodottoDaModificareIndex">
       <app-modifica-prodotto
-      [prodotto]="prodotto"
-      [nomeOriginale]="nomeOriginale ?? null"
-      (confermaModifica)="confermaModifica($event)"
-      (annullaModifica)="annullaModifica(i)"
+        [prodotto]="prodotto"
+        [nomeOriginale]="nomeOriginale ?? null"
+        (confermaModifica)="confermaModifica($event)"
+        (annullaModifica)="annullaModifica(i)"
       ></app-modifica-prodotto> 
     </div>
   </div>
-</div>
-<div *ngIf="prodotti.length === 0">
-  Nessun prodotto trovato.
+
+  <div *ngIf="prodotti.length === 0" class="nessun-prodotto">
+    Nessun prodotto trovato.
+  </div>
 </div>
