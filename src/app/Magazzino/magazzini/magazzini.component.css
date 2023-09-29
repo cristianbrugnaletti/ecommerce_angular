@@ -83,3 +83,7 @@ table .btn i {
 table .btn:hover {
   opacity: 0.9; /* Leggero aumento dell'opacità al passaggio del mouse */
 }
+.btn-primary {
+  background-color: #5e402f; /* Marrone scuro per il pulsante Modifica */
+  color: #fff;
+}
