@@ -1,57 +1,62 @@
+<div class="elenco-magazzini">
+  <h2>Elenco Magazzini</h2>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Nome</th>
-      <th>Indirizzo</th>
-      <th>Sede</th>
-      <th>Capacità Massima</th>
-      <th>Azioni</th>
-    </tr>
-  </thead>
-  <tbody>
-    <ng-container *ngFor="let magazzino of magazzini; let i = index">
-      <tr class="magazzino">
-        <!-- Visualizza i dettagli del magazzino -->
-        <td><strong>Nome:</strong> <span class="nome-magazzino">{{ magazzino.nome }}</span></td>
-        <td><strong>Indirizzo:</strong> {{ magazzino.indirizzo }}</td>
-        <td><strong>Sede:</strong> {{ magazzino.sede }}</td>
-        <td><strong>Capacità Massima:</strong> {{ magazzino.capacitaMassima }}</td>
-        <td>
-         <!-- Pulsante "Modifica" con icona -->
-    <button (click)="modificaMagazzino(i)" class="btn btn-modifica">
-      <i class="pi pi-pencil"></i> Modifica
-    </button>
+  <!-- Pulsante per aprire/chiudere il form di ricerca -->
+  <button class="btn btn-cerca" (click)="toggleRicerca()">Cerca</button>
 
-    <!-- Pulsante "Elimina" con icona -->
-    <button (click)="eliminaMagazzino(magazzino.nome, i)" class="btn btn-elimina">
-      <i class="pi pi-trash"></i> Elimina
-    </button>
+  <!-- Form di ricerca (inizialmente nascosto) -->
+  <div class="form-ricerca" *ngIf="mostraFormRicerca">
+    <form [formGroup]="searchForm" (ngSubmit)="ricercaMagazzini()">
+      <div class="form-group">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" formControlName="nome">
+      </div>
+      <div class="form-group">
+        <label for="indirizzo">Indirizzo:</label>
+        <input type="text" id="indirizzo" formControlName="indirizzo">
+      </div>
+      <div class="form-group">
+        <label for="sede">Sede:</label>
+        <input type="text" id="sede" formControlName="sede">
+      </div>
+      <div class="form-group">
+        <label for="capacitaMassima">Capacità Massima:</label>
+        <input type="number" id="capacitaMassima" formControlName="capacitaMassima">
+      </div>
+      <button type="submit" class="btn btn-ricerca">Esegui Ricerca</button>
+    </form>
+  </div>
 
-        </td>        
-        
-      </tr>
-      <!-- Include il componente EliminaMagazzinoComponent solo se magazzinoDaEliminareIndex è definito -->
-      <tr *ngIf="i === magazzinoDaEliminareIndex ">
-        <td colspan="5">
-          <app-elimina-magazzino 
-            [nomeOriginale]="nomeOriginale ?? null"
-            (eliminazioneConfermata)="eliminazioneConfermata()"
-            (eliminazioneAnnullata)="annullaEliminazioneMagazzino()">
-          </app-elimina-magazzino>
-        </td>
-      </tr>
-      <!-- Visualizza il form di modifica quando si modifica il magazzino corrente -->
-      <tr *ngIf="i === magazzinoDaModificareIndex">
-        <td colspan="5">
-          <app-modifica-magazzino
-            [magazzino]="magazzino"
-            [nomeOriginale]="nomeOriginale ?? null"
-            (confermaModifica)="confermaModifica($event)"
-            (annullaModifica)="annullaModifica()">
-          </app-modifica-magazzino>    
-        </td>
-      </tr>
-    </ng-container>
-  </tbody>
-</table>
+  <!-- Tabella degli Magazzini -->
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Indirizzo</th>
+          <th>Sede</th>
+          <th>Capacità Massima</th>
+          <th>Azioni</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let magazzino of magazzini; let i = index">
+          <tr class="magazzino">
+            <td><strong>Nome:</strong> <span class="nome-magazzino">{{ magazzino.nome }}</span></td>
+            <td><strong>Indirizzo:</strong> {{ magazzino.indirizzo }}</td>
+            <td><strong>Sede:</strong> {{ magazzino.sede }}</td>
+            <td><strong>Capacità Massima:</strong> {{ magazzino.capacitaMassima }}</td>
+            <td>
+              <button class="btn btn-modifica" (click)="modificaMagazzino(i)">
+                <i class="pi pi-pencil"></i> Modifica
+              </button>
+              <button class="btn btn-elimina" (click)="eliminaMagazzino(magazzino.nome, i)">
+                <i class="pi pi-trash"></i> Elimina
+              </button>
+            </td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
+</div>
