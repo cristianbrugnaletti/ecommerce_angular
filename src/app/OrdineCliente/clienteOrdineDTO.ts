@@ -4,5 +4,6 @@ export class ClienteOrdineDTO {
   dataInvioOrdine?: string;
   cliente?: ClienteDTO;
   prezzoTotale: number = 0;
-
+  clienteOrdineId: number = 0;
+  prodotti: string[] = []; 
 }
