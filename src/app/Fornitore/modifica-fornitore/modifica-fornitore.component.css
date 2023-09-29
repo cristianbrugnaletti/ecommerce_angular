@@ -6,7 +6,7 @@
 
 .modifica-fornitore .form-group {
   flex: 1;
-  margin-right: 10px; /* Spazio tra i campi */
+  margin-right: 8px; /* Spazio tra i campi */
 }
 
 .modifica-fornitore .form-group:last-child {
@@ -41,5 +41,10 @@ label{
 
 /* Stile al passaggio del mouse (hover) */
 .modifica-fornitore button:hover {
+  
   opacity: 0.8;
+}
+.modifica-fornitore button{
+  cursor: pointer;
+  font-weight: bold;
 }

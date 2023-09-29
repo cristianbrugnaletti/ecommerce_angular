@@ -12,6 +12,8 @@ export class FornitoriComponent implements OnInit {
 
   fornitoreInModifica: FornitoreDTO | null = null;
 
+  modificaAperta: boolean = false;
+
   // Inietta il servizio Router
   
   fornitori: FornitoreDTO[] = [];
@@ -61,7 +63,15 @@ export class FornitoriComponent implements OnInit {
 
   // Funzione per avviare la modifica di un fornitore
   modificaFornitore(fornitore: FornitoreDTO) {
-    this.fornitoreInModifica = fornitore;
+    // Se il fornitore è già in modifica, chiudiamo il form
+    if (this.fornitoreInModifica && this.fornitoreInModifica.id === fornitore.id) {
+      this.fornitoreInModifica = null;
+      this.modificaAperta = false;
+    } else {
+      // Altrimenti, avviamo la modifica del fornitore
+      this.fornitoreInModifica = fornitore;
+      this.modificaAperta = true;
+    }
   }
 
   // Funzione per gestire la modifica completata
@@ -69,6 +79,7 @@ export class FornitoriComponent implements OnInit {
     // Qui puoi eseguire il reindirizzamento alla pagina dei fornitori
     this.fornitoreInModifica = null; // Imposta il fornitoreInModifica su null
     this.caricaFornitori();
+   
     // Mostra una notifica popup di successo
     this.toastr.success('Fornitore modificato con successo!', 'Successo', {
       timeOut: 2000, // Durata del toast in millisecondi
@@ -77,6 +88,7 @@ export class FornitoriComponent implements OnInit {
       positionClass: 'toast-bottom-right', // Posizione del toast
       enableHtml: true, // Abilita HTML nel messaggio
       toastClass: 'custom-toast' // Classe CSS personalizzata per il toast
+      
     });
      // Assicurati che la rotta sia configurata correttamente
   }
@@ -85,17 +97,17 @@ export class FornitoriComponent implements OnInit {
 
 
 
-avviaModifica(fornitore: FornitoreDTO): void {
-  // Copia il fornitore in una nuova variabile per evitare modifiche dirette
-  const fornitoreInModifica = { ...fornitore };
 
-  // Assegna il fornitore copiato alla variabile fornitoreInModifica
-  this.fornitoreInModifica = fornitoreInModifica;
-}
+  avviaModifica(fornitore: FornitoreDTO): void {
+    this.fornitoreInModifica = fornitore;
+    
+  }
+
 
 gestisciAnnullaModifica() {
   this.fornitoreInModifica = null; // Imposta il fornitoreInModifica su null
-  this.caricaFornitori(); // Ricarica l'elenco dei fornitori
+  this.caricaFornitori();
+   // Ricarica l'elenco dei fornitori
 }
 
     }
