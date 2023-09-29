@@ -1,37 +1,59 @@
-<div *ngIf="prodotti.length > 0">
-  <table>
-    <thead>
-      <tr>
-        <th>Nome</th>
-        <th>Marca</th>
-        <th>Descrizione</th>
-        <th>Prezzo</th>
-        <th>IVA</th>
-        <th>Quantità</th>
-        <th>Sotto Categoria</th>
-        <th>Aggiungi al carrello</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let prodotto of prodotti">
-        <td>{{ prodotto.nome }}</td>
-        <td>{{ prodotto.marca }}</td>
-        <td>{{ prodotto.descrizione }}</td>
-        <td>{{ prodotto.prezzo }}</td>
-        <td>{{ prodotto.iva }}</td>
-        <td>{{ prodotto.quantita }}</td>
-        <td>
-          <ng-container *ngFor="let categoria of prodotto.sottoCategoria; let last = last">
-            {{ categoria }}{{ last ? '' : ', ' }}
-          </ng-container>
-        </td>
-        <td>
-          <button (click)="aggiungiRigaDOrdine(prodotto)">Aggiungi al carrello</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+<div *ngIf="mostraDettagliOrdine; else carrelloSection">
+  <!-- Sezione dell'ordine effettuato -->
+  <h2>Ordine Effettuato</h2>
+  <!-- Mostra qui i dettagli dell'ordine cliente, ad esempio ID dell'ordine, data, dettagli prodotti, ecc. -->
+  <p>Prezzo Totale: {{ ordineEffettuato ? ordineEffettuato.prezzoTotale : 'N/A' }}</p>
+  <p>Data Ordine: {{ ordineEffettuato ? ordineEffettuato.dataInvioOrdine : 'N/A' }}</p>
+  <ul *ngIf="ordineEffettuato && ordineEffettuato.prodotti.length > 0">
+    <li *ngFor="let prodotto of ordineEffettuato.prodotti">
+      {{ prodotto }}
+    </li>
+  </ul>
+
+  
+  <!-- Aggiungi altri dettagli dell'ordine qui -->
+
+  <!-- Pulsanti per gestire l'ordine effettuato -->
+  <button (click)="tornaAllaListaOrdini()">Torna alla lista di Ordini Clienti</button>
+  <button (click)="creaNuovoOrdine()">Nuovo Ordine Cliente</button>
 </div>
+
+<ng-template #carrelloSection>
+  <!-- Sezione del carrello e dei prodotti -->
+  <div *ngIf="prodotti.length > 0">
+    <table>
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Marca</th>
+          <th>Descrizione</th>
+          <th>Prezzo</th>
+          <th>IVA</th>
+          <th>Quantità</th>
+          <th>Sotto Categoria</th>
+          <th>Aggiungi al carrello</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let prodotto of prodotti">
+          <td>{{ prodotto.nome }}</td>
+          <td>{{ prodotto.marca }}</td>
+          <td>{{ prodotto.descrizione }}</td>
+          <td>{{ prodotto.prezzo }}</td>
+          <td>{{ prodotto.iva }}</td>
+          <td>{{ prodotto.quantita }}</td>
+          <td>
+            <ng-container *ngFor="let categoria of prodotto.sottoCategoria; let last = last">
+              {{ categoria }}{{ last ? '' : ', ' }}
+            </ng-container>
+          </td>
+          <td>
+            <button (click)="aggiungiRigaDOrdine(prodotto)">Aggiungi al carrello</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
   
   <!-- Carrello -->
   <div *ngIf="carrello.length > 0">
@@ -42,15 +64,13 @@
         <button (click)="rimuoviProdottoDalCarrello(prodotto)">Rimuovi</button>
       </li>
     </ul>
+  
+    <h2>Prezzo Totale: {{ prezzoTotaleOrdine }}</h2>
+    <button (click)="confermaOrdine()">Conferma Ordine</button>
   </div>
 
-  <div *ngIf="carrello.length > 0">
-    <h2>Prezzo Totale: {{ prezzoTotaleOrdine }}</h2>
-    <button (click)="confermaOrdine(); carrello = []">Conferma Ordine</button>
-    <p *ngIf="carrello.length === 0">Ordine confermato! I prodotti sono stati rimossi dal carrello.</p>
-  </div>
-  
+  <!-- Nessun prodotto trovato -->
   <div *ngIf="prodotti.length === 0">
     Nessun prodotto trovato.
   </div>
-  
+</ng-template>
