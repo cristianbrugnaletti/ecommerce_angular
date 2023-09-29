@@ -1,3 +1,4 @@
+<div class="container">
 <table class="clienti-table" *ngIf="clienti">
   <thead>
     <tr>
@@ -5,7 +6,6 @@
       <th>Cognome</th>
       <th>Username</th>
       <th>Email</th>
-      <!-- Altre intestazioni di colonna se necessario -->
     </tr>
   </thead>
   <tbody>
@@ -14,7 +14,16 @@
       <td>{{ cliente.cognome }}</td>
       <td>{{ cliente.username }}</td>
       <td>{{ cliente.email }}</td>
-      <!-- Altre celle di dati se necessario -->
+      <td></td>
+      <button class="btn btn-primary">
+        <i class="pi pi-file-edit"></i> <!-- Icona "Modifica" -->
+      </button>
+      <button class="btn btn-danger">
+        <i class="pi pi-trash"></i> 
+      </button>
     </tr>
+
+  
   </tbody>
 </table>
+</div>

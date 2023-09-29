@@ -1,5 +1,16 @@
 /* Stile per la tabella dei clienti */
+
+
+/* Imposta la larghezza al 100% e rimuovi margini e padding dal contenitore */
+.container {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+
 .clienti-table {
+  
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
@@ -12,7 +23,7 @@
   
   /* Stile per le celle dell'intestazione */
   .clienti-table th {
-    padding: 10px;
+    
     text-align: left;
     border-bottom: 2px solid #ccc;
   }
@@ -24,7 +35,7 @@
   
   /* Stile per le celle delle righe della tabella */
   .clienti-table td {
-    padding: 10px;
+    
     border-bottom: 1px solid #ccc;
   }
   
@@ -37,4 +48,26 @@
   .clienti-table tbody tr td:last-child {
     border-bottom: none;
   }
+  .btn i.pi {
+    font-size: 1.1em; /* Modifica la dimensione dell'icona a tuo piacimento */
+  }
+  .btn {
+    cursor: pointer;
+    padding: 5px 13px;
+    
+    border-radius: 5px;
+  }
   
+  .btn-primary {
+    background-color: #125a07; /* Marrone scuro per il pulsante Modifica */
+    color: #fff;
+  }
+  
+  .btn-danger {
+    background-color: #e40000; /* Marrone più scuro per il pulsante Elimina */
+    color: #fff;
+  }
+  
+  .btn:hover {
+    opacity: 0.8;
+  }
