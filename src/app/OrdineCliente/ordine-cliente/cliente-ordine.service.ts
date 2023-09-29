@@ -10,7 +10,7 @@ import { ClienteOrdineDTO } from '../clienteOrdineDTO';
   providedIn: 'root'
 })
 export class ClienteOrdineService {
-  private apiUrl = 'http://localhost:8080'; 
+  private apiUrl = 'http://192.168.239.133:8080'; 
 
   constructor(private http: HttpClient) { }
 

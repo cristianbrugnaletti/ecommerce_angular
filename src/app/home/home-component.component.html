@@ -10,9 +10,7 @@
           <p class="card-text">Prezzo: {{ prodotto.prezzo }}</p>
           <p class="card-text">IVA: {{ prodotto.iva }}</p>
           <p class="card-text">Quantità: {{ prodotto.quantita }}</p>
-         <p> Sottocategoria:<ng-container *ngFor="let categoria of prodotto.sottoCategoria; let last = last">
-            {{ categoria }}{{ last ? '' : ', ' }}
-          </ng-container> </p>
+         
           <button (click)="(prodotto)" class="btn btn-primary">Aggiungi al Carrello</button>
         </div>
       </div>

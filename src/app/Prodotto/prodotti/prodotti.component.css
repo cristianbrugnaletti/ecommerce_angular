@@ -1,58 +1,76 @@
-/* Stile generale della tabella */
-table {
-    border-collapse: collapse;
-    width: 100%;
-    margin: 20px 0;
-    font-family: Arial, sans-serif;
-  }
-  
-  /* Stile dell'intestazione della tabella */
-  th {
-    background-color: #f2f2f2;
-    text-align: left;
-    padding: 8px;
-    border: 1px solid #ddd;
-  }
-  
-  /* Stile delle celle della tabella */
-  td {
-    border: 1px solid #ddd;
-    padding: 8px;
-  }
-  
-  /* Stile delle righe alternate */
-  tr:nth-child(even) {
-    background-color: #f2f2f2;
-  }
-  
-  /* Stile del titolo sopra la tabella */
-  h2 {
-    font-size: 18px;
-    margin-bottom: 10px;
-  }
-  
-  /* Stile del campo di ricerca */
-  input[type="text"] {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
-  
-  /* Stile del pulsante di ricerca */
-  button[type="submit"] {
-    background-color: #4caf50;
-    color: white;
-    padding: 8px 12px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  /* Stile del pulsante di ricerca al passaggio del mouse */
-  button[type="submit"]:hover {
-    background-color: #45a049;
-  }
-  
+/* Stile generale per il contenitore della pagina */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Stile per l'header "Elenco Prodotti" */
+h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Stile per le singole voci di prodotto */
+div {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+/* Stile per i pulsanti Modifica ed Elimina */
+button {
+  margin-right: 10px;
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+/* Stile specifico per il pulsante Elimina */
+.elimina-button {
+  background-color: #dc3545;
+}
+
+/* Stile per il testo in grassetto */
+strong {
+  font-weight: bold;
+}
+
+/* Stile per le categorie */
+ng-container {
+  font-style: italic;
+}
+
+/* Stile per il messaggio "Nessun prodotto trovato" */
+div:empty::before {
+  content: "Nessun prodotto trovato.";
+  font-style: italic;
+  color: #999;
+}
+
+/* Stile per il form di modifica */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Stile per gli input nel form di modifica */
+input[type="text"],
+input[type="number"] {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Stile per il pulsante Salva Modifiche */
+.button-group button.btn-primary {
+  background-color: #28a745;
+}
+
+/* Stile per il pulsante Annulla */
+.button-group button.btn-secondary {
+  background-color: #ccc;
+}
