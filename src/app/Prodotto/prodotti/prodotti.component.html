@@ -1,33 +1,42 @@
-<div>
-  <h2>Elenco Prodotti</h2>
-
-  <div *ngFor="let prodotto of prodotti; let i = index" class="prodotto">
-    <!-- Visualizza i dettagli del prodotto -->
-    <div *ngIf="i !== prodottoDaModificareIndex">
-      <h3><strong>Nome:</strong> <span>{{ prodotto.nome }}</span></h3>
-      <p><strong>Marca:</strong> {{ prodotto.marca }}</p>
-      <p><strong>Descrizione:</strong>{{ prodotto.descrizione }}</p>
-      <p><strong>Prezzo:</strong>{{ prodotto.prezzo }}</p>
-      <p><strong>Partita IVA:</strong>{{ prodotto.iva }}</p>
-      <p><strong>Quantità:</strong>{{ prodotto.quantita }}</p>
-      
-      <!-- Aggiungi un pulsante o un link per attivare la modifica -->
-      <button class="pi pi-file-edit custom-green-icon" (click)="modificaProdotto(i)"></button>
-      <button class="pi pi-trash custom-red-icon" (click)="rimuoviProdotto(prodotto)"></button>
-    </div>
-  
-    <!-- Visualizza il form di modifica quando si modifica un prodotto -->
-    <div *ngIf="i === prodottoDaModificareIndex">
-      <app-modifica-prodotto
-        [prodotto]="prodotto"
-        [nomeOriginale]="nomeOriginale ?? null"
-        (confermaModifica)="confermaModifica($event)"
-        (annullaModifica)="annullaModifica(i)"
-      ></app-modifica-prodotto> 
-    </div>
-  </div>
-
-  <div *ngIf="prodotti.length === 0" class="nessun-prodotto">
-    Nessun prodotto trovato.
-  </div>
-</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Marca</th>
+      <th>Descrizione</th>
+      <th>Prezzo</th>
+      <th>Partita IVA</th>
+      <th>Quantità</th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngFor="let prodotto of prodotti; let i = index">
+      <tr class="magazzino">
+        <!-- Visualizza i dettagli del magazzino -->
+        <td><strong>Nome:</strong> <span class="nome-magazzino">{{ prodotto.nome }}</span></td>
+        <td><strong>Marca:</strong> {{ prodotto.marca }}</td>
+        <td><strong>Descrizione:</strong> {{ prodotto.descrizione }}</td>
+        <td><strong>Prezzo:</strong> {{ prodotto.prezzo }}</td>
+        <td><strong>Partita IVA:</strong> {{ prodotto.iva }}</td>
+        <td><strong>Quantità:</strong> {{ prodotto.quantita }}</td>
+        <td>
+          <!-- Aggiungi un pulsante per attivare l'eliminazione -->
+          <button class="pi pi-file-edit custom-green-icon" (click)="modificaProdotto(i)"></button>
+          <!-- Aggiungi un pulsante per attivare l'eliminazione -->
+          <button class="pi pi-trash custom-red-icon" (click)="rimuoviProdotto(prodotto)"></button>
+        </td>
+      </tr>
+      <!-- Visualizza il form di modifica quando si modifica il magazzino corrente -->
+      <tr *ngIf="i === prodottoDaModificareIndex">
+        <td colspan="5">
+          <app-modifica-prodotto
+            [prodotto]="prodotto"
+            [nomeOriginale]="nomeOriginale ?? null"
+            (confermaModifica)="confermaModifica($event)"
+            (annullaModifica)="annullaModifica(i)">
+          </app-modifica-prodotto>    
+        </td>
+      </tr>
+    </ng-container>
+  </tbody>
+</table>
