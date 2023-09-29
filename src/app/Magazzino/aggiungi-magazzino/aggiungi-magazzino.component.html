@@ -1,40 +1,41 @@
 <div>
   <h2>Aggiungi Magazzino</h2>
 
-  <!-- Mostra il form solo se successMessage non è definito -->
-  <form *ngIf="!successMessage" (submit)="aggiungiMagazzino()">
+  <!-- Form con controlli di validazione -->
+  <form [formGroup]="magazzinoForm" (submit)="aggiungiMagazzino()">
     <div class="form-group">
       <label for="nome">Nome:</label>
-      <input type="text" id="nome" name="nome" [(ngModel)]="magazzino.nome" required>
+      <input type="text" id="nome" name="nome" formControlName="nome">
+      <div *ngIf="magazzinoForm.get('nome')?.invalid && magazzinoForm.get('nome')?.touched">
+        <div *ngIf="magazzinoForm.get('nome')?.hasError('required')">Il campo Nome è obbligatorio.</div>
+        <div *ngIf="magazzinoForm.get('nome')?.hasError('minlength')">Il campo Nome deve contenere almeno 3 caratteri.</div>
+      </div>
     </div>
 
     <div class="form-group">
       <label for="indirizzo">Indirizzo:</label>
-      <input type="text" id="indirizzo" name="indirizzo" [(ngModel)]="magazzino.indirizzo" required>
+      <input type="text" id="indirizzo" name="indirizzo" formControlName="indirizzo">
+      <div *ngIf="magazzinoForm.get('indirizzo')?.invalid && magazzinoForm.get('indirizzo')?.touched">
+        <div *ngIf="magazzinoForm.get('indirizzo')?.hasError('required')">Il campo Indirizzo è obbligatorio.</div>
+      </div>
     </div>
 
     <div class="form-group">
       <label for="sede">Sede:</label>
-      <input type="text" id="sede" name="sede" [(ngModel)]="magazzino.sede" required>
+      <input type="text" id="sede" name="sede" formControlName="sede">
+      <div *ngIf="magazzinoForm.get('sede')?.invalid && magazzinoForm.get('sede')?.touched">
+        <div *ngIf="magazzinoForm.get('sede')?.hasError('required')">Il campo Sede è obbligatorio.</div>
+      </div>
     </div>
 
     <div class="form-group">
       <label for="capacitaMassima">Capacità Massima:</label>
-      <input type="number" id="capacitaMassima" name="capacitaMassima" [(ngModel)]="magazzino.capacitaMassima" required>
+      <input type="number" id="capacitaMassima" name="capacitaMassima" formControlName="capacitaMassima" placeholder="0">
+      <div *ngIf="magazzinoForm.get('capacitaMassima')?.invalid && magazzinoForm.get('capacitaMassima')?.touched">
+        <div *ngIf="magazzinoForm.get('capacitaMassima')?.hasError('required')">Il campo Capacità Massima è obbligatorio.</div>
+        <div *ngIf="magazzinoForm.get('capacitaMassima')?.hasError('min')">Il campo Capacità Massima deve essere maggiore di 0.</div>
+      </div>
     </div>
-
     <button type="submit">Aggiungi Magazzino</button>
   </form>
-
-  <!-- Mostra i pulsanti solo se successMessage è definito e aggiungiNuovoMagazzino è true -->
-  <div *ngIf="successMessage && aggiungiNuovoMagazzino" class="success-message">
-    {{ successMessage }}
-    <button (click)="aggiungiAltroMagazzino()">Aggiungi un altro Magazzino</button>
-    <button (click)="tornaAListaMagazzini()">Torna alla lista di Magazzini</button>
-  </div>
-
-  <!-- Messaggio di errore -->
-  <div *ngIf="errorMessage" class="error-message">
-    {{ errorMessage }}
-  </div>
 </div>
