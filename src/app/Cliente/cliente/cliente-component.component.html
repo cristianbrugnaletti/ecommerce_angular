@@ -1,13 +1,20 @@
-<div *ngIf="clienti">
-    <h2>Elenco clienti</h2>
-    <ul>
-      <li *ngFor="let cliente of clienti">
-        <h3>{{ cliente.nome }}</h3>
-        <p><strong>Cognome:</strong> {{ cliente.cognome }}</p>
-        <p><strong>Username:</strong> {{ cliente.username }}</p>
-        <p><strong>Email:</strong> {{ cliente.email }}</p>
-        <!-- Altre informazioni del fornitore -->
-        <hr>
-      </li>
-    </ul>
-  </div>
+<table class="clienti-table" *ngIf="clienti">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Cognome</th>
+      <th>Username</th>
+      <th>Email</th>
+      <!-- Altre intestazioni di colonna se necessario -->
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let cliente of clienti">
+      <td class="nome">{{ cliente.nome }}</td>
+      <td>{{ cliente.cognome }}</td>
+      <td>{{ cliente.username }}</td>
+      <td>{{ cliente.email }}</td>
+      <!-- Altre celle di dati se necessario -->
+    </tr>
+  </tbody>
+</table>
