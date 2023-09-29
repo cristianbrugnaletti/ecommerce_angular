@@ -132,8 +132,12 @@ font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 li.search input[type="text"] {
+ 
   width: 70%; /* Imposta la larghezza desiderata */
 }
 
+li.search{
+  margin-left: 3%;
+}
 
 
