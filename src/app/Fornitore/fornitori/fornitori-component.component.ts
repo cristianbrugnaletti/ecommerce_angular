@@ -11,7 +11,7 @@ import { ToastrService } from 'ngx-toastr';
 export class FornitoriComponent implements OnInit {
 
   fornitoreInModifica: FornitoreDTO | null = null;
-
+  
   // Inietta il servizio Router
   
   fornitori: FornitoreDTO[] = [];
@@ -85,13 +85,9 @@ export class FornitoriComponent implements OnInit {
 
 
 
-avviaModifica(fornitore: FornitoreDTO): void {
-  // Copia il fornitore in una nuova variabile per evitare modifiche dirette
-  const fornitoreInModifica = { ...fornitore };
-
-  // Assegna il fornitore copiato alla variabile fornitoreInModifica
-  this.fornitoreInModifica = fornitoreInModifica;
-}
+  avviaModifica(fornitore: FornitoreDTO): void {
+    this.fornitoreInModifica = fornitore;
+  }
 
 gestisciAnnullaModifica() {
   this.fornitoreInModifica = null; // Imposta il fornitoreInModifica su null
