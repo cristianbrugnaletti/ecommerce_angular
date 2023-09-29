@@ -1,95 +1,89 @@
-@import "primeicons/primeicons.css";
-/* Stile generale per il contenitore della pagina */
-.container {
-  max-width: 800px;
-  margin: 0 auto;
+/* Stili per il tuo componente Angular */
+.elenco-magazzini {
+  font-family: Arial, sans-serif;
+  background-color: #f0e1d2; /* Colore di sfondo marroncino chiaro */
+  border: 1px solid #d7b899; /* Bordo leggero */
+  border-radius: 5px; /* Bordi arrotondati */
   padding: 20px;
 }
 
-/* Stile per l'header "Elenco Prodotti" */
-h2 {
+/* Stile per il titolo */
+.elenco-magazzini h2 {
   font-size: 24px;
-  margin-bottom: 20px;
+  color: #6b4e3a; /* Colore titolo marroncino scuro */
+  margin-bottom: 20px; /* Spazio tra il titolo e la tabella */
 }
 
-/* Stile per le singole voci di prodotto */
-div {
-  border: 1px solid #ccc;
+/* Stile per la tabella responsive */
+.table-responsive {
+  overflow-x: auto; /* Permette lo scorrimento orizzontale su schermi più piccoli */
+}
+
+/* Stile per la tabella */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px; /* Spazio tra la tabella e il prossimo elemento */
+  background-color: #fff; /* Colore di sfondo bianco */
+}
+
+table th,
+table td {
   padding: 10px;
-  margin-bottom: 20px;
+  text-align: left;
 }
 
-/* Aggiungi queste regole al tuo foglio di stile CSS */
-/* Rendi il contenitore dei pulsanti un flex container */
-button {
-  display: flex;
-  justify-content: space-between; /* Allinea orizzontalmente i pulsanti e lo spazio tra di essi */
-  align-items: center; /* Allinea verticalmente il testo e l'icona */
-  padding: 5px 10px;
-  background-color: #ffffff;
-  color: #fff;
-  border: none;
+table th {
+  background-color: #6b4e3a; /* Colore marrone per l'intestazione */
+  color: #fff; /* Testo bianco */
+  font-weight: bold; /* Testo in grassetto */
+}
+
+table tbody tr:nth-child(even) {
+  background-color: #f2e9e1; /* Colore marroncino chiaro per le righe pari */
+}
+
+table tbody tr:nth-child(odd) {
+  background-color: #e6d3bf; /* Colore marroncino chiaro per le righe dispari */
+}
+
+/* Stile per i pulsanti Modifica ed Elimina */
+table .btn {
   cursor: pointer;
+  padding: 8px 16px;
+  margin-right: 10px;
+  border-radius: 5px;
 }
 
-/* Stile per il pulsante Elimina (rosso) */
-button.custom-red-icon .pi {
-  color: red !important; /* Sovrascrivi il colore predefinito con rosso */
+table .btn-primary {
+  background-color: #5e402f; /* Marrone scuro per il pulsante Modifica */
+  color: #fff;
 }
 
-/* Stile per il pulsante Modifica (verde) */
-button.custom-green-icon .pi {
-  color: green !important; /* Sovrascrivi il colore predefinito con verde */
+table .btn-danger {
+  background-color: #823d3d; /* Marrone più scuro per il pulsante Elimina */
+  color: #fff;
 }
 
-
-/* Stile per il testo in grassetto */
-strong {
-  font-weight: bold;
+table .btn:hover {
+  opacity: 0.8;
 }
 
-/* Stile per le categorie */
-ng-container {
-  font-style: italic;
+/* Stile per i dettagli del magazzino */
+table .nome-magazzino {
+  font-weight: bold; /* Testo in grassetto */
+  color: #5e402f; /* Colore marrone scuro */
 }
 
-/* Stile per il messaggio "Nessun prodotto trovato" */
-div:empty::before {
-  content: "Nessun prodotto trovato.";
-  font-style: italic;
-  color: #999;
+table .attributi-magazzino {
+  font-style: italic; /* Testo in corsivo per gli attributi */
+  color: #6b4e3a; /* Colore marroncino scuro per gli attributi */
 }
 
-/* Stile per il form di modifica */
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+.costum-green-icon{
+  color: green;
 }
 
-/* Stile per gli input nel form di modifica */
-input[type="text"],
-input[type="number"] {
-  padding: 5px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-/* Stile per il pulsante Salva Modifiche */
-.button-group button.btn-primary {
-  background-color: #28a745;
-}
-
-/* Stile per il pulsante Annulla */
-.button-group button.btn-secondary {
-  background-color: #ccc;
-}
-
-/* Aggiungi questa regola nel tuo foglio di stile CSS */
-.custom-red-icon {
-  color: red !important; /* Sovrascrivi il colore predefinito con rosso */
-}
-
-.custom-green-icon {
-  color: green !important; /* Sovrascrivi il colore predefinito con verde */
+.costum-red-icon{
+  color: red;
 }
