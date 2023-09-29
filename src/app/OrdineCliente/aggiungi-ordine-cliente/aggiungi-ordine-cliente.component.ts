@@ -19,7 +19,7 @@ export class AggiungiOrdineClienteComponent implements OnInit {
   prodotti: ProdottoDTO[] = [];
   carrello: ProdottoDTO[] = [];
   prezzoTotaleOrdine: number = 0;
-  ultimoOrdineId: number = 0;
+  ultimoOrdineId: number = 1;
   ordineEffettuato: ClienteOrdineDTO | null = null;
   mostraDettagliOrdine: boolean = false; 
 
@@ -43,17 +43,76 @@ export class AggiungiOrdineClienteComponent implements OnInit {
       }
     );
   
-    // Recupera l'ultimo ordine cliente per impostare il valore iniziale di clienteOrdineId
+  }
+  
+  aggiungiRigaDOrdine(prodotto: ProdottoDTO) {
+    // Chiamata a trovaOrdiniCliente per ottenere l'ultimo ordine cliente
     this.clienteOrdineService.trovaOrdiniCliente().subscribe(
       (ordini: ClienteOrdineDTO[]) => {
         if (ordini.length > 0) {
           // Trova l'ultimo ordine cliente
           const ultimoOrdine = ordini[ordini.length - 1];
-          // Imposta il valore di ultimoOrdineId con l'ID dell'ultimo ordine incrementato di uno
-          this.ultimoOrdineId = ultimoOrdine.clienteOrdineId + 1;
+          this.ultimoOrdineId = ultimoOrdine.clienteOrdineId;
+  
+          // Assicurati che clienteOrdineRequest.clienteOrdineId sia impostato
+          if (this.clienteOrdineRequest && this.ultimoOrdineId) {
+            // Assegna il valore corrente di ultimoOrdineId a clienteRigaDOrdineRequest.clienteOrdineId
+            this.clienteRigaDOrdineRequest.clienteOrdineId = this.ultimoOrdineId;
+            this.clienteOrdineRequest.usernameCliente = "toni"
+  
+            // Popoliamo il nomeProdotto con il nome del prodotto selezionato.
+            this.clienteRigaDOrdineRequest.nomeProdotto = prodotto.nome; // Sostituisci con il valore corretto
+  
+            // Popoliamo la quantità con un valore appropriato, ad esempio:
+            this.clienteRigaDOrdineRequest.quantita = 2; // Sostituisci con il valore corretto
+  
+            this.clienteOrdineService.aggiungiClienteRigaDOrdine(this.clienteRigaDOrdineRequest)
+              .subscribe(
+                (response: ClienteRigaDOrdineDTO) => {
+                  // Gestisci la risposta qui, ad esempio, aggiornando l'interfaccia utente o effettuando altre azioni necessarie
+                  console.log('Riga d\'ordine aggiunta con successo:', response);
+  
+                  // Aggiungi il prodotto al carrello
+                  this.aggiungiAlCarrello(prodotto);
+                },
+                (error) => {
+                  // Gestisci gli errori qui, ad esempio, mostrando un messaggio di errore all'utente
+                  console.error('Errore durante l\'aggiunta della riga d\'ordine:', error);
+                }
+              );
+          } else {
+            console.error('ID dell\'ordine cliente non valido.');
+          }
         } else {
-          // Se non ci sono ordini precedenti, inizia con l'ID 1
-          this.ultimoOrdineId = 1;
+          // Assicurati che clienteOrdineRequest.clienteOrdineId sia impostato
+          if (this.clienteOrdineRequest && this.ultimoOrdineId) {
+            // Assegna il valore corrente di ultimoOrdineId a clienteRigaDOrdineRequest.clienteOrdineId
+            this.clienteRigaDOrdineRequest.clienteOrdineId = this.ultimoOrdineId;
+            this.clienteOrdineRequest.usernameCliente = "toni"
+  
+            // Popoliamo il nomeProdotto con il nome del prodotto selezionato.
+            this.clienteRigaDOrdineRequest.nomeProdotto = prodotto.nome; // Sostituisci con il valore corretto
+  
+            // Popoliamo la quantità con un valore appropriato, ad esempio:
+            this.clienteRigaDOrdineRequest.quantita = 2; // Sostituisci con il valore corretto
+  
+            this.clienteOrdineService.aggiungiClienteRigaDOrdine(this.clienteRigaDOrdineRequest)
+              .subscribe(
+                (response: ClienteRigaDOrdineDTO) => {
+                  // Gestisci la risposta qui, ad esempio, aggiornando l'interfaccia utente o effettuando altre azioni necessarie
+                  console.log('Riga d\'ordine aggiunta con successo:', response);
+  
+                  // Aggiungi il prodotto al carrello
+                  this.aggiungiAlCarrello(prodotto);
+                },
+                (error) => {
+                  // Gestisci gli errori qui, ad esempio, mostrando un messaggio di errore all'utente
+                  console.error('Errore durante l\'aggiunta della riga d\'ordine:', error);
+                }
+              );
+          } else {
+            console.error('ID dell\'ordine cliente non valido.');
+          }
         }
       },
       (error) => {
@@ -62,37 +121,6 @@ export class AggiungiOrdineClienteComponent implements OnInit {
     );
   }
   
-  aggiungiRigaDOrdine(prodotto: ProdottoDTO) {
-    // Assicurati che clienteOrdineRequest.clienteOrdineId sia impostato
-    if (this.clienteOrdineRequest && this.ultimoOrdineId) {
-      // Assegna il valore corrente di ultimoOrdineId a clienteRigaDOrdineRequest.clienteOrdineId
-      this.clienteRigaDOrdineRequest.clienteOrdineId = this.ultimoOrdineId;
-      this.clienteOrdineRequest.usernameCliente = "toni"
-
-      // Popoliamo il nomeProdotto con il nome del prodotto selezionato.
-      this.clienteRigaDOrdineRequest.nomeProdotto = prodotto.nome; // Sostituisci con il valore corretto
-
-      // Popoliamo la quantità con un valore appropriato, ad esempio:
-      this.clienteRigaDOrdineRequest.quantita = 2; // Sostituisci con il valore corretto
-
-      this.clienteOrdineService.aggiungiClienteRigaDOrdine(this.clienteRigaDOrdineRequest)
-        .subscribe(
-          (response: ClienteRigaDOrdineDTO) => {
-            // Gestisci la risposta qui, ad esempio, aggiornando l'interfaccia utente o effettuando altre azioni necessarie
-            console.log('Riga d\'ordine aggiunta con successo:', response);
-
-            // Aggiungi il prodotto al carrello
-            this.aggiungiAlCarrello(prodotto);
-          },
-          (error) => {
-            // Gestisci gli errori qui, ad esempio, mostrando un messaggio di errore all'utente
-            console.error('Errore durante l\'aggiunta della riga d\'ordine:', error);
-          }
-        );
-    } else {
-      console.error('ID dell\'ordine cliente non valido.');
-    }
-  }
 
   aggiungiAlCarrello(prodotto: ProdottoDTO) {
     this.carrello.push(prodotto);
@@ -107,7 +135,7 @@ export class AggiungiOrdineClienteComponent implements OnInit {
           const ultimoOrdine = ordini[ordini.length - 1];
           this.ultimoOrdineId = ultimoOrdine.clienteOrdineId;
           this.clienteOrdineRequest.clienteOrdineId = this.ultimoOrdineId;
-  
+          this.ultimoOrdineId += 1;
           // Ora che hai l'ID, puoi effettuare la chiamata a confermaOrdineCliente
           this.clienteOrdineService.confermaOrdineCliente(this.clienteOrdineRequest)
             .subscribe(
@@ -118,6 +146,7 @@ export class AggiungiOrdineClienteComponent implements OnInit {
                 this.ordineEffettuato = ordine;
                 console.log('Ordine confermato con successo:', ordine);
                 this.mostraDettagliOrdine = true;
+                this.svuotaCarrello();
               },
               (error) => {
                 // Gestisci gli errori qui, ad esempio, mostrando un messaggio di errore all'utente
@@ -167,6 +196,25 @@ export class AggiungiOrdineClienteComponent implements OnInit {
   creaNuovoOrdine() {
     this.mostraDettagliOrdine = false;
     this.ordineEffettuato = new ClienteOrdineDTO();
+    // Recupera l'ultimo ordine cliente per impostare il valore iniziale di clienteOrdineId
+    this.clienteOrdineService.trovaOrdiniCliente().subscribe(
+      (ordini: ClienteOrdineDTO[]) => {
+        if (ordini.length > 0) {
+          // Trova l'ultimo ordine cliente
+          const ultimoOrdine = ordini[ordini.length - 1];
+          // Imposta il valore di ultimoOrdineId con l'ID dell'ultimo ordine incrementato di uno
+          this.ultimoOrdineId = ultimoOrdine.clienteOrdineId + 1;
+        } else {
+          // Se non ci sono ordini precedenti, inizia con l'ID 1
+          this.ultimoOrdineId = 1;
+        }
+      },
+      (error) => {
+        console.error('Si è verificato un errore durante il recupero degli ordini cliente:', error);
+      }
+    );
+  }
+  
   
 }
-}
+
