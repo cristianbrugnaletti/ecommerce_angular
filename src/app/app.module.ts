@@ -30,7 +30,9 @@ import { ProdottoService } from './Prodotto/prodotto.service';
 import { ModificaFornitoreComponent } from './Fornitore/modifica-fornitore/modifica-fornitore.component';
 import { EliminaFornitoreComponent } from './Fornitore/elimina-fornitore/elimina-fornitore.component';
 import { EliminaMagazzinoComponent } from './Magazzino/elimina-magazzino/elimina-magazzino.component';
-
+import { ModificaProdottoComponent } from './Prodotto/modifica-prodotto/modifica-prodotto.component';
+import { AddProdottoComponent } from './Prodotto/add-prodotto/add-prodotto.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -56,6 +58,8 @@ import { EliminaMagazzinoComponent } from './Magazzino/elimina-magazzino/elimina
     EliminaFornitoreComponent,
     ModificaMagazzinoComponent,
     EliminaMagazzinoComponent,
+    ModificaProdottoComponent,
+    AddProdottoComponent
     
   ],
   providers: [FornitoreService, ProdottoService],
@@ -69,6 +73,7 @@ import { EliminaMagazzinoComponent } from './Magazzino/elimina-magazzino/elimina
     HttpClientModule,
     FormsModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     ToastrModule.forRoot({
       timeOut: 3000,
       positionClass: 'toast-top-right',

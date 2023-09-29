@@ -1,37 +1,31 @@
-<div *ngIf="prodotti.length > 0">
-  <table>
-    <thead>
-      <tr>
-        <th>Nome</th>
-        <th>Marca</th>
-        <th>Descrizione</th>
-        <th>Prezzo</th>
-        <th>IVA</th>
-        <th>Quantità</th>
-        <th>Sotto Categoria</th>
-        <!-- Altre colonne, se necessario -->
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let prodotto of prodotti">
-        <td>{{ prodotto.nome }}</td>
-        <td>{{ prodotto.marca }}</td>
-        <td>{{ prodotto.descrizione }}</td>
-        <td>{{ prodotto.prezzo }}</td>
-        <td>{{ prodotto.iva }}</td>
-        <td>{{ prodotto.quantita }}</td>
-        <td>
-          <ng-container *ngFor="let categoria of prodotto.sottoCategoria; let last = last">
-            {{ categoria }}{{ last ? '' : ', ' }}
-          </ng-container>
-          
-        </td>
-        <td>
-          <button (click)="(prodotto)">Aggiungi al Carrello</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+<div >
+  <h2>Elenco Prodotti</h2>
+
+  <div *ngFor="let prodotto of prodotti; let i = index" >
+    <!-- Visualizza i dettagli del magazzino -->
+    <div *ngIf="i !== prodottoDaModificareIndex">
+      <h3><strong>Nome:</strong> <span>{{ prodotto.nome }}</span></h3>
+      <p><strong>Marca:</strong> {{ prodotto.marca }}</p>
+      <p><strong>Descrizione:</strong>{{ prodotto.descrizione }}</p>
+      <p><strong>Prezzo:</strong>{{ prodotto.prezzo }}</p>
+      <p><strong>Partita IVA:</strong>{{ prodotto.iva }}</p>
+      <p><strong>Quantità:</strong>{{ prodotto.quantita }}</p>
+      
+      <!-- Aggiungi un pulsante o un link per attivare la modifica -->
+      <button (click)="modificaProdotto(i)">Modifica</button>
+      <button class="elimina-button" (click)="rimuoviProdotto(prodotto)">Elimina</button>
+    </div>
+  
+    <!-- Visualizza il form di modifica quando si modifica un magazzino -->
+    <div *ngIf="i === prodottoDaModificareIndex">
+      <app-modifica-prodotto
+      [prodotto]="prodotto"
+      [nomeOriginale]="nomeOriginale ?? null"
+      (confermaModifica)="confermaModifica($event)"
+      (annullaModifica)="annullaModifica(i)"
+      ></app-modifica-prodotto> 
+    </div>
+  </div>
 </div>
 <div *ngIf="prodotti.length === 0">
   Nessun prodotto trovato.
