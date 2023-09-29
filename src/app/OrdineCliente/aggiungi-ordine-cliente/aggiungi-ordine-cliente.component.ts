@@ -64,7 +64,7 @@ export class AggiungiOrdineClienteComponent implements OnInit {
             this.clienteRigaDOrdineRequest.nomeProdotto = prodotto.nome; // Sostituisci con il valore corretto
   
             // Popoliamo la quantità con un valore appropriato, ad esempio:
-            this.clienteRigaDOrdineRequest.quantita = 2; // Sostituisci con il valore corretto
+            this.clienteRigaDOrdineRequest.quantita = 1; // Sostituisci con il valore corretto
   
             this.clienteOrdineService.aggiungiClienteRigaDOrdine(this.clienteRigaDOrdineRequest)
               .subscribe(
@@ -94,7 +94,7 @@ export class AggiungiOrdineClienteComponent implements OnInit {
             this.clienteRigaDOrdineRequest.nomeProdotto = prodotto.nome; // Sostituisci con il valore corretto
   
             // Popoliamo la quantità con un valore appropriato, ad esempio:
-            this.clienteRigaDOrdineRequest.quantita = 2; // Sostituisci con il valore corretto
+            this.clienteRigaDOrdineRequest.quantita = 1; // Sostituisci con il valore corretto
   
             this.clienteOrdineService.aggiungiClienteRigaDOrdine(this.clienteRigaDOrdineRequest)
               .subscribe(

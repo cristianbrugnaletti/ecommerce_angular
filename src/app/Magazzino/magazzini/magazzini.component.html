@@ -18,11 +18,18 @@
         <td><strong>Sede:</strong> {{ magazzino.sede }}</td>
         <td><strong>Capacità Massima:</strong> {{ magazzino.capacitaMassima }}</td>
         <td>
-          <!-- Aggiungi un pulsante per attivare l'eliminazione -->
-          <button (click)="modificaMagazzino(i)">Modifica</button>
-          <!-- Aggiungi un pulsante per attivare l'eliminazione -->
-          <button (click)="eliminaMagazzino(magazzino.nome, i)">Elimina</button>
-        </td>
+         <!-- Pulsante "Modifica" con icona -->
+    <button (click)="modificaMagazzino(i)" class="btn btn-modifica">
+      <i class="pi pi-pencil"></i> Modifica
+    </button>
+
+    <!-- Pulsante "Elimina" con icona -->
+    <button (click)="eliminaMagazzino(magazzino.nome, i)" class="btn btn-elimina">
+      <i class="pi pi-trash"></i> Elimina
+    </button>
+
+        </td>        
+        
       </tr>
       <!-- Include il componente EliminaMagazzinoComponent solo se magazzinoDaEliminareIndex è definito -->
       <tr *ngIf="i === magazzinoDaEliminareIndex ">

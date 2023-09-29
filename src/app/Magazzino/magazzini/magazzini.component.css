@@ -46,36 +46,40 @@ table tbody tr:nth-child(even) {
 table tbody tr:nth-child(odd) {
   background-color: #e6d3bf; /* Colore marroncino chiaro per le righe dispari */
 }
-
 /* Stile per i pulsanti Modifica ed Elimina */
 table .btn {
   cursor: pointer;
-  padding: 8px 16px;
+  padding: 6px 0; /* Ridotto il padding orizzontale per uniformare la larghezza */
+  width: 99px; /* Imposta la larghezza desiderata per i pulsanti */
   margin-right: 10px;
   border-radius: 5px;
+  border: none;
+  font-weight: bold;
 }
 
-table .btn-primary {
-  background-color: #5e402f; /* Marrone scuro per il pulsante Modifica */
-  color: #fff;
+
+/* Stile per il pulsante "Modifica" con l'icona "pi-pencil" */
+table .btn-modifica {
+  background-color: #0adc46; /* Marrone scuro per il pulsante Modifica */
+  color: #fff; /* Testo bianco */
 }
 
-table .btn-danger {
-  background-color: #823d3d; /* Marrone più scuro per il pulsante Elimina */
-  color: #fff;
+/* Stile per il pulsante "Elimina" con l'icona "pi-trash" */
+table .btn-elimina {
+  background-color: #dc3545; /* Rosso per il pulsante Elimina */
+  color: #fff; /* Testo bianco */
+}
+
+/* Dimensioni dei pulsanti */
+table .btn {
+  font-size: 16px; /* Dimensione del testo */
+}
+
+table .btn i {
+  font-size: 18px; /* Dimensione dell'icona */
+  margin-right: 5px; /* Spazio tra l'icona e il testo */
 }
 
 table .btn:hover {
-  opacity: 0.8;
-}
-
-/* Stile per i dettagli del magazzino */
-table .nome-magazzino {
-  font-weight: bold; /* Testo in grassetto */
-  color: #5e402f; /* Colore marrone scuro */
-}
-
-table .attributi-magazzino {
-  font-style: italic; /* Testo in corsivo per gli attributi */
-  color: #6b4e3a; /* Colore marroncino scuro per gli attributi */
+  opacity: 0.9; /* Leggero aumento dell'opacità al passaggio del mouse */
 }
