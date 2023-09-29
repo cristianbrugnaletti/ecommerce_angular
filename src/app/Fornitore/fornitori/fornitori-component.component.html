@@ -26,11 +26,15 @@
             <td>{{ fornitore.numeroTelefono }}</td>
             <td>
               <!-- Aggiungi il pulsante Modifica -->
-              <button class="btn btn-primary" (click)="avviaModifica(fornitore)">Modifica</button>
-              <button class="btn btn-danger" (click)="eliminaFornitore(fornitore)">Elimina</button>
+              <button class="btn btn-primary" (click)="modificaFornitore(fornitore)">
+                <i class="pi pi-file-edit"></i> <!-- Icona "Modifica" -->
+              </button>
+              <button class="btn btn-danger" (click)="eliminaFornitore(fornitore)">
+                <i class="pi pi-trash"></i> 
+              </button>
             </td>
           </tr>
-          <tr *ngIf="fornitoreInModifica && fornitoreInModifica.id === fornitore.id">
+          <tr *ngIf="modificaAperta&&fornitoreInModifica && modificaAperta&&fornitoreInModifica.id === fornitore.id">
             <td colspan="7">
               <!-- Modulo di modifica del fornitore -->
               <app-modifica-fornitore

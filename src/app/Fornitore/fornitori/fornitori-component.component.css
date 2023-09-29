@@ -72,3 +72,7 @@ table tbody tr {
 table tbody tr:not(:last-child) {
   border-bottom: 1px solid #d7b899; /* Aggiunge un bordo inferiore tra le righe */
 }
+
+.btn i.pi {
+  font-size: 1.1em; /* Modifica la dimensione dell'icona a tuo piacimento */
+}

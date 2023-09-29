@@ -28,4 +28,8 @@ export class ClienteOrdineService {
     console.log('Chiamato getOrdiniCliente()');
     return this.http.get<ClienteOrdineDTO[]>(`${this.apiUrl}/ClienteController/clienteOrdine/findAll`);
   }
+ trovaClienti(): Observable<ClienteOrdineDTO[]> {
+  console.log('Chiamato getOrdiniCliente()');
+  return this.http.get<ClienteOrdineDTO[]>(`${this.apiUrl}/utente/findAll`);
+}
 }

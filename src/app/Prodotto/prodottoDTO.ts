@@ -8,6 +8,8 @@ export class ProdottoDTO {
     prezzo?: number;
     iva?: IVA; // Puoi definire un tipo specifico per IVA
     quantita?: number;
+
     sottoCategoria: string[]= [];
+
   }
   

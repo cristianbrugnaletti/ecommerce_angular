@@ -1,21 +1,37 @@
 <div class="titolo">Benvenuti nel nostro Negozio!</div>
+
+
+
+
+
 <div *ngIf="prodotti.length > 0">
-    <div class="prodotti-container">
-      <div class="card" *ngFor="let prodotto of prodotti">
-        <img [src]="" alt="{{ prodotto.nome }}" class="card-img">
-        <div class="card-body">
-          <h4 class="card-title">{{ prodotto.nome }}</h4>
-          <p class="card-text">Marca: {{ prodotto.marca }}</p>
-          <p class="card-text">Descrizione: {{ prodotto.descrizione }}</p>
-          <p class="card-text">Prezzo: {{ prodotto.prezzo }}</p>
-          <p class="card-text">IVA: {{ prodotto.iva }}</p>
-          <p class="card-text">Quantità: {{ prodotto.quantita }}</p>
-         
-          <button (click)="(prodotto)" class="btn btn-primary">Aggiungi al Carrello</button>
-        </div>
-      </div>
-    </div>
+  <div class="prodotti-container">
+    <table class="prodotto-table">
+      <thead>
+        <tr class="table-header">
+          <th>Nome</th>
+          <th>Marca</th>
+          <th>Descrizione</th>
+          <th>Prezzo</th>
+          <th>IVA</th>
+          <th>Quantità</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let prodotto of prodotti" class="table-row">
+          <td>{{ prodotto.nome }}</td>
+          <td>{{ prodotto.marca }}</td>
+          <td>{{ prodotto.descrizione }}</td>
+          <td>{{ prodotto.prezzo }}</td>
+          <td>{{ prodotto.iva }}</td>
+          <td>{{ prodotto.quantita }}</td>
+          
+        </tr>
+      </tbody>
+    </table>
   </div>
-  <div *ngIf="prodotti.length === 0">
-    Nessun prodotto trovato.
-  </div>
+</div>
+<div *ngIf="prodotti.length === 0">
+  Nessun prodotto trovato.
+</div>
