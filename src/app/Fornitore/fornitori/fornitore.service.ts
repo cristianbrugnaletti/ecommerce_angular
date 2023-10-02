@@ -34,4 +34,8 @@ export class FornitoreService {
     console.log('Chiamato caricaFornitoreOrdine()');
     return this.http.get<FornitoreOrdineDTO[]>(`${this.apiUrl}/fornitore-ordine/ordini`);
   }
+
+  cercaFornitori(criteriRicerca: FornitoreDTO): Observable<any> {
+    return this.http.post(`${this.apiUrl}/cerca`, criteriRicerca);
+  }
 }
