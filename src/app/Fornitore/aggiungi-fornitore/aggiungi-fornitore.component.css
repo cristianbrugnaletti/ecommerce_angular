@@ -72,3 +72,30 @@ button:hover {
     border-radius: 5px; /* Bordi arrotondati */
     text-align: center; /* Testo centrato */
   }
+
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  /* Stile per il label */
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  /* Stile per il select */
+  select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+  }
+  
+  /* Stile per le opzioni del select */
+  select option {
+    padding: 10px;
+    font-size: 16px;
+  }

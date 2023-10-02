@@ -8,7 +8,9 @@ import { Message } from 'primeng/api'; // Assicurati di importare 'Message' da p
   templateUrl: './aggiungi-fornitore.component.html',
   styleUrls: ['./aggiungi-fornitore.component.css'],
 })
-export class AggiungiFornitoreComponent {
+
+
+export class AggiungiFornitoreComponent{
   fornitore: FornitoreDTO = new FornitoreDTO();
   successMessage: string | null = null;
   errorMessage: string | null = null;
@@ -22,8 +24,34 @@ export class AggiungiFornitoreComponent {
 
   constructor(private fornitoreService: FornitoreService) {}
 
+  selectedCountry: any = null;
+
+  nations = [
+    { name: 'Italia', code: 'ITALIA' },
+    { name: 'Francia', code: 'FRANCIA' },
+    { name: 'Germania', code: 'GERMANIA' },
+    { name: 'Spagna', code: 'SPAGNA' },
+    { name: 'Regno Unito', code: 'REGNO UNITO' },
+    { name: 'Stati Uniti', code: 'STATI UNITI' },
+    { name: 'Giappone', code: 'GIAPPONE' },
+    { name: 'Cina', code: 'CINA' },
+    { name: 'Canada', code: 'CANADA' },
+    { name: 'Australia', code: 'AUSTRALIA' },
+  ];
+
+ 
+
+
+
   aggiungiFornitore() {
 
+
+    if (!this.selectedCountry) {
+      this.errorMessage = 'Seleziona una nazione per la sede.';
+      return;
+    }
+  
+    this.fornitore.nazioneSede = this.selectedCountry.code;
  // Esegui la validazione del numero di telefono e della Partita IVA
  if (this.fornitore && this.fornitore.numeroTelefono) {
   this.telefonoInvalid = !/^[0-9]*$/.test(this.fornitore.numeroTelefono) || this.fornitore.numeroTelefono.length < 10 || this.fornitore.numeroTelefono.length > 15;
@@ -95,4 +123,8 @@ if (this.telefonoInvalid || this.partitaIVAInvalid) {
 
     return /^[a-zA-Z]+$/.test(nome);  // Esempio: solo lettere
   }
+
+
+
+
 }
