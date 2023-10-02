@@ -85,4 +85,50 @@ export class FornitoriComponent implements OnInit {
   }
 
 
+
+
+
+  criteriRicerca: FornitoreDTO = {};
+
+  // ... Altri membri e funzioni
+
+  soddisfaCriteriRicerca(fornitore: FornitoreDTO): boolean {
+    if (this.criteriRicerca.nome && fornitore.nome && !fornitore.nome.includes(this.criteriRicerca.nome)) {
+      return false;
+    }
+
+    if (this.criteriRicerca.sedeLegale && fornitore.sedeLegale && !fornitore.sedeLegale.includes(this.criteriRicerca.sedeLegale)) {
+      return false;
+    }
+
+    if (this.criteriRicerca.nazioneSede && fornitore.nazioneSede && fornitore.nazioneSede !== this.criteriRicerca.nazioneSede) {
+      return false;
+    }
+
+    if (this.criteriRicerca.partitaIVA && fornitore.partitaIVA && !fornitore.partitaIVA.includes(this.criteriRicerca.partitaIVA)) {
+      return false;
+    }
+
+    if (this.criteriRicerca.email && fornitore.email && !fornitore.email.includes(this.criteriRicerca.email)) {
+      return false;
+    }
+
+    if (this.criteriRicerca.numeroTelefono && fornitore.numeroTelefono && !fornitore.numeroTelefono.includes(this.criteriRicerca.numeroTelefono)) {
+      return false;
+    }
+
+    return true;
+  }
+
+  cercaFornitori() {
+    // Chiamata al servizio per cercare i fornitori
+    this.fornitoreService.cercaFornitori(this.criteriRicerca)
+      .subscribe((risultato) => {
+        // Aggiorna la lista dei fornitori con i risultati della ricerca
+        this.fornitori = risultato;
+        console.log('Risultato della ricerca:', risultato);
+      }, (errore) => {
+        console.error('Si è verificato un errore durante la ricerca dei fornitori:', errore);
+      });
+  }
 }

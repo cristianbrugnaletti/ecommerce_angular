@@ -1,6 +1,48 @@
 <!-- Il tuo componente Angular -->
 <div *ngIf="fornitori" class="elenco-fornitori">
   <h2>Elenco Fornitori</h2>
+
+
+
+
+  <form (submit)="cercaFornitori()" class="search-form">
+    <table>
+      <h5>Ricerca fornitore</h5>
+      <tr>
+        <td>
+          <label for="search-nome">Nome:</label>
+          <input type="text" id="search-nome" [(ngModel)]="criteriRicerca.nome" name="search-nome">
+        </td>
+        <td>
+          <label for="search-sedeLegale">Sede Legale:</label>
+          <input type="text" id="search-sedeLegale" [(ngModel)]="criteriRicerca.sedeLegale" name="search-sedeLegale">
+        </td>
+        <td>
+          <label for="search-nazioneSede">Nazione Sede:</label>
+          <input type="text" id="search-nazioneSede" [(ngModel)]="criteriRicerca.nazioneSede" name="search-nazioneSede">
+        </td>
+        <td>
+          <label for="search-partitaIVA">Partita IVA:</label>
+          <input type="text" id="search-partitaIVA" [(ngModel)]="criteriRicerca.partitaIVA" name="search-partitaIVA">
+        </td>
+        <td>
+          <label for="search-email">Email:</label>
+          <input type="text" id="search-email" [(ngModel)]="criteriRicerca.email" name="search-email">
+        </td>
+        <td>
+          <label for="search-numeroTelefono">Numero di Telefono:</label>
+          <input type="text" id="search-numeroTelefono" [(ngModel)]="criteriRicerca.numeroTelefono" name="search-numeroTelefono">
+        </td>
+        <td>
+          <button type="submit" class="btn btn-primary">
+          <i class="pi pi-search"></i> 
+        </button>
+        </td>
+      </tr>
+    </table>
+  </form>
+
+
   <div class="table-responsive">
     <table class="table">
       <thead>
