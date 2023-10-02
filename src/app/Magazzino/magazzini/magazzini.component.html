@@ -1,8 +1,11 @@
+
 <div class="elenco-magazzini">
   <h2>Elenco Magazzini</h2>
 
   <!-- Pulsante per aprire/chiudere il form di ricerca -->
-  <button class="btn btn-cerca" (click)="toggleRicerca()">Cerca</button>
+  <button class="btn btn-cerca" (click)="toggleRicerca()">
+    <i class="pi pi-search"></i> Cerca Magazzini
+  </button>
 
   <!-- Form di ricerca (inizialmente nascosto) -->
   <div class="form-ricerca" *ngIf="mostraFormRicerca">
@@ -23,7 +26,9 @@
         <label for="capacitaMassima">Capacità Massima:</label>
         <input type="number" id="capacitaMassima" formControlName="capacitaMassima">
       </div>
-      <button type="submit" class="btn btn-ricerca">Esegui Ricerca</button>
+      <button type="submit" class="btn btn-ricerca">
+        <i class="pi pi-search"></i> Esegui Ricerca
+      </button>
     </form>
   </div>
 
@@ -53,8 +58,30 @@
               <button class="btn btn-elimina" (click)="eliminaMagazzino(magazzino.nome, i)">
                 <i class="pi pi-trash"></i> Elimina
               </button>
+              
             </td>
           </tr>
+          <!-- Include il componente EliminaMagazzinoComponent solo se magazzinoDaEliminareIndex è definito -->
+<tr *ngIf="i === magazzinoDaEliminareIndex ">
+  <td colspan="5">
+    <app-elimina-magazzino 
+      [nomeOriginale]="nomeOriginale ?? null"
+      (eliminazioneConfermata)="eliminazioneConfermata()"
+      (eliminazioneAnnullata)="annullaEliminazioneMagazzino()">
+    </app-elimina-magazzino>
+  </td>
+</tr>
+<!-- Visualizza il form di modifica quando si modifica il magazzino corrente -->
+<tr *ngIf="i === magazzinoDaModificareIndex">
+  <td colspan="5">
+    <app-modifica-magazzino
+      [magazzino]="magazzino"
+      [nomeOriginale]="nomeOriginale ?? null"
+      (confermaModifica)="confermaModifica($event)"
+      (annullaModifica)="annullaModifica()">
+    </app-modifica-magazzino>    
+  </td>
+</tr>
         </ng-container>
       </tbody>
     </table>
