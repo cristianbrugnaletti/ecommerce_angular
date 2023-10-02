@@ -12,8 +12,7 @@ export class FornitoriComponent implements OnInit {
   fornitoreInModifica: FornitoreDTO | null = null;
   modificaAperta: boolean = false;
   fornitori: FornitoreDTO[] = [];
-  filtroRicerca: FornitoreDTO = {}; // Oggetto per memorizzare i criteri di ricerca
-  mostraRicerca: boolean = false; // Variabile per controllare la visibilità del form di ricerca
+
 
   constructor(
     private fornitoreService: FornitoreService,
@@ -85,15 +84,5 @@ export class FornitoriComponent implements OnInit {
     this.caricaFornitori();
   }
 
-  mostraFormRicerca() {
-    // Mostra il form di ricerca quando il pulsante viene cliccato
-    this.mostraRicerca = true;
-  }
 
-  cercaFornitori() {
-    // Esegui la tua ricerca utilizzando "filtroRicerca" come filtro
-    // Chiamata al tuo servizio di ricerca con i criteri specificati
-    // Aggiungi qui la tua logica di ricerca
-    console.log('Criteri di ricerca:', this.filtroRicerca);
-  }
 }
