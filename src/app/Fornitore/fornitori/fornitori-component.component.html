@@ -2,10 +2,12 @@
 <div *ngIf="fornitori" class="elenco-fornitori">
   <h2>Elenco Fornitori</h2>
 
+  <button class="btn btn-primary" (click)="mostraFormRicerca()">
+    <i class="pi pi-search"></i> 
+  </button>
 
 
-
-  <form (submit)="cercaFornitori()" class="search-form">
+  <form  *ngIf="mostraFormRicercaFlag" (ngSubmit)="cercaFornitori()" class="search-form">
     <table>
       <h5>Ricerca fornitore</h5>
       <tr>
@@ -76,15 +78,15 @@
               </button>
             </td>
           </tr>
-          <tr *ngIf="modificaAperta&&fornitoreInModifica && modificaAperta&&fornitoreInModifica.id === fornitore.id">
+          <tr *ngIf="modificaAperta && fornitoreInModifica && modificaAperta && fornitoreInModifica.id === fornitore.id">
             <td colspan="7">
               <!-- Modulo di modifica del fornitore -->
               <app-modifica-fornitore
-                *ngIf="fornitoreInModifica"
-                [fornitore]="fornitoreInModifica"
-                (modificaCompletata)="gestisciModificaCompletata()">
-                [annullaModifica]="annullaModifica">
-              </app-modifica-fornitore>
+              *ngIf="modificaAperta && fornitoreInModifica && fornitoreInModifica.id === fornitore.id"
+              [fornitore]="fornitoreInModifica"
+              (modificaCompletata)="gestisciModificaCompletata()"
+              (annullaModificaEvento)="gestisciAnnullaModifica()">
+            </app-modifica-fornitore>
             </td>
           </tr>
         </ng-container>

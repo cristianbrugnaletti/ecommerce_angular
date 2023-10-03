@@ -13,7 +13,8 @@ export class ModificaFornitoreComponent {
   
   @Input() fornitore: FornitoreDTO;
   @Output() modificaCompletata: EventEmitter<void> = new EventEmitter<void>();
-
+  @Output() annullaModificaEvento: EventEmitter<void> = new EventEmitter<void>();
+  
   erroreModifica: string = '';
   partitaIVA: string = '';
   fornitoreInModifica: FornitoreDTO | null = null;
@@ -37,7 +38,7 @@ export class ModificaFornitoreComponent {
 
   inModifica: boolean = true;
   modificaInCorso: boolean = false;
-
+  modificaAperta: boolean = true;
   confermaModifica(event: Event) {
 
     event.preventDefault();
@@ -106,11 +107,11 @@ if (this.fornitore && this.fornitore.email) {
     }
   }
 
-  annullaModifica() {
-    window.location.href = '/fornitori';
-    console.log('Reindirizzamento a /fornitori');
+  annullaModifica(event: Event) {
+    event.preventDefault();
+    this.modificaAperta = false;
+    this.annullaModificaEvento.emit(); // Aggiungi questa linea per notificare che l'annullamento è stato completato
   }
-
 
   isEmailValid(): boolean {
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(?:\.[a-zA-Z]{2,})?$/;
