@@ -31,8 +31,15 @@ export class AggiungiOrdineClienteComponent implements OnInit {
     private prodottoService: ProdottoService,
     private router: Router 
   ) { }
-  
+
+ 
   ngOnInit() {
+    const carrelloInLocalStorage = localStorage.getItem('carrello');
+  if (carrelloInLocalStorage) {
+    this.carrello = JSON.parse(carrelloInLocalStorage);
+    this.prezzoTotaleOrdine = this.calcolaPrezzoTotale();
+  }
+
     
     this.prodottoService.getProdotti().subscribe(
       (data: ProdottoDTO[]) => {
@@ -125,6 +132,7 @@ export class AggiungiOrdineClienteComponent implements OnInit {
   aggiungiAlCarrello(prodotto: ProdottoDTO) {
     this.carrello.push(prodotto);
     this.prezzoTotaleOrdine = this.calcolaPrezzoTotale();
+    localStorage.setItem('carrello', JSON.stringify(this.carrello));
   }
 
   confermaOrdine() {
@@ -189,7 +197,6 @@ export class AggiungiOrdineClienteComponent implements OnInit {
   }
 
   tornaAllaListaOrdini() {
-    // Naviga alla lista degli ordini clienti
     this.router.navigate(['/ordine-cliente']); // Sostituisci con il percorso corretto per la lista degli ordini
   }
   

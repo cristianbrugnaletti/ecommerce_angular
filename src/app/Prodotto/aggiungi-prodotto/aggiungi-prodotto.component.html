@@ -1,4 +1,9 @@
 <div class="parent-element">
+  <h2>Esempio per inserire un prodotto tramite file Excel:</h2>
+  <img src="assets/esempio.inserimento.png" alt="Descrizione dell'immagine" class="small-image">
+  
+  <hr><!-- Aggiunge una linea divisoria -->
+
   <div class="file-input-wrapper"
        (dragover)="onDragOver($event)"
        (dragleave)="onDragLeave($event)"
@@ -22,6 +27,9 @@
       </div>
     </div>
   </div>
+  
+  <hr><!-- Aggiunge una linea divisoria -->
+
   <button class="upload-button"
           (click)="aggiungiProdottoDaExcel()">
     Carica prodotti da Excel
