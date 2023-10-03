@@ -87,3 +87,58 @@ table .btn:hover {
   background-color: #5e402f; /* Marrone scuro per il pulsante Modifica */
   color: #fff;
 }
+/* Stile per il form di ricerca */
+.form-ricerca {
+  background-color: #f0e1d2; /* Colore di sfondo marroncino chiaro */
+  border: 1px solid #d7b899; /* Bordo leggero */
+  border-radius: 5px; /* Bordi arrotondati */
+  padding: 10px; /* Ridotto il padding per occupare meno spazio */
+  margin-bottom: 10px; /* Spazio tra il form di ricerca e la tabella */
+}
+
+/* Stile per le etichette dei campi di ricerca */
+.form-group label {
+  color: #6b4e3a; /* Colore marroncino scuro */
+  font-weight: bold; /* Testo in grassetto */
+}
+
+/* Stile per gli input dei campi di ricerca */
+.form-group input[type="text"],
+.form-group input[type="number"] {
+  width: 100%; /* La larghezza dell'input occupa tutto lo spazio disponibile */
+  padding: 6px; /* Ridotto il padding per occupare meno spazio */
+  margin-bottom: 10px; /* Spazio tra i campi di ricerca */
+  border: 1px solid #d7b899; /* Bordo leggero */
+  border-radius: 3px; /* Bordi arrotondati leggermente */
+}
+
+/* Stile per il pulsante di ricerca */
+.form-ricerca button.btn-ricerca {
+  background-color: #6b4e3a; /* Colore marroncino scuro */
+  color: #fff; /* Testo bianco */
+  font-weight: bold; /* Testo in grassetto */
+  border: none;
+  border-radius: 3px; /* Bordi arrotondati leggermente */
+  padding: 8px 12px; /* Dimensioni del pulsante */
+  cursor: pointer;
+}
+
+/* Stile per il pulsante di ricerca al passaggio del mouse */
+.form-ricerca button.btn-ricerca:hover {
+  opacity: 0.9; /* Leggero aumento dell'opacità al passaggio del mouse */
+}
+/* Stile per il pulsante "Cerca Magazzini" al di fuori del form di ricerca */
+.elenco-magazzini button.btn-cerca {
+  background-color: #6b4e3a; /* Colore marroncino scuro */
+  color: #fff; /* Testo bianco */
+  font-weight: bold; /* Testo in grassetto */
+  border: none;
+  border-radius: 3px; /* Bordi arrotondati leggermente */
+  padding: 8px 16px; /* Dimensioni del pulsante */
+  cursor: pointer;
+}
+
+/* Stile per il pulsante "Cerca Magazzini" al passaggio del mouse */
+.elenco-magazzini button.btn-cerca:hover {
+  opacity: 0.9; /* Leggero aumento dell'opacità al passaggio del mouse */
+}
