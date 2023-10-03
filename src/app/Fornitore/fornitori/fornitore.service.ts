@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { FornitoreDTO } from './fornitoreDTO';
 import { FornitoreOrdineDTO } from 'src/app/OrdineFornitore/fornitoreOrdineDTO';
-
+import { HttpParams } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
@@ -36,6 +36,33 @@ export class FornitoreService {
   }
 
   cercaFornitori(criteriRicerca: FornitoreDTO): Observable<any> {
-    return this.http.post(`${this.apiUrl}/cerca`, criteriRicerca);
+    let params = new HttpParams();
+
+    // Aggiungi i criteri di ricerca solo se sono stati definiti
+    if (criteriRicerca.nome) {
+      params = params.set('nome', criteriRicerca.nome);
+    }
+
+    if (criteriRicerca.sedeLegale) {
+      params = params.set('sedeLegale', criteriRicerca.sedeLegale);
+    }
+
+    if (criteriRicerca.numeroTelefono) {
+      params = params.set('numeroTelefono', criteriRicerca.numeroTelefono);
+    }
+
+    if (criteriRicerca.email) {
+      params = params.set('email', criteriRicerca.email);
+    }
+
+    if (criteriRicerca.nazioneSede) {
+      params = params.set('nazioneSede', criteriRicerca.nazioneSede);
+    }
+
+    if (criteriRicerca.partitaIVA) {
+      params = params.set('partitaIVA', criteriRicerca.partitaIVA);
+    }
+
+    return this.http.get(`${this.apiUrl}/ricercaFornitori`, { params: params });
   }
 }
