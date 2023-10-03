@@ -1,73 +1,76 @@
-/* Stile per la tabella dei clienti */
-
-
-/* Imposta la larghezza al 100% e rimuovi margini e padding dal contenitore */
-.container {
-  width: 100%;
-  margin: 0;
-  padding: 0;
+/* Stili per il tuo componente Angular */
+.elenco-magazzini {
+  font-family: Arial, sans-serif;
+  background-color: #f0e1d2; /* Colore di sfondo marroncino chiaro */
+  border: 1px solid #d7b899; /* Bordo leggero */
+  border-radius: 5px; /* Bordi arrotondati */
+  padding: 20px;
 }
 
+/* Stile per il titolo */
+.elenco-magazzini h2 {
+  font-size: 24px;
+  color: #6b4e3a; /* Colore titolo marroncino scuro */
+  margin-bottom: 20px; /* Spazio tra il titolo e la tabella */
+}
 
-.clienti-table {
-  
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-  }
-  
-  /* Stile per l'intestazione della tabella */
-  .clienti-table thead {
-    background-color: #f5f5f5;
-  }
-  
-  /* Stile per le celle dell'intestazione */
-  .clienti-table th {
-    
-    text-align: left;
-    border-bottom: 2px solid #ccc;
-  }
-  
-  /* Stile per le righe pari della tabella */
-  .clienti-table tbody tr:nth-child(even) {
-    background-color: #f2f2f2;
-  }
-  
-  /* Stile per le celle delle righe della tabella */
-  .clienti-table td {
-    
-    border-bottom: 1px solid #ccc;
-  }
-  
-  /* Stile per il nome del cliente */
-  .clienti-table td.nome {
-    font-weight: bold;
-  }
-  
-  /* Rimuovi il bordo inferiore per l'ultima cella di ciascuna riga */
-  .clienti-table tbody tr td:last-child {
-    border-bottom: none;
-  }
-  .btn i.pi {
-    font-size: 1.1em; /* Modifica la dimensione dell'icona a tuo piacimento */
-  }
-  .btn {
-    cursor: pointer;
-    padding: 5px 13px;
-    
-    border-radius: 5px;
-  }
-  
-  .btn-primary {
-    background-color: #125a07; /* Marrone scuro per il pulsante Modifica */
-    color: #fff;
-  }
-  
-  .btn-danger {
-    background-color: #e40000; /* Marrone più scuro per il pulsante Elimina */
-    color: #fff;
-  }
-  
-  .btn:hover {
-    opacity: 0.8;
-  }
+/* Stile per la tabella responsive */
+.table-responsive {
+  overflow-x: auto; /* Permette lo scorrimento orizzontale su schermi più piccoli */
+}
+
+/* Stile per la tabella */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px; /* Spazio tra la tabella e il prossimo elemento */
+  background-color: #fff; /* Colore di sfondo bianco */
+}
+
+table th,
+table td {
+  padding: 10px;
+  text-align: left;
+}
+
+table th {
+  background-color: #6b4e3a; /* Colore marrone per l'intestazione */
+  color: #fff; /* Testo bianco */
+  font-weight: bold; /* Testo in grassetto */
+}
+
+table tbody tr:nth-child(even) {
+  background-color: #f2e9e1; /* Colore marroncino chiaro per le righe pari */
+}
+
+table tbody tr:nth-child(odd) {
+  background-color: #e6d3bf; /* Colore marroncino chiaro per le righe dispari */
+}
+
+.btn {
+  cursor: pointer;
+  padding: 8px 16px;
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
+.btn-primary {
+  background-color: #5e402f; /* Marrone scuro per il pulsante Modifica */
+  color: #fff;
+}
+
+.btn-danger {
+  background-color: #823d3d; /* Marrone più scuro per il pulsante Elimina */
+  color: #fff;
+}
+
+.btn:hover {
+  opacity: 0.8;
+}
+table tbody tr {
+  background-color: #e6d3bf; /* Colore marroncino chiaro per le righe della tabella */
+}
+
+.btn i.pi {
+  font-size: 1.1em; /* Modifica la dimensione dell'icona a tuo piacimento */
+}

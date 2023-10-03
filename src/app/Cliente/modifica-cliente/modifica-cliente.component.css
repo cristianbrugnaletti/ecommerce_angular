@@ -1,0 +1,55 @@
+/* Stile per il modulo del cliente */
+.modifica-cliente form {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.modifica-cliente .form-group {
+  flex: 1;
+  margin-right: 8px; /* Spazio tra i campi */
+}
+
+.modifica-cliente .form-group:last-child {
+  margin-right: 0; /* Rimuove lo spazio per l'ultimo campo */
+}
+
+.modifica-cliente label {
+  font-weight: bold;
+}
+
+/* Stile per il pulsante "Salva Modifiche" */
+.modifica-cliente .button-group .btn-save {
+  background-color: #27ae60; /* Colore verde */
+  color: #fff; /* Colore del testo */
+  margin-right: 10px;
+  padding: 10px 20px; /* Aumenta il padding per un pulsante più grande */
+  font-size: 14px; /* Aumenta la dimensione del testo */
+  border: none; /* Rimuove il bordo */
+  border-radius: 5px; /* Bordo arrotondato */
+  cursor: pointer;
+  font-weight: bold;
+  display: inline-flex; /* Per centrare il pulsante orizzontalmente */
+  align-items: center; /* Per centrare il testo verticalmente */
+  margin-top: 5%; /* Spazio sopra il pulsante */
+}
+
+/* Stile per il pulsante "Annulla" */
+.modifica-cliente .button-group .btn-cancel {
+  background-color: #e74c3c; /* Colore rosso */
+  color: #fff; /* Colore del testo */
+  padding: 10px 20px; /* Aumenta il padding per un pulsante più grande */
+  font-size: 14px; /* Aumenta la dimensione del testo */
+  border: none; /* Rimuove il bordo */
+  border-radius: 5px; /* Bordo arrotondato */
+  cursor: pointer;
+  font-weight: bold;
+  display: inline-flex; /* Per centrare il pulsante orizzontalmente */
+  align-items: center; /* Per centrare il testo verticalmente */
+  margin-top: 5%; /* Spazio sopra il pulsante */
+}
+
+/* Stile al passaggio del mouse (hover) */
+.modifica-cliente .button-group .btn:hover {
+  opacity: 0.8;
+}

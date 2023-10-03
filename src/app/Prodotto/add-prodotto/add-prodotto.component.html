@@ -1,41 +1,76 @@
-<div class="container">
-    <h2>Aggiungi Prodotto</h2>
-  
-    <form (submit)="aggiungiProdotto()">
-      <div class="form-group">
-        <label for="nome">Nome:</label>
-        <input type="text" id="nome" [(ngModel)]="nuovoProdotto.nome" name="nome" required>
-      </div>
-      <div class="form-group">
-        <label for="marca">Marca:</label>
-        <input type="text" id="marca" [(ngModel)]="nuovoProdotto.marca" name="marca">
-      </div>
-      <div class="form-group">
-        <label for="descrizione">Descrizione:</label>
-        <input type="text" id="descrizione" [(ngModel)]="nuovoProdotto.descrizione" name="descrizione">
-      </div>
-      <div class="form-group">
-        <label for="prezzo">Prezzo:</label>
-        <input type="number" id="prezzo" [(ngModel)]="nuovoProdotto.prezzo" name="prezzo">
-      </div>
-      <div class="form-group">
-        <label for="iva">IVA:</label>
-        <input type="text" id="iva" [(ngModel)]="nuovoProdotto.iva" name="iva">
-      </div>
-      <div class="form-group">
-        <label for="quantita">Quantità:</label>
-        <input type="number" id="quantita" [(ngModel)]="nuovoProdotto.quantita" name="quantita">
-      </div>
-      <div class="form-group">
+<div>
+  <h2>Aggiungi Prodotto</h2>
 
-        <label for="sottoCategoria">sottoCategoria:</label>
-        <input type="text" id="sottoCategoria" [(ngModel)]="nuovoProdotto.sottoCategoria" name="sottoCategoria">
+  <!-- Form con controlli di validazione -->
+  <form [formGroup]="prodottoForm" (submit)="aggiungiProdotto()">
+    <div class="form-group">
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" name="nome" formControlName="nome">
+      <div *ngIf="prodottoForm.get('nome')?.invalid && prodottoForm.get('nome')?.touched">
+        <div *ngIf="prodottoForm.get('nome')?.hasError('required')">Il campo Nome è obbligatorio.</div>
+        <div *ngIf="prodottoForm.get('nome')?.hasError('minlength')">Il campo Nome deve contenere almeno 3 caratteri.</div>
       </div>
+    </div>
 
-
-      <div class="button-group">
-        <button type="submit" class="btn btn-primary">Aggiungi Prodotto</button>
+    <div class="form-group">
+      <label for="marca">Marca:</label>
+      <input type="text" id="marca" name="marca" formControlName="marca">
+      <div *ngIf="prodottoForm.get('marca')?.invalid && prodottoForm.get('marca')?.touched">
+        <div *ngIf="prodottoForm.get('marca')?.hasError('required')">Il campo Marca è obbligatorio.</div>
       </div>
-    </form>
-  </div>
-  
+    </div>
+
+    <div class="form-group">
+      <label for="descrizione">Descrizione:</label>
+      <textarea id="descrizione" name="descrizione" formControlName="descrizione"></textarea>
+      <div *ngIf="prodottoForm.get('descrizione')?.invalid && prodottoForm.get('descrizione')?.touched">
+        <div *ngIf="prodottoForm.get('descrizione')?.hasError('required')">Il campo Descrizione è obbligatorio.</div>
+        <div *ngIf="prodottoForm.get('descrizione')?.hasError('minlength')">Il campo Descrizione deve contenere almeno 5 caratteri.</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="prezzo">Prezzo:</label>
+      <input type="number" id="prezzo" name="prezzo" formControlName="prezzo">
+      <div *ngIf="prodottoForm.get('prezzo')?.invalid && prodottoForm.get('prezzo')?.touched">
+        <div *ngIf="prodottoForm.get('prezzo')?.hasError('required')">Il campo Prezzo è obbligatorio.</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="quantita">Quantità:</label>
+      <input type="number" id="quantita" name="quantita" formControlName="quantita">
+      <div *ngIf="prodottoForm.get('quantita')?.invalid && prodottoForm.get('quantita')?.touched">
+        <div *ngIf="prodottoForm.get('quantita')?.hasError('required')">Il campo Quantità è obbligatorio.</div>
+        <div *ngIf="prodottoForm.get('quantita')?.hasError('pattern')">Il campo Quantità deve essere un numero intero positivo.</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="iva">IVA:</label>
+      <input type="number" id="iva" name="iva" formControlName="iva">
+      <div *ngIf="prodottoForm.get('iva')?.invalid && prodottoForm.get('iva')?.touched">
+        <div *ngIf="prodottoForm.get('iva')?.hasError('required')">Il campo IVA è obbligatorio.</div>
+        <div *ngIf="prodottoForm.get('iva')?.hasError('minlength')">Il campo IVA deve avere minimo 11 cifre.</div>
+        <div *ngIf="prodottoForm.get('iva')?.hasError('maxlength')">Il campo IVA deve avere massimo 11 cifre.</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="idFornitore">ID Fornitore:</label>
+      <input type="number" id="idFornitore" name="idFornitore" formControlName="idFornitore">
+      <div *ngIf="prodottoForm.get('idFornitore')?.invalid && prodottoForm.get('idFornitore')?.touched">
+        <div *ngIf="prodottoForm.get('idFornitore')?.hasError('required')">Il campo ID Fornitore è obbligatorio.</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="id_sottoCategoria">Sotto Categoria:</label>
+      <input type="number" id="id_sottoCategoria" name="id_sottoCategoria" formControlName="id_sottoCategoria">
+      <div *ngIf="prodottoForm.get('id_sottoCategoria')?.invalid && prodottoForm.get('id_sottoCategoria')?.touched">
+        <div *ngIf="prodottoForm.get('id_sottoCategoria')?.hasError('required')">Il campo ID Sotto Categoria è obbligatorio.</div>
+      </div>
+    </div>
+
+    <button type="submit">Aggiungi Prodotto</button>
+  </form>
+</div>

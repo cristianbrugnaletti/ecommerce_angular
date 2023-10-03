@@ -1,7 +1,9 @@
 export class ClienteDTO{
     id?: number;
-    cognome?: string; 
-    email?: string;
-    nome?: string;
     username?: string;
+    nome?: string;
+    cognome?: string;
+    email?: string;
+    password?: string;
+    passwordRipetuta?: string;
 }
