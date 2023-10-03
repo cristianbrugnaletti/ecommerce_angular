@@ -188,8 +188,12 @@ export class AggiungiOrdineClienteComponent implements OnInit {
     if (index >= 0) {
       this.carrello.splice(index, 1);
       this.prezzoTotaleOrdine = this.calcolaPrezzoTotale();
+  
+      // Aggiorna il carrello in localStorage dopo la rimozione
+      localStorage.setItem('carrello', JSON.stringify(this.carrello));
     }
   }
+  
 
   svuotaCarrello() {
     this.carrello = [];
