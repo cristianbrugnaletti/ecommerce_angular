@@ -2,17 +2,20 @@
 .parent-element {
   position: relative;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
   height: 100vh;
 }
 
+/* Intestazione */
+.parent-element h2 {
+  margin-top: 20px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
 /* File input wrapper */
 .file-input-wrapper {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -25,12 +28,11 @@
   font-weight: bold;
   color: #999;
   cursor: pointer;
-  margin-bottom: 0;
   margin-top: 20px;
+  border: 2px dashed #999;
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-  border: 2px dashed #999;
 }
 
 .file-input-wrapper.selected-file {
@@ -39,52 +41,41 @@
 }
 
 .file-input-wrapper input[type="file"] {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  cursor: pointer;
+  display: none;
 }
 
 /* File name overlay */
 .file-name-overlay {
-  position: absolute;
-  top: calc(50% - 20px);
-  left: 50%;
-  transform: translate(-50%, -50%);
   color: #000;
   font-size: 14px;
   font-weight: bold;
   text-align: center;
+  margin-top: 10px;
 }
 
 /* Image wrapper */
 .image-wrapper {
-  position: absolute;
-  top: calc(50% - 70px);
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 50px;
-  height: 50px;
+  width: 30px; /* Modifica la larghezza */
+  height: 30px; /* Modifica l'altezza */
   overflow: hidden;
+  margin-top: 10px;
 }
 
 .image-wrapper img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  width: 100%; /* Imposta la larghezza dell'immagine al 100% del contenitore */
+  height: auto; /* Imposta l'altezza automaticamente per mantenere la proporzione */
+  object-fit: cover; /* Imposta l'immagine per coprire completamente il contenitore */
 }
+/* Stile per l'immagine con la classe .small-image */
+.small-image {
+  width: 1000px; /* Imposta la larghezza desiderata */
+  height: auto; /* Imposta l'altezza automaticamente per mantenere la proporzione */
+}
+
 
 /* Upload button */
 .upload-button {
-  position: absolute;
-  bottom: 60px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: block;
-  margin: 20px auto 0;
+  margin-top: 20px;
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
@@ -97,26 +88,20 @@
 
 /* Success message */
 .success-message {
-  position: absolute;
-  bottom: 100px;
-  left: 50%;
-  transform: translateX(-50%);
   padding: 10px;
   border: 2px solid #28a745;
   border-radius: 5px;
   background-color: #d4edda;
   color: #155724;
+  margin-top: 20px;
 }
 
 /* Error message */
 .error-message {
-  position: absolute;
-  bottom: 100px;
-  left: 50%;
-  transform: translateX(-50%);
   padding: 10px;
   border: 2px solid #dc3545;
   border-radius: 5px;
   background-color: #f8d7da;
   color: #721c24;
+  margin-top: 20px;
 }
