@@ -56,10 +56,10 @@
     </div>
 
     <div class="form-group">
-      <label for="idFornitore">ID Fornitore:</label>
-      <input type="number" id="idFornitore" name="idFornitore" formControlName="idFornitore">
-      <div *ngIf="prodottoForm.get('idFornitore')?.invalid && prodottoForm.get('idFornitore')?.touched">
-        <div *ngIf="prodottoForm.get('idFornitore')?.hasError('required')">Il campo ID Fornitore è obbligatorio.</div>
+      <label for="id_fornitore">ID Fornitore:</label>
+      <input type="number" id="id_fornitore" name="id_fornitore" formControlName="id_fornitore">
+      <div *ngIf="prodottoForm.get('id_fornitore')?.invalid && prodottoForm.get('id_fornitore')?.touched">
+        <div *ngIf="prodottoForm.get('id_fornitore')?.hasError('required')">Il campo ID Fornitore è obbligatorio.</div>
       </div>
     </div>
 
@@ -73,4 +73,7 @@
 
     <button type="submit">Aggiungi Prodotto</button>
   </form>
+</div>
+<div *ngIf="successMessage" class="alert alert-success">
+  {{ successMessage }}
 </div>
