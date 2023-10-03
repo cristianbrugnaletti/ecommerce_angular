@@ -37,6 +37,7 @@ export class AggiungiFornitoreComponent{
     { name: 'Cina', code: 'CINA' },
     { name: 'Canada', code: 'CANADA' },
     { name: 'Australia', code: 'AUSTRALIA' },
+    { name: 'Danimarca', code: 'DANIMARCA' },
   ];
 
  
@@ -82,6 +83,10 @@ if (this.telefonoInvalid || this.partitaIVAInvalid) {
   return;
 }
 
+if (!this.isNomeValid()) {
+  this.errorMessage = 'Il nome non è valido.';
+  return;
+}
 
     this.fornitoreService.aggiungiFornitore(this.fornitore).subscribe(
       (response) => {
