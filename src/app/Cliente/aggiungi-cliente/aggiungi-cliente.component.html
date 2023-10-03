@@ -1,1 +1,70 @@
-<p>aggiungi-cliente works!</p>
+<div class="modulo-aggiunta-cliente">
+  <h2>Aggiungi Cliente</h2>
+
+  <!-- Form con controlli di validazione -->
+  <form [formGroup]="clienteForm" (submit)="aggiungiCliente()">
+    <div class="form-group">
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" name="nome" formControlName="nome">
+      <div *ngIf="clienteForm.get('nome')?.invalid && clienteForm.get('nome')?.touched" class="error-message">
+        <div *ngIf="clienteForm.get('nome')?.hasError('required')">Il campo Nome è obbligatorio.</div>
+        <div *ngIf="clienteForm.get('nome')?.hasError('minlength')">Il campo Nome deve contenere almeno 3 caratteri.</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="cognome">Cognome:</label>
+      <input type="text" id="cognome" name="cognome" formControlName="cognome">
+      <div *ngIf="clienteForm.get('cognome')?.invalid && clienteForm.get('cognome')?.touched" class="error-message">
+        <div *ngIf="clienteForm.get('cognome')?.hasError('required')">Il campo Cognome è obbligatorio.</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="text" id="email" formControlName="email" class="form-control">
+      <div *ngIf="clienteForm.get('email')?.invalid && clienteForm.get('email')?.touched" class="error-message">
+        <div *ngIf="clienteForm.get('email')?.hasError('required')">Il campo Email è obbligatorio.</div>
+        <div *ngIf="clienteForm.get('email')?.hasError('invalidEmail')" class="text-danger">
+          {{ clienteForm.get('email')?.getError('message') }}
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" formControlName="username">
+      <div *ngIf="clienteForm.get('username')?.invalid && clienteForm.get('username')?.touched" class="error-message">
+        <div *ngIf="clienteForm.get('username')?.hasError('required')">Il campo Username è obbligatorio.</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="password" id="password" formControlName="password">
+      <div *ngIf="clienteForm.get('password')?.hasError('required') && clienteForm.get('password')?.touched"
+        class="error-message">
+        Password è obbligatoria.
+      </div>
+      <div *ngIf="clienteForm.get('password')?.hasError('minlength') && clienteForm.get('password')?.touched"
+        class="error-message">
+        Password deve essere lunga almeno 8 caratteri.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="passwordRipetuta">Ripeti Password:</label>
+      <input type="password" id="passwordRipetuta" formControlName="passwordRipetuta">
+      <div *ngIf="clienteForm.get('passwordRipetuta')?.hasError('required') && clienteForm.get('passwordRipetuta')?.touched"
+        class="error-message">
+        Ripeti Password è obbligatoria.
+      </div>
+      <div *ngIf="clienteForm.get('passwordRipetuta')?.hasError('passwordMismatch') && clienteForm.get('passwordRipetuta')?.touched"
+        class="error-message">
+        La password deve essere uguale.
+      </div>
+    </div>
+
+    <button type="submit">Aggiungi Cliente</button>
+  </form>
+</div>

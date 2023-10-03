@@ -1,0 +1,51 @@
+/* Stile per il modulo di aggiunta cliente */
+.modulo-aggiunta-cliente {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Allinea al centro orizzontalmente */
+    justify-content: center; /* Allinea al centro verticalmente */
+    height: 100vh; /* Imposta l'altezza al 100% della viewport per centrare verticalmente */
+  }
+  
+  .modulo-aggiunta-cliente form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .modulo-aggiunta-cliente label {
+    font-weight: bold;
+    margin-bottom: 5px; /* Aggiunto margine inferiore per separare il label dall'input */
+  }
+  
+  .modulo-aggiunta-cliente input[type="text"],
+  .modulo-aggiunta-cliente input[type="password"] {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    margin-bottom: 10px; /* Aggiunto margine inferiore per separare i campi di input */
+    margin-left: 5px;
+  }
+  
+  /* Stile per il messaggio di errore */
+  .modulo-aggiunta-cliente .error-message {
+    color: #e74c3c; /* Colore rosso per il messaggio di errore */
+    font-size: 13px;
+  }
+  
+  /* Stile per il pulsante "Aggiungi Cliente" */
+  .modulo-aggiunta-cliente button[type="submit"] {
+    background-color: #27ae60; /* Colore verde */
+    color: #fff; /* Colore del testo */
+    padding: 10px 20px; /* Aumenta il padding per un pulsante più grande */
+    font-size: 14px; /* Aumenta la dimensione del testo */
+    border: none; /* Rimuove il bordo */
+    border-radius: 5px; /* Bordo arrotondato */
+    cursor: pointer;
+    font-weight: bold;
+    align-self: center; /* Allinea al centro orizzontalmente */
+    margin-top: 20px; /* Aggiunto margine superiore per spaziare dal form */
+  }
+  

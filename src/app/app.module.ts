@@ -35,6 +35,8 @@ import { AddProdottoComponent } from './Prodotto/add-prodotto/add-prodotto.compo
 import { ReactiveFormsModule } from '@angular/forms';
 import { TableModule } from 'primeng/table';
 import { InputTextModule } from 'primeng/inputtext';
+import { ModificaClienteComponent } from './Cliente/modifica-cliente/modifica-cliente.component';
+
 
 @NgModule({
   declarations: [
@@ -60,7 +62,8 @@ import { InputTextModule } from 'primeng/inputtext';
     ModificaMagazzinoComponent,
     EliminaMagazzinoComponent,
     ModificaProdottoComponent,
-    AddProdottoComponent
+    AddProdottoComponent,
+    ModificaClienteComponent
     
   ],
   providers: [FornitoreService, ProdottoService],

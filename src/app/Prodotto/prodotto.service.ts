@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ProdottoDTO } from './prodottoDTO';
+import { ProdottoRequest } from './prodottoRequest';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProdottoService {
-  private apiUrl = 'http://192.168.239.133:8080';
+  private apiUrl = 'http://localhost:8080';
 
   constructor(private http: HttpClient) { }
 
@@ -33,7 +34,8 @@ export class ProdottoService {
     return this.http.put<ProdottoDTO>(`${this.apiUrl}/prodotto/modifica/${nome}`, prodotto);
   }
   
-  aggiungiProdotto(prodotto: ProdottoDTO): Observable<ProdottoDTO> {
-    return this.http.post<ProdottoDTO>(`${this.apiUrl}/prodotto/add`, prodotto);
+  aggiungiProdotto(request: ProdottoRequest): Observable<ProdottoDTO> {
+    console.log('Chiamato aggiungiProdotto()');
+    return this.http.post<ProdottoDTO>(`${this.apiUrl}/prodotto/add`, request);
   }
 } 

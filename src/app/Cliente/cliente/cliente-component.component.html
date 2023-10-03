@@ -1,29 +1,40 @@
-<div class="container">
-<table class="clienti-table" *ngIf="clienti">
+<table class="table">
   <thead>
     <tr>
       <th>Nome</th>
       <th>Cognome</th>
       <th>Username</th>
-      <th>Email</th>
+      <th>email</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let cliente of clienti">
-      <td class="nome">{{ cliente.nome }}</td>
-      <td>{{ cliente.cognome }}</td>
-      <td>{{ cliente.username }}</td>
-      <td>{{ cliente.email }}</td>
-      <td></td>
-      <button class="btn btn-primary">
-        <i class="pi pi-file-edit"></i> <!-- Icona "Modifica" -->
-      </button>
-      <button class="btn btn-danger">
-        <i class="pi pi-trash"></i> 
-      </button>
-    </tr>
-
-  
+    <ng-container *ngFor="let cliente of clienti; let i = index">
+      <tr class="magazzino">
+        <!-- Visualizza i dettagli del magazzino -->
+        <td><strong>Nome:</strong> <span class="nome-magazzino">{{ cliente.nome }}</span></td>
+        <td><strong>Cognome:</strong> {{ cliente.cognome }}</td>
+        <td><strong>Username:</strong> {{ cliente.username }}</td>
+        <td><strong>email:</strong> {{ cliente.email }}</td>
+        <td>
+          <!-- Aggiungi un pulsante per attivare l'eliminazione -->
+          <button class="btn btn-primary" (click)="modificaCliente(i)">
+             <i class="pi pi-file-edit"></i> Modifica </button>
+          <!-- Aggiungi un pulsante per attivare l'eliminazione -->
+          <button class="btn btn-danger" (click)="cliente.username ? eliminaCliente(cliente.username) : null"> 
+             <i class="pi pi-trash"></i> Elimina </button>
+        </td>
+      </tr>
+      <!-- Visualizza il form di modifica quando si modifica il magazzino corrente -->
+      <tr *ngIf="i === clienteDaModificareIndex">
+        <td colspan="5">
+          <app-modifica-cliente
+            [cliente]="cliente"
+            [userOriginale]="userOriginale ?? null"
+            (confermaModifica)="confermaModifica($event)"
+            (annullaModifica)="annullaModifica()">
+          </app-modifica-cliente>    
+        </td>
+      </tr>
+    </ng-container>
   </tbody>
 </table>
-</div>
