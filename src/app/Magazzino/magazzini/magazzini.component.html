@@ -1,4 +1,3 @@
-
 <div class="elenco-magazzini">
   <h2>Elenco Magazzini</h2>
 
@@ -9,6 +8,7 @@
 
   <!-- Form di ricerca (inizialmente nascosto) -->
   <div class="form-ricerca" *ngIf="mostraFormRicerca">
+    <h3>Ricerca Magazzini</h3>
     <form [formGroup]="searchForm" (ngSubmit)="ricercaMagazzini()">
       <div class="form-group">
         <label for="nome">Nome:</label>
@@ -58,30 +58,29 @@
               <button class="btn btn-elimina" (click)="eliminaMagazzino(magazzino.nome, i)">
                 <i class="pi pi-trash"></i> Elimina
               </button>
-              
             </td>
           </tr>
           <!-- Include il componente EliminaMagazzinoComponent solo se magazzinoDaEliminareIndex è definito -->
-<tr *ngIf="i === magazzinoDaEliminareIndex ">
-  <td colspan="5">
-    <app-elimina-magazzino 
-      [nomeOriginale]="nomeOriginale ?? null"
-      (eliminazioneConfermata)="eliminazioneConfermata()"
-      (eliminazioneAnnullata)="annullaEliminazioneMagazzino()">
-    </app-elimina-magazzino>
-  </td>
-</tr>
-<!-- Visualizza il form di modifica quando si modifica il magazzino corrente -->
-<tr *ngIf="i === magazzinoDaModificareIndex">
-  <td colspan="5">
-    <app-modifica-magazzino
-      [magazzino]="magazzino"
-      [nomeOriginale]="nomeOriginale ?? null"
-      (confermaModifica)="confermaModifica($event)"
-      (annullaModifica)="annullaModifica()">
-    </app-modifica-magazzino>    
-  </td>
-</tr>
+          <tr *ngIf="i === magazzinoDaEliminareIndex ">
+            <td colspan="5">
+              <app-elimina-magazzino 
+                [nomeOriginale]="nomeOriginale ?? null"
+                (eliminazioneConfermata)="eliminazioneConfermata()"
+                (eliminazioneAnnullata)="annullaEliminazioneMagazzino()">
+              </app-elimina-magazzino>
+            </td>
+          </tr>
+          <!-- Visualizza il form di modifica quando si modifica il magazzino corrente -->
+          <tr *ngIf="i === magazzinoDaModificareIndex">
+            <td colspan="5">
+              <app-modifica-magazzino
+                [magazzino]="magazzino"
+                [nomeOriginale]="nomeOriginale ?? null"
+                (confermaModifica)="confermaModifica($event)"
+                (annullaModifica)="annullaModifica()">
+              </app-modifica-magazzino>    
+            </td>
+          </tr>
         </ng-container>
       </tbody>
     </table>

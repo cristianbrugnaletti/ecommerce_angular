@@ -53,11 +53,17 @@ export class MagazziniComponent implements OnInit {
       // chiudi il form settando il valore a null
       this.magazzinoDaModificareIndex = null;
       this.nomeOriginale = null;
+      this.annullaEliminazioneMagazzino();
     } else {
+      // Controlla se c'è un'operazione di eliminazione in corso e annullala
+      if (this.magazzinoDaEliminareIndex !== null) {
+        this.annullaEliminazioneMagazzino();
+      }
       this.magazzinoDaModificareIndex = index;
       this.nomeOriginale = this.magazzini[index]?.nome || null;
     }
   }
+  
 
   confermaModifica(magazzinoModificato: MagazzinoDTO) {
     if (this.magazzinoDaModificareIndex !== null) {
@@ -75,17 +81,29 @@ export class MagazziniComponent implements OnInit {
   }
 
   eliminaMagazzino(nomeMagazzino: string | undefined, index: number) {
-    if (nomeMagazzino) {
+    if (nomeMagazzino && this.magazzinoDaEliminareIndex!= index) {
+      this. annullaModifica()
       this.nomeOriginale = nomeMagazzino;
       this.magazzinoDaEliminareIndex = index;
+    }
+    else {
+      this. annullaModifica()
+      this.annullaEliminazioneMagazzino() ;
     }
   }
 
   eliminazioneConfermata() {
     if (this.nomeOriginale && this.magazzinoDaEliminareIndex !== null) {
-      this.nomeOriginale = null;
-      this.magazzinoDaEliminareIndex = null;
-      this.getMagazzini();
+      this.magazzinoService.eliminaMagazzino(this.nomeOriginale).subscribe(
+        () => {
+          this.nomeOriginale = null;
+          this.magazzinoDaEliminareIndex = null;
+          this.getMagazzini();
+        },
+        (error) => {
+          console.error('Si è verificato un errore durante l\'eliminazione del magazzino:', error);
+        }
+      );
     }
   }
 
@@ -97,12 +115,26 @@ export class MagazziniComponent implements OnInit {
   // Gestisci la logica di ricerca qui
   ricercaMagazzini() {
     const criteria = this.searchForm.value;
-    // Esegui la tua ricerca utilizzando "criteria" come filtro
-    // Chiamata al tuo servizio di ricerca con i criteri specificati
+    
+    // Verifica che le chiavi siano presenti prima di effettuare la richiesta HTTP
+    if ('nome' in criteria || 'indirizzo' in criteria || 'sede' in criteria || 'capacitaMassima' in criteria) {
+      this.magazzinoService.cercaMagazzini(criteria.nome, criteria.indirizzo, criteria.sede, criteria.capacitaMassima)
+        .subscribe(
+          (data: MagazzinoDTO[]) => {
+            this.magazzini = data;
+          },
+          (error) => {
+            console.error('Si è verificato un errore durante la ricerca dei magazzini:', error);
+          }
+        );
+    }
   }
+  
 
   // Aggiunto metodo per gestire la visibilità del form di ricerca
   toggleRicerca() {
     this.mostraFormRicerca = !this.mostraFormRicerca;
+    this.getMagazzini();
+    this.searchForm.reset();
   }
 }
