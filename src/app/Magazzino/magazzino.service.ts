@@ -25,4 +25,19 @@ export class MagazzinoService {
 
   eliminaMagazzino(nome: string): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/eliminaMagazzino?nome=${nome}`);
-  } }
+  }
+
+  cercaMagazzini(nome?: string, indirizzo?: string, sede?: string, capacitaMassima?: number): Observable<MagazzinoDTO[]> {
+    // Crea un oggetto per i parametri che devono essere inclusi nella richiesta
+    const params: any = {};
+    
+    // Aggiungi solo i parametri che sono definiti
+    if (nome) params['nome'] = nome;
+    if (indirizzo) params['indirizzo'] = indirizzo;
+    if (sede) params['sede'] = sede;
+    if (capacitaMassima) params['capacitaMassima'] = capacitaMassima.toString();
+
+    // Passa l'oggetto dei parametri alla richiesta HTTP
+    return this.http.get<MagazzinoDTO[]>(`${this.apiUrl}/cercaMagazzini`, { params });
+  }
+}
