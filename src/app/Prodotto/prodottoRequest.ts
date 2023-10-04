@@ -8,7 +8,7 @@ export class ProdottoRequest {
     prezzo?: number;
     iva?: number; // Puoi definire un tipo specifico per IVA
     quantita?: number;
-    idFornitore?: number;
+    id_fornitore?: number;
     id_sottoCategoria: number[]= [];
 
   }

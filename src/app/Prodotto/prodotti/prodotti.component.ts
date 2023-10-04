@@ -3,6 +3,7 @@ import { ProdottoService } from '../prodotto.service'; // Importa il tuo servizi
 import { ProdottoDTO } from '../prodottoDTO'; // Assicurati di importare il tipo ProdottoDTO
 import { ModificaProdottoComponent } from './../modifica-prodotto/modifica-prodotto.component';
 import { ToastrService } from 'ngx-toastr';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-prodotti',
@@ -10,17 +11,26 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./prodotti.component.css']
 })
 export class ProdottiComponent implements OnInit {
+
   prodotti: ProdottoDTO[] = []; // Usa il tipo ProdottoDTO
-  
   prodottoDaModificareIndex: number | null = null;
-
   nomeOriginale: string | null = null;
-
   @ViewChild(ModificaProdottoComponent) modificaProdottoComponent: ModificaProdottoComponent | undefined;
+  searchForm: FormGroup;
+  mostraFormRicerca = false;
 
-  constructor(private prodottoService: ProdottoService, private toastr: ToastrService) {
-    // Inizializza nomeOriginale come null nel costruttore
+  constructor
+  (private prodottoService: ProdottoService,
+   private toastr: ToastrService, 
+   private formBuilder: FormBuilder) {
     this.nomeOriginale = null;  
+    this.searchForm = this.formBuilder.group({
+      nome: [''],
+      marca: [''],
+      descrizione: [''],
+      prezzo: [null]
+    });
+
    }
 
   ngOnInit() {
@@ -61,10 +71,13 @@ export class ProdottiComponent implements OnInit {
   }
 
   modificaProdotto(index: number) {
-
-    this.prodottoDaModificareIndex = index;
-    // Assegna il nome originale qui
-    this.nomeOriginale = this.prodotti[index]?.nome || null; 
+    if(this.prodottoDaModificareIndex === index) {
+      this.prodottoDaModificareIndex = null;
+      this.nomeOriginale = null;
+    } else {
+      this.prodottoDaModificareIndex = index;
+      this.nomeOriginale = this.prodotti[index]?.nome || null; 
+    }
   }
 
   confermaModifica(prodottoModificato: ProdottoDTO) {
@@ -88,7 +101,30 @@ export class ProdottiComponent implements OnInit {
     }
     this.prodottoDaModificareIndex = null;
     this.nomeOriginale = null;
+  }
 
+  ricercaProdotto() {
+    const criteria = this.searchForm.value;
+    
+    // Verifica che le chiavi siano presenti prima di effettuare la richiesta HTTP
+    if ('nome' in criteria || 'descrizione' in criteria || 'prezzo' in criteria) {
+      this.prodottoService.cercaProdotti(criteria.nome, criteria.descrizione, criteria.prezzo)
+        .subscribe(
+          (data: ProdottoDTO[]) => {
+            this.prodotti = data;
+          },
+          (error) => {
+            alert("Il prodotto che hai ricercato non esiste!");
+            console.error('Si è verificato un errore durante la ricerca dei prodotti:', error);
+          }
+        );
+    }
+  }
+  
+  toggleRicerca() {
+    this.mostraFormRicerca = !this.mostraFormRicerca;
+    this.trovaProdotti();
+    this.searchForm.reset();
   }
 
 }

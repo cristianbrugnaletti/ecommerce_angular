@@ -53,5 +53,6 @@ export class ModificaProdottoComponent  {
 
   annulla() {
     this.annullaModifica.emit();
+    window.location.href = '/prodotti';
   }
 }
