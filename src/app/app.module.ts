@@ -7,7 +7,7 @@ import { MenubarModule } from 'primeng/menubar';
 import { ButtonModule } from 'primeng/button';
 import { TieredMenuModule } from 'primeng/tieredmenu';
 import { PanelMenuModule } from 'primeng/panelmenu';
-import { ToastrModule } from 'ngx-toastr'; // Importa ToastrModule
+import { ToastrModule } from 'ngx-toastr';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home-component.component';
 import { FornitoriComponent } from './Fornitore/fornitori/fornitori-component.component';
@@ -36,7 +36,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { TableModule } from 'primeng/table';
 import { InputTextModule } from 'primeng/inputtext';
 import { ModificaClienteComponent } from './Cliente/modifica-cliente/modifica-cliente.component';
-
+import { EliminaOrdineClienteComponent } from './OrdineCliente/elimina-ordine-cliente/elimina-ordine-cliente.component'; // Aggiunto il componente EliminaClienteOrdineComponent
 
 @NgModule({
   declarations: [
@@ -63,8 +63,8 @@ import { ModificaClienteComponent } from './Cliente/modifica-cliente/modifica-cl
     EliminaMagazzinoComponent,
     ModificaProdottoComponent,
     AddProdottoComponent,
-    ModificaClienteComponent
-    
+    ModificaClienteComponent,
+    EliminaOrdineClienteComponent,
   ],
   providers: [FornitoreService, ProdottoService],
   imports: [
@@ -84,9 +84,8 @@ import { ModificaClienteComponent } from './Cliente/modifica-cliente/modifica-cl
       timeOut: 3000,
       positionClass: 'toast-top-right',
       preventDuplicates: true,
-      toastClass: 'toast-success' // Classe CSS personalizzata
+      toastClass: 'toast-success'
     })
-    
   ],
   bootstrap: [AppComponent]
 })
