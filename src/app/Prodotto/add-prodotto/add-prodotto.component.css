@@ -40,6 +40,17 @@ textarea {
   font-size: 14px;
 }
 
+.iva-select {
+  flex: 2;
+  width: 100%;
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f5f5f5;
+  text-align: center; /* Per centrare il testo nella select */
+}
+
 button {
   margin-left: auto;
   background-color: #3498db;
@@ -61,3 +72,4 @@ button:hover {
   color: #e74c3c;
   font-size: 12px;
 }
+
