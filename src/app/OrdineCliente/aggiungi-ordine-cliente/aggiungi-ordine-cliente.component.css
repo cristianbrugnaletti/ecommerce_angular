@@ -1,73 +1,82 @@
 /* Stile per la sezione dell'ordine effettuato */
 div {
-    text-align: center;
-    margin: 20px;
-    padding: 10px;
-    border: 1px solid #ccc;
-  }
-  
-  h2 {
-    font-size: 24px;
-    color: #333;
-  }
-  
-  p {
-    font-size: 16px;
-    color: #555;
-  }
-  
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  li {
-    font-size: 14px;
-    color: #777;
-    margin: 5px 0;
-  }
-  
-  /* Stile per il pulsante */
-  button {
-    background-color: #007bff;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin: 5px;
-  }
-  
-  button:hover {
-    background-color: #0056b3;
-  }
-  
-  /* Stile per la tabella */
-  table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  table, th, td {
-    border: 1px solid #ddd;
-  }
-  
-  th, td {
-    padding: 10px;
-    text-align: left;
-  }
-  
-  /* Stile per il carrello */
-  h2 {
-    font-size: 20px;
-    color: #333;
-    margin-top: 20px;
-  }
-  
-  /* Stile per il messaggio Nessun prodotto trovato */
-  div[ngIf="prodotti.length === 0"] {
-    font-size: 18px;
-    color: #f00;
-    margin-top: 20px;
-  }
-  
+  text-align: center;
+  margin: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: #f7f7f7; /* Sfondo grigio chiaro */
+  border-radius: 5px;
+}
+
+h2 {
+  font-size: 24px;
+  color: #333;
+  margin: 10px 0;
+}
+
+p {
+  font-size: 16px;
+  color: #555;
+  margin: 5px 0;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  font-size: 14px;
+  color: #777;
+  margin: 5px 0;
+}
+
+/* Stile per il pulsante */
+button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 5px;
+  transition: background-color 0.3s ease; /* Transizione colore al passaggio del mouse */
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Stile per la tabella */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table, th, td {
+  border: 1px solid #ddd;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+}
+
+/* Stile per la tabella con righe alternate */
+tr:nth-child(even) {
+  background-color: #f2f2f2; /* Colore sfondo per le righe pari */
+}
+
+/* Stile per il div del carrello */
+div.carrello {
+  width: 70%; /* Ridotto il width al 70% */
+  margin: 0 auto; /* Centrato orizzontalmente */
+}
+
+/* Stile per il messaggio Nessun prodotto trovato */
+div[ngIf="prodotti.length === 0"] {
+  font-size: 18px;
+  color: #f00;
+  margin-top: 20px;
+}

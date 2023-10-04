@@ -8,14 +8,31 @@
           <th>Cliente</th>
           <th>Data Invio Ordine</th>
           <th>Prezzo Totale</th>
+          <th>Azioni</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let ordine of ordiniCliente">
-          <td>{{ ordine.cliente?.nome }} {{ ordine.cliente?.cognome }}</td>
-          <td>{{ ordine.dataInvioOrdine | date:'dd/MM/yyyy HH:mm:ss' }}</td>
-          <td>{{ ordine.prezzoTotale | number:'1.2-2' }}</td>
-        </tr>
+        <ng-container *ngFor="let ordine of ordiniCliente; let i = index">
+          <tr>
+            <td>{{ ordine.cliente?.nome }} {{ ordine.cliente?.cognome }}</td>
+            <td>{{ ordine.dataInvioOrdine | date:'dd/MM/yyyy HH:mm:ss' }}</td>
+            <td>{{ ordine.prezzoTotale | number:'1.2-2' }}</td>
+            <td>
+              <!-- Pulsante per avviare l'eliminazione -->
+              <button class="btn-elimina" (click)="avviaEliminazione(ordine)">Elimina</button>
+            </td>
+          </tr>
+          <tr *ngIf="ordineInEliminazione === ordine" class="eliminazione-ordine">
+            <td colspan="4">
+              <app-elimina-ordine-cliente
+                [clienteUsername]="ordine.cliente?.username ?? null"
+                [dataInvioOrdine]="ordine.dataInvioOrdine ?? null"
+                (eliminazioneConfermata)="confermaEliminazione()"
+                (eliminazioneAnnullata)="annullaEliminazione()"
+              ></app-elimina-ordine-cliente>
+            </td>
+          </tr>          
+        </ng-container>
       </tbody>
     </table>
   </div>

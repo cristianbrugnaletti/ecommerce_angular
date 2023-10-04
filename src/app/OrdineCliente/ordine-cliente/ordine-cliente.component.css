@@ -1,51 +1,92 @@
-/* Stile per il contenitore principale */
+/* Stili per il tuo componente Angular "Ordini Cliente" */
 div {
-  max-width: 100%; /* Diventa largo quanto la pagina */
-  margin: 0 auto;
+  font-family: Arial, sans-serif;
+  background-color: #f0e1d2; /* Colore di sfondo marroncino chiaro */
+  border: 1px solid #d7b899; /* Bordo leggero */
+  border-radius: 5px; /* Bordi arrotondati */
   padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
 }
 
 /* Stile per il titolo */
 h1 {
   font-size: 24px;
-  margin-bottom: 20px;
-  color: #6b4e3a; /* Colore marroncino scuro */
-  text-align: center;
+  color: #6b4e3a; /* Colore titolo marroncino scuro */
+  margin-bottom: 20px; /* Spazio tra il titolo e la tabella */
 }
 
-/* Stile per la tabella */
+/* Stile per la tabella responsive */
 table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 20px;
+  margin-bottom: 20px; /* Spazio tra la tabella e il prossimo elemento */
+  background-color: #fff; /* Colore di sfondo bianco */
 }
 
-table, th, td {
-  border: 1px solid #d7b899; /* Bordo leggero */
-}
-
-th, td {
+table th,
+table td {
   padding: 10px;
   text-align: left;
 }
 
-/* Stile per l'intestazione della tabella */
-thead {
-  background-color: #f2f2f2;
+table th {
+  background-color: #6b4e3a; /* Colore marrone per l'intestazione */
+  color: #fff; /* Testo bianco */
+  font-weight: bold; /* Testo in grassetto */
 }
 
-/* Stile per le righe dispari della tabella */
-tbody tr:nth-child(odd) {
-  background-color: #e6d3bf; /* Colore marroncino chiaro per le righe della tabella */
+table tbody tr:nth-child(even) {
+  background-color: #f2e9e1; /* Colore marroncino chiaro per le righe pari */
 }
 
-/* Stile per il messaggio Nessun ordine trovato */
-p {
-  font-style: italic;
-  color: #888;
-  margin-top: 10px;
+table tbody tr:nth-child(odd) {
+  background-color: #e6d3bf; /* Colore marroncino chiaro per le righe dispari */
+}
+
+/* Stile per il pulsante "Elimina" con l'icona "pi-trash" */
+table .btn-elimina {
+  background-color: #dc3545; /* Rosso per il pulsante Elimina */
+  color: #fff; /* Testo bianco */
+  font-weight: bold; /* Testo in grassetto */
+  border: none;
+  border-radius: 3px; /* Bordi arrotondati leggermente */
+  padding: 8px 12px; /* Dimensioni del pulsante */
+  cursor: pointer;
+}
+
+/* Stile per il pulsante "Elimina" al passaggio del mouse */
+table .btn-elimina:hover {
+  opacity: 0.9; /* Leggero aumento dell'opacità al passaggio del mouse */
+}
+/* Stile per gli elementi <tr> con la classe "eliminazione-ordine" */
+.eliminazione-ordine {
+  background-color: #f2dede; /* Colore di sfondo rosso chiaro */
+  color: #a94442; /* Colore del testo rosso scuro */
+  font-weight: bold; /* Testo in grassetto */
+}
+
+/* Stile per i pulsanti all'interno degli elementi <tr> con la classe "eliminazione-ordine" */
+.eliminazione-ordine button {
+  background-color: #d9534f; /* Colore di sfondo rosso più scuro per i pulsanti */
+  color: #fff; /* Colore del testo bianco per i pulsanti */
+  font-weight: bold; /* Testo in grassetto */
+  border: none; /* Nessun bordo */
+  border-radius: 3px; /* Bordi arrotondati leggermente */
+  padding: 6px 12px; /* Dimensioni del pulsante */
+  cursor: pointer; /* Cursore a forma di mano al passaggio del mouse */
+  margin-right: 5px; /* Spazio a destra tra i pulsanti */
+}
+
+/* Stile per i pulsanti "Conferma" all'interno degli elementi <tr> con la classe "eliminazione-ordine" */
+.eliminazione-ordine button.conferma {
+  background-color: #5bc0de; /* Colore di sfondo azzurro per il pulsante "Conferma" */
+}
+
+/* Stile per i pulsanti "Annulla" all'interno degli elementi <tr> con la classe "eliminazione-ordine" */
+.eliminazione-ordine button.annulla {
+  background-color: #337ab7; /* Colore di sfondo blu per il pulsante "Annulla" */
+}
+
+/* Stile per i pulsanti al passaggio del mouse all'interno degli elementi <tr> con la classe "eliminazione-ordine" */
+.eliminazione-ordine button:hover {
+  opacity: 0.9; /* Leggero aumento dell'opacità al passaggio del mouse */
 }
