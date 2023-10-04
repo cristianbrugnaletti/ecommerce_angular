@@ -1,28 +1,25 @@
-/* Stile per il contenitore principale della pagina di modifica del magazzino */
-div.modifica-magazzino {
-  font-family: Arial, sans-serif;
-  margin: 20px;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  background-color: #f7f7f7;
-}
-
-/* Stile per il titolo della pagina */
-h2 {
-  font-size: 24px;
-  color: #333;
-  margin-bottom: 10px;
-}
-
 /* Stile per il form di modifica */
 form {
-  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 /* Stile per le etichette dei campi del form */
 label {
   font-weight: bold;
+  font-size: 14px;
+}
+
+/* Stile per i campi da compilare */
+.form-group {
+  flex: 0 0 calc(25% - 10px); /* Imposta la larghezza desiderata per i campi, con margine tra di essi */
+  margin-right: 10px;
+}
+
+/* Rimuove il margine dall'ultimo campo del form */
+.form-group:last-child {
+  margin-right: 0;
 }
 
 /* Stile per gli input dei campi del form */
@@ -34,25 +31,24 @@ input[type="number"] {
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
+  font-size: 14px;
 }
 
-/* Stile per i pulsanti del form */
-.button-group {
+/* Stile per il wrapper dei pulsanti */
+.button-wrapper {
   margin-top: 20px;
+  text-align: left;
 }
 
-button {
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
-  font-size: 12px;
+/* Stile per i pulsanti all'interno del wrapper */
+.button-wrapper button {
+  margin-right: 10px;
 }
 
 /* Stile per il pulsante "Salva Modifiche" */
 button.salva {
   background-color: #28a745;
   color: #fff;
-  margin-right: 10px;
 }
 
 /* Stile per il pulsante "Annulla" */
@@ -65,8 +61,3 @@ button.annulla {
 button:hover {
   opacity: 0.8;
 }
-
-
-
-
-
