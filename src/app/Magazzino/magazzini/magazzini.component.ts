@@ -59,7 +59,6 @@ export class MagazziniComponent implements OnInit {
       if (this.magazzinoDaEliminareIndex !== null) {
         this.annullaEliminazioneMagazzino();
       }
-      this.mostraFormRicerca = false;
       this.magazzinoDaModificareIndex = index;
       this.nomeOriginale = this.magazzini[index]?.nome || null;
     }
@@ -79,17 +78,17 @@ export class MagazziniComponent implements OnInit {
   annullaModifica() {
     this.magazzinoDaModificareIndex = null;
     this.nomeOriginale = null;
+    this.getMagazzini();
   }
 
   eliminaMagazzino(nomeMagazzino: string | undefined, index: number) {
     if (nomeMagazzino && this.magazzinoDaEliminareIndex!= index) {
-      this.annullaModifica()
+      this. annullaModifica()
       this.nomeOriginale = nomeMagazzino;
       this.magazzinoDaEliminareIndex = index;
-      this.mostraFormRicerca = false;
     }
     else {
-      this.annullaModifica()
+      this. annullaModifica()
       this.annullaEliminazioneMagazzino() ;
     }
   }
@@ -109,6 +108,7 @@ export class MagazziniComponent implements OnInit {
   // Gestisci la logica di ricerca qui
   ricercaMagazzini() {
     const criteria = this.searchForm.value;
+    
     // Verifica che le chiavi siano presenti prima di effettuare la richiesta HTTP
     if ('nome' in criteria || 'indirizzo' in criteria || 'sede' in criteria || 'capacitaMassima' in criteria) {
       this.magazzinoService.cercaMagazzini(criteria.nome, criteria.indirizzo, criteria.sede, criteria.capacitaMassima)
@@ -126,8 +126,6 @@ export class MagazziniComponent implements OnInit {
 
   // Aggiunto metodo per gestire la visibilità del form di ricerca
   toggleRicerca() {
-    this.annullaModifica();
-    this.annullaEliminazioneMagazzino();
     this.mostraFormRicerca = !this.mostraFormRicerca;
     this.getMagazzini();
     this.searchForm.reset();
