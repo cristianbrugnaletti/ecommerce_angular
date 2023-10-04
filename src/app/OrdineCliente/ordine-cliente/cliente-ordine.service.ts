@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ClienteRigaDOrdineRequest } from './clienteRigaDOrdineRequest';
 import { ClienteRigaDOrdineDTO } from './clienteRigaDOrdineDTO';
@@ -31,5 +31,14 @@ export class ClienteOrdineService {
  trovaClienti(): Observable<ClienteOrdineDTO[]> {
   console.log('Chiamato getOrdiniCliente()');
   return this.http.get<ClienteOrdineDTO[]>(`${this.apiUrl}/utente/findAll`);
+}
+deleteOrdine(usernameCliente: string, dataInvioOrdine: string): Observable<void> {
+  console.log('Chiamato delete');
+  const url = `${this.apiUrl}/ClienteController/clienteOrdine/delete`; 
+  const params = new HttpParams()
+    .set('usernameCliente', usernameCliente)
+    .set('dataInvioOrdine', dataInvioOrdine);
+  
+  return this.http.delete<void>(url, { params });
 }
 }

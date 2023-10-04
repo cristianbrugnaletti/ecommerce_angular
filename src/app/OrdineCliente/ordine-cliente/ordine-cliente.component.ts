@@ -10,6 +10,7 @@ import { ClienteOrdineService } from './cliente-ordine.service';
 export class OrdineClienteComponent implements OnInit {
 
   ordiniCliente: ClienteOrdineDTO[] = [];
+  ordineInEliminazione: ClienteOrdineDTO | null = null;
 
   constructor(private clienteOrdineService: ClienteOrdineService) { }
 
@@ -23,6 +24,25 @@ export class OrdineClienteComponent implements OnInit {
     });
   }
 
+  avviaEliminazione(ordine: ClienteOrdineDTO) {
+    if (ordine !== this.ordineInEliminazione) {
+      this.ordineInEliminazione = ordine;
+    } else {
+      this.annullaEliminazione();
+    }
+  }
+
+  confermaEliminazione() {
+    if (this.ordineInEliminazione) {
+      // Chiamata al servizio per confermare l'eliminazione dell'ordine cliente
+      // Gestione dell'eliminazione completata
+      this.caricaOrdiniCliente(); // Aggiorna la lista degli ordini cliente
+      this.ordineInEliminazione = null; // Resetta la variabile di stato
+    }
+  }
+
+  annullaEliminazione() {
+    // Annulla l'eliminazione e resetta la variabile di stato
+    this.ordineInEliminazione = null;
+  }
 }
-
-
