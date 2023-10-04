@@ -1,55 +1,63 @@
-/* Stile per il modulo del cliente */
-.modifica-cliente form {
+/* Stile per il form di modifica */
+form {
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 
-.modifica-cliente .form-group {
-  flex: 1;
-  margin-right: 8px; /* Spazio tra i campi */
-}
-
-.modifica-cliente .form-group:last-child {
-  margin-right: 0; /* Rimuove lo spazio per l'ultimo campo */
-}
-
-.modifica-cliente label {
+/* Stile per le etichette dei campi del form */
+label {
   font-weight: bold;
+  font-size: 14px;
+}
+
+/* Stile per i campi da compilare */
+.form-group {
+  flex: 0 0 calc(25% - 10px); /* Imposta la larghezza desiderata per i campi, con margine tra di essi */
+  margin-right: 10px;
+}
+
+/* Rimuove il margine dall'ultimo campo del form */
+.form-group:last-child {
+  margin-right: 0;
+}
+
+/* Stile per gli input dei campi del form */
+input[type="text"],
+input[type="number"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+/* Stile per il wrapper dei pulsanti */
+.button-wrapper {
+  margin-top: 20px;
+  text-align: left;
+}
+
+/* Stile per i pulsanti all'interno del wrapper */
+.button-wrapper button {
+  margin-right: 10px;
 }
 
 /* Stile per il pulsante "Salva Modifiche" */
-.modifica-cliente .button-group .btn-save {
-  background-color: #27ae60; /* Colore verde */
-  color: #fff; /* Colore del testo */
-  margin-right: 10px;
-  padding: 10px 20px; /* Aumenta il padding per un pulsante più grande */
-  font-size: 14px; /* Aumenta la dimensione del testo */
-  border: none; /* Rimuove il bordo */
-  border-radius: 5px; /* Bordo arrotondato */
-  cursor: pointer;
-  font-weight: bold;
-  display: inline-flex; /* Per centrare il pulsante orizzontalmente */
-  align-items: center; /* Per centrare il testo verticalmente */
-  margin-top: 5%; /* Spazio sopra il pulsante */
+button.salva {
+  background-color: #28a745;
+  color: #fff;
 }
 
 /* Stile per il pulsante "Annulla" */
-.modifica-cliente .button-group .btn-cancel {
-  background-color: #e74c3c; /* Colore rosso */
-  color: #fff; /* Colore del testo */
-  padding: 10px 20px; /* Aumenta il padding per un pulsante più grande */
-  font-size: 14px; /* Aumenta la dimensione del testo */
-  border: none; /* Rimuove il bordo */
-  border-radius: 5px; /* Bordo arrotondato */
-  cursor: pointer;
-  font-weight: bold;
-  display: inline-flex; /* Per centrare il pulsante orizzontalmente */
-  align-items: center; /* Per centrare il testo verticalmente */
-  margin-top: 5%; /* Spazio sopra il pulsante */
+button.annulla {
+  background-color: #dc3545;
+  color: #fff;
 }
 
 /* Stile al passaggio del mouse (hover) */
-.modifica-cliente .button-group .btn:hover {
-  opacity: 0.8;
+button:hover {
+ opacity: 0.8;
 }

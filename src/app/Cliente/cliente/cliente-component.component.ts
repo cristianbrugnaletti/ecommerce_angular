@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ClienteDTO } from './clienteDTO';
 import { ClienteService } from './cliente.service';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-cliente-component',
@@ -13,8 +14,19 @@ export class ClienteComponent {
   clienteDaModificareIndex: number | null = null;
   userOriginale: string | null = null;
   clienteDaEliminareIndex: number | null = null;
+  searchForm: FormGroup;
+  mostraFormRicerca = false;
 
-  constructor(private clienteService: ClienteService) { }
+  constructor(
+    private clienteService: ClienteService,
+    private formBuilder: FormBuilder) {
+    this.searchForm = this.formBuilder.group({
+      nome: [''],
+      cognome: [''],
+      email: [''],
+      username: ['']
+    });
+   }
 
   ngOnInit() {
     this.trovaClienti();
@@ -71,5 +83,29 @@ export class ClienteComponent {
   annullaEliminazioneCliente() {
     this.clienteDaEliminareIndex = null;
     this.userOriginale = null;
+  }
+
+  ricercaCliente() {
+    const criteria = this.searchForm.value;
+    
+    // Verifica che le chiavi siano presenti prima di effettuare la richiesta HTTP
+    if ('nome' in criteria || 'cognome' in criteria || 'email' in criteria || 'username' in criteria) {
+      this.clienteService.cercaClienti(criteria.nome, criteria.cognome, criteria.email, criteria.username)
+        .subscribe(
+          (data: ClienteDTO[]) => {
+            this.clienti = data;
+          },
+          (error) => {
+            alert("Il cliente che hai ricercato non esiste!");
+            console.error('Si è verificato un errore durante la ricerca dei clienti:', error);
+          }
+        );
+    }
+  }
+  
+  toggleRicerca() {
+    this.mostraFormRicerca = !this.mostraFormRicerca;
+    this.trovaClienti();
+    this.searchForm.reset();
   }
 }

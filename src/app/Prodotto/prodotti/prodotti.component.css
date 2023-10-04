@@ -54,15 +54,25 @@ table .btn {
   margin-right: 10px;
   border-radius: 5px;
 }
-
-table .btn-primary {
-  background-color: #5e402f; /* Marrone scuro per il pulsante Modifica */
-  color: #fff;
+/* Stile per il pulsante "Modifica" con l'icona "pi-pencil" */
+.btn-modifica {
+  background-color: #5e402f; /* Arancione per il pulsante Modifica */
+  color: #fff; /* Testo bianco */
+  border: none;
+  border-radius: 5px;
+  padding: 8px 16px; /* Dimensioni leggermente più grandi */
+  font-size: 18px; /* Testo leggermente più grande */
+  margin-right: 3px;
 }
 
-table .btn-danger {
-  background-color: #823d3d; /* Marrone più scuro per il pulsante Elimina */
-  color: #fff;
+/* Stile per il pulsante "Elimina" con l'icona "pi-trash" */
+.btn-elimina {
+  background-color: #823d3d; /* Rosso acceso per il pulsante Elimina */
+  color: #fff; /* Testo bianco */
+  border: none;
+  border-radius: 5px;
+  padding: 8px 16px; /* Dimensioni leggermente più grandi */
+  font-size: 18px; /* Testo leggermente più grande */
 }
 
 table .btn:hover {

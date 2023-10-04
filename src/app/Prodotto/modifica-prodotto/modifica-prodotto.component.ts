@@ -19,18 +19,19 @@ export class ModificaProdottoComponent  {
   constructor(
     private prodottoService: ProdottoService,
     private formBuilder: FormBuilder // Iniezione del FormBuilder
-  ) { }
+  ) {
+    this.prodottoForm = this.formBuilder.group({
+      nome: ['', [Validators.required, Validators.minLength(3)]], // Aggiungi le validazioni necessarie
+      marca: ['', [Validators.required]],
+      descrizione: ['', [Validators.required, Validators.minLength(5)]],
+      prezzo: ['', [Validators.required, Validators.pattern(/^\d+(\.\d{1,2})?$/)]],
+      quantita: ['', [Validators.required, Validators.pattern(/^\d+$/)]],
+      iva: ['4', Validators.required],// Aggiungi le validazioni necessarie
+  });
+   }
 
   ngOnInit() {
     // Inizializzazione del form nel metodo ngOnInit
-    this.prodottoForm = this.formBuilder.group({
-        nome: [this.prodotto?.nome, [Validators.required]], // Aggiungi le validazioni necessarie
-        marca: [this.prodotto?.marca, []], // Aggiungi le validazioni necessarie
-        descrizione: [this.prodotto?.descrizione, []], // Aggiungi le validazioni necessarie
-        prezzo: [this.prodotto?.prezzo, [Validators.required, Validators.min(1)]], // Aggiungi le validazioni necessarie
-        partitaIva: [this.prodotto?.iva, []], // Aggiungi le validazioni necessarie
-        quantita: [this.prodotto?.quantita, [Validators.required, Validators.min(1)]], // Aggiungi le validazioni necessarie
-    });
   }
 
   salvaModifiche() {

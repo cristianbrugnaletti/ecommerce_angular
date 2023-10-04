@@ -1,41 +1,60 @@
-<div class="modifica-cliente" *ngIf="cliente">
-    <h2>Modifica Cliente</h2>
-    <form>
-      <div class="form-group">
-        <label for="nome">Nome:</label>
-        <input type="text" id="nome" [(ngModel)]="cliente.nome" name="nome" required>
+<div *ngIf="cliente" class="modifica-cliente">
+  <h2>Modifica cliente</h2>
+  <form class="form-row" [formGroup]="modificaClienteForm" (ngSubmit)="salvaModifiche()">
+    <div class="form-group">
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" [(ngModel)]="cliente.nome" name="nome" formControlName="nome" required>
+      <div *ngIf="modificaClienteForm.get('nome')?.invalid && modificaClienteForm.get('nome')?.touched">
+        <div *ngIf="modificaClienteForm.get('nome')?.hasError('required')">Il campo Nome è obbligatorio.</div>
+        <div *ngIf="modificaClienteForm.get('nome')?.hasError('minlength')">Il campo Nome deve contenere almeno 3 caratteri.</div>
       </div>
-      <div class="form-group">
-        <label for="cognome">Cognome:</label>
-        <input type="text" id="cognome" [(ngModel)]="cliente.cognome" name="cognome" required>
+    </div>
+    <div class="form-group">
+      <label for="cognome">Cognome:</label>
+      <input type="text" id="cognome" [(ngModel)]="cliente.cognome" name="cognome" formControlName="cognome" required>
+      <div *ngIf="modificaClienteForm.get('cognome')?.invalid && modificaClienteForm.get('cognome')?.touched">
+        <div *ngIf="modificaClienteForm.get('cognome')?.hasError('required')">Il campo cognome è obbligatorio.</div>
       </div>
-      <div class="form-group">
-        <label for="username">Username:</label>
-        <input type="text" id="username" [(ngModel)]="cliente.username" name="username" required>
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="text" id="email" [(ngModel)]="cliente.email" name="email" formControlName="email" required>
+      <div *ngIf="modificaClienteForm.get('email')?.invalid && modificaClienteForm.get('email')?.touched">
+        <div *ngIf="modificaClienteForm.get('email')?.hasError('required')">Il campo email è obbligatorio.</div>
+        <div *ngIf="modificaClienteForm.get('email')?.hasError('invalidEmail')">L'indirizzo email non è valido.</div>
       </div>
-      <div class="form-group">
-        <label for="email">Email:</label>
-        <input type="text" id="email" [(ngModel)]="cliente.email" name="email" required>
-      </div> 
-      <div class="form-group">
-        <label for="password">Password:</label>
-        <input type="text" id="password" [(ngModel)]="cliente.password" name="password" required>
-      </div>       
-      <div class="form-group">
-        <label for="passwordRipetuta">Conferma Password:</label>
-        <input type="text" id="passwordRipetuta" [(ngModel)]="cliente.passwordRipetuta" name="passwordRipetuta" required>
-      </div>    
-      <br>
-      <br>
-      <div class="button-group">
-        <button type="button" class="btn-save" (click)="salvaModifiche()">
-          <i class="pi pi-save"></i> Salva Modifiche
-        </button>
-        <button type="button" class="btn-cancel" (click)="annulla()">
-          <i class="pi pi-times"></i> Annulla
-        </button>
+    </div>
+    <div class="form-group">
+      <label for="username">Username:</label>
+      <input type="text" id="username" [(ngModel)]="cliente.username" name="username" formControlName="username" required>
+      <div *ngIf="modificaClienteForm.get('username')?.invalid && modificaClienteForm.get('username')?.touched">
+        <div *ngIf="modificaClienteForm.get('username')?.hasError('required')">Il campo Username è obbligatorio.</div>
       </div>
-      
-    </form>
-  </div>
-  
+    </div>
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="text" id="password" [(ngModel)]="cliente.password" name="password" formControlName="password" required>
+      <div *ngIf="modificaClienteForm.get('password')?.invalid && modificaClienteForm.get('password')?.touched">
+        <div *ngIf="modificaClienteForm.get('password')?.hasError('required')">Il campo Password è obbligatorio.</div>
+        <div *ngIf="modificaClienteForm.get('password')?.hasError('minlength')">Il campo Password deve contenere almeno 8 caratteri.</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="passwordRipetuta">Conferma Password:</label>
+      <input type="text" id="passwordRipetuta" [(ngModel)]="cliente.passwordRipetuta" name="passwordRipetuta" formControlName="passwordRipetuta" required>
+      <div *ngIf="modificaClienteForm.get('passwordRipetuta')?.invalid && modificaClienteForm.get('passwordRipetuta')?.touched">
+        <div *ngIf="modificaClienteForm.get('passwordRipetuta')?.hasError('required')">Il campo Password Ripetuta è obbligatorio.</div>
+        <div *ngIf="modificaClienteForm.get('passwordRipetuta')?.hasError('passwordMismatch') && modificaClienteForm.get('passwordRipetuta')?.touched">Le password non corrispondono.</div>
+      </div>
+    </div>
+    <!-- Wrapper per i pulsanti -->
+    <div class="button-wrapper">
+      <button type="submit" class="btn salva" [disabled]="modificaClienteForm.invalid">
+        <i class="pi pi-save"></i> Salva Modifiche
+      </button>
+      <button type="button" class="btn annulla" (click)="annulla()">
+        <i class="pi pi-times"></i> Annulla
+      </button>
+    </div>
+  </form>
+</div>

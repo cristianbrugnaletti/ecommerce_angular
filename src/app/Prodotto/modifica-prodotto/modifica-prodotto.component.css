@@ -1,69 +1,69 @@
-/* Stile per il contenitore principale */
-div {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f5f5f5;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  /* Stile per l'header "Modifica Prodotto" */
-  h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-  
-  /* Stile per le etichette dei campi di input */
-  label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-  }
-  
-  /* Stile per gli input di testo e numero */
-  input[type="text"],
-  input[type="number"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
+/* Stile per il form di modifica prodotto */
+form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
 
-  .iva-select{
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f5f5f5;
-    text-align: center;
-  }
-  
-  /* Stile per il pulsante "Salva Modifiche" */
-  .btn-primary {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-  }
-  
-  .btn-primary:hover {
-    background-color: #0056b3;
-  }
-  
-  /* Stile per il pulsante "Annulla" */
-  .btn-secondary {
-    background-color: #ccc;
-    color: #333;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-  }
-  
-  .btn-secondary:hover {
-    background-color: #b3b3b3;
-  }
-  
+/* Stile per le etichette dei campi del form */
+label {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+/* Stile per i campi da compilare */
+.form-group {
+  flex: 0 0 calc(33.33% - 10px); /* Imposta la larghezza desiderata per i campi, con margine tra di essi */
+  margin-right: 10px;
+  margin-bottom: 10px; /* Aggiungi spazio tra i campi */
+}
+
+/* Rimuove il margine dall'ultimo campo del form */
+.form-group:last-child {
+  margin-right: 0;
+}
+
+/* Stile per gli input dei campi del form */
+input[type="text"],
+input[type="number"],
+select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+/* Stile per il wrapper dei pulsanti */
+.button-group {
+  margin-top: 20px;
+  text-align: right; /* Allinea i pulsanti a destra */
+}
+
+/* Stile per i pulsanti all'interno del wrapper */
+.button-group button {
+  margin-left: 10px; /* Aggiungi spazio tra i pulsanti */
+}
+
+/* Stile per il pulsante "Salva Modifiche" */
+.button-salva{
+  background-color: #28a745;
+  color: #fff;
+}
+
+.button-annulla{
+  background-color: #dc3545;
+  color: #fff;
+}
+/* Stile per il pulsante "Annulla" */
+.button-group button.annulla {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+/* Stile al passaggio del mouse (hover) */
+button:hover {
+  opacity: 0.8;
+}

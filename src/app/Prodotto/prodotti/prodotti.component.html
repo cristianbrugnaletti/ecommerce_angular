@@ -51,10 +51,10 @@
         <td><strong>Quantità:</strong> {{ prodotto.quantita }}</td>
         <td>
           <!-- Aggiungi un pulsante per attivare l'eliminazione -->
-          <button class="btn-primary" (click)="modificaProdotto(i)">
+          <button class="btn-modifica" (click)="modificaProdotto(i)">
             <i class="pi pi-file-edit"></i></button>
           <!-- Aggiungi un pulsante per attivare l'eliminazione -->
-          <button class="btn-danger" (click)="rimuoviProdotto(prodotto)">
+          <button class="btn-elimina" (click)="rimuoviProdotto(prodotto)">
             <i class="pi pi-trash"></i></button>
         </td>
       </tr>
