@@ -50,13 +50,16 @@ export class AddProdottoComponent {
         (prodottoAggiunto) => {
           console.log('Prodotto aggiunto con successo:', prodottoAggiunto);
           this.successMessage = 'Prodotto aggiunto con successo!';
+          this.errorMessage = null;
           this.prodottoForm.reset();
         },
         (error) => {
+          this.errorMessage = 'Errore durante l\'aggiunta del prodotto:';
           console.error('Errore durante l\'aggiunta del prodotto:', error);
         }
       );
     } else {
+      this.errorMessage = 'Il form non è valido. Controlla i campi.:';
       console.log('Il form non è valido. Controlla i campi.');
     }
   }

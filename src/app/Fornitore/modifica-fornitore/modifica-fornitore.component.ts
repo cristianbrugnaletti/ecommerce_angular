@@ -82,12 +82,12 @@ if (this.fornitore && this.fornitore.email) {
 
 
 
-    if (this.fornitore && this.fornitore.partitaIVA) {
+    if (this.fornitore && this.fornitore.id) {
       
       this.erroreModifica = '';
       this.modificaInCorso = true;
 
-      this.fornitoreService.modificaFornitore(this.fornitore.partitaIVA, this.fornitore).subscribe(
+      this.fornitoreService.modificaFornitore(this.fornitore.id, this.fornitore).subscribe(
         () => {
 
           this.modificaInCorso = false;

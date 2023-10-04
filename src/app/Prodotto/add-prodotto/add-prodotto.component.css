@@ -61,3 +61,7 @@ button:hover {
   color: #e74c3c;
   font-size: 12px;
 }
+.alert{
+  color: #1e921a;
+  font-size: 40px;
+}

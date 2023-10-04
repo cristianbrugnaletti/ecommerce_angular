@@ -72,8 +72,13 @@
     </div>
 
     <button type="submit">Aggiungi Prodotto</button>
+    <div *ngIf="errorMessage" class="error-message fixed-top">
+      {{ errorMessage }}
+    </div>
+    <div *ngIf="successMessage" class="alert alert-success fixed-top">
+      {{ successMessage }}
+    </div>
   </form>
-</div>
-<div *ngIf="successMessage" class="alert alert-success">
-  {{ successMessage }}
+
+ 
 </div>
