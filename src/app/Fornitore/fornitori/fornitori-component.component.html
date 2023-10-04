@@ -3,11 +3,11 @@
   <h2>Elenco Fornitori</h2>
 
   <button class="btn btn-primary" (click)="mostraFormRicerca()">
-    <i class="pi pi-search"></i> 
+    <i class="pi pi-search">      Cerca </i> 
   </button>
 
 
-  <form  *ngIf="mostraFormRicercaFlag" (ngSubmit)="cercaFornitori()" class="search-form">
+  <form  *ngIf="mostraFormRicercaFlag" (ngSubmit)="cercaFornitori()" class="search-form" >
     <table>
       <h5>Ricerca fornitore</h5>
       <tr>

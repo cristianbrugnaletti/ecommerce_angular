@@ -47,7 +47,7 @@ table tbody tr {
 /* Stile per i pulsanti Modifica ed Elimina */
 .btn {
   cursor: pointer;
-  padding: 8px 16px;
+  padding: 5px 13px;
   margin-right: 10px;
   border-radius: 5px;
   margin-bottom: 2%;
@@ -75,5 +75,9 @@ table tbody tr:not(:last-child) {
 }
 
 .btn i.pi {
+  
   font-size: 1.1em; /* Modifica la dimensione dell'icona a tuo piacimento */
+}
+.btn-cerca i {
+  margin-right: 5px; /* Spazio tra l'icona e il testo del pulsante */
 }
