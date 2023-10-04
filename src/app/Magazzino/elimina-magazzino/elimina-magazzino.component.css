@@ -1,0 +1,22 @@
+/* Stile per il container dei pulsanti */
+div button {
+    margin-right: 10px; /* Aggiunge uno spazio tra i pulsanti */
+    padding: 8px 16px; /* Aggiunge spazio intorno al testo del pulsante */
+    background-color: #007bff; /* Colore di sfondo del pulsante */
+    color: #fff; /* Colore del testo del pulsante */
+    border: none; /* Rimuove il bordo del pulsante */
+    border-radius: 4px; /* Aggiunge angoli arrotondati al pulsante */
+    cursor: pointer; /* Cambia il cursore al passaggio del mouse */
+    transition: background-color 0.3s ease; /* Aggiunge una transizione per il cambio di colore al passaggio del mouse */
+  }
+  
+  /* Stile per il pulsante "Conferma" quando il mouse ci passa sopra */
+  div button:hover {
+    background-color: #0056b3; /* Cambia il colore di sfondo al passaggio del mouse */
+  }
+  
+  /* Stile per il pulsante "Annulla" quando il mouse ci passa sopra */
+  div button:nth-child(2):hover {
+    background-color: #dc3545; /* Cambia il colore di sfondo al passaggio del mouse */
+  }
+  

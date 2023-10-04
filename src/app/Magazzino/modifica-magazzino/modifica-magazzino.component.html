@@ -1,31 +1,44 @@
 <div *ngIf="magazzino" class="modifica-magazzino">
   <h2>Modifica Magazzino</h2>
-  <form class="form-row">
+  <form class="form-row" [formGroup]="magazzinoForm" (ngSubmit)="salvaModifiche()">
     <div class="form-group">
       <label for="nome">Nome:</label>
-      <input type="text" id="nome" [(ngModel)]="magazzino.nome" name="nome" required>
+      <input type="text" id="nome" [(ngModel)]="magazzino.nome" name="nome" formControlName="nome" required>
+      <div *ngIf="magazzinoForm.get('nome')?.invalid && magazzinoForm.get('nome')?.touched">
+        <div *ngIf="magazzinoForm.get('nome')?.hasError('required')">Il campo Nome è obbligatorio.</div>
+        <div *ngIf="magazzinoForm.get('nome')?.hasError('minlength')">Il campo Nome deve contenere almeno 3 caratteri.</div>
+      </div>
     </div>
     <div class="form-group">
       <label for="indirizzo">Indirizzo:</label>
-      <input type="text" id="indirizzo" [(ngModel)]="magazzino.indirizzo" name="indirizzo" required>
+      <input type="text" id="indirizzo" [(ngModel)]="magazzino.indirizzo" name="indirizzo" formControlName="indirizzo" required>
+      <div *ngIf="magazzinoForm.get('indirizzo')?.invalid && magazzinoForm.get('indirizzo')?.touched">
+        <div *ngIf="magazzinoForm.get('indirizzo')?.hasError('required')">Il campo Indirizzo è obbligatorio.</div>
+      </div>
     </div>
     <div class="form-group">
       <label for="sede">Sede:</label>
-      <input type="text" id="sede" [(ngModel)]="magazzino.sede" name="sede" required>
+      <input type="text" id="sede" [(ngModel)]="magazzino.sede" name="sede" formControlName="sede" required>
+      <div *ngIf="magazzinoForm.get('sede')?.invalid && magazzinoForm.get('sede')?.touched">
+        <div *ngIf="magazzinoForm.get('sede')?.hasError('required')">Il campo Sede è obbligatorio.</div>
+      </div>
     </div>
     <div class="form-group">
       <label for="capacitaMassima">Capacità Massima:</label>
-      <input type="number" id="capacitaMassima" [(ngModel)]="magazzino.capacitaMassima" name="capacitaMassima" required>
+      <input type="number" id="capacitaMassima" [(ngModel)]="magazzino.capacitaMassima" name="capacitaMassima" formControlName="capacitaMassima" required>
+      <div *ngIf="magazzinoForm.get('capacitaMassima')?.invalid && magazzinoForm.get('capacitaMassima')?.touched">
+        <div *ngIf="magazzinoForm.get('capacitaMassima')?.hasError('required')">Il campo Capacità Massima è obbligatorio.</div>
+        <div *ngIf="magazzinoForm.get('capacitaMassima')?.hasError('min')">Il campo Capacità Massima deve essere maggiore di 0.</div>
+      </div>
+    </div>
+    <!-- Wrapper per i pulsanti -->
+    <div class="button-wrapper">
+      <button type="submit" class="btn salva" [disabled]="magazzinoForm.invalid">
+        <i class="pi pi-save"></i> Salva Modifiche
+      </button>
+      <button type="button" class="btn annulla" (click)="annulla()">
+        <i class="pi pi-times"></i> Annulla
+      </button>
     </div>
   </form>
-
-  <!-- Wrapper per i pulsanti -->
-  <div class="button-wrapper">
-    <button type="button" class="btn salva" (click)="salvaModifiche()">
-      <i class="pi pi-save"></i> Salva Modifiche
-    </button>
-    <button type="button" class="btn annulla" (click)="annulla()">
-      <i class="pi pi-times"></i> Annulla
-    </button>
-  </div>
 </div>
