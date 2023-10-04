@@ -80,10 +80,71 @@ table .attributi-magazzino {
   color: #6b4e3a; /* Colore marroncino scuro per gli attributi */
 }
 
-.costum-green-icon{
-  color: green;
+/* Stile per il form di ricerca */
+.form-ricerca {
+  background-color: #fff; /* Colore di sfondo bianco */
+  border: 1px solid #d7b899; /* Bordo leggero */
+  border-radius: 5px; /* Bordi arrotondati */
+  padding: 20px;
+  margin-top: 20px; /* Spazio sopra il form */
 }
 
-.costum-red-icon{
-  color: red;
+.form-ricerca h3 {
+  font-size: 20px; /* Dimensione del titolo del form di ricerca */
+  color: #6b4e3a; /* Colore marroncino scuro per il titolo */
+  margin-bottom: 10px; /* Spazio tra il titolo e i campi del form */
+}
+
+.form-group {
+  margin-bottom: 10px; /* Spazio tra i campi del form */
+  display: inline-block;
+  margin-right: 50px;
+}
+
+.form-group label {
+ font-weight: bold; /* Etichette in grassetto */
+  color: #6b4e3a; /* Colore marroncino scuro per le etichette */
+  display: block; /* Imposta il testo dell'etichetta su una nuova riga */
+  margin-bottom: 5px; /* Spazio tra le etichette */
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"] {
+  width: 100%; /* Larghezza completa per gli input */
+  padding: 10px; /* Spaziatura interna degli input */
+  border: 1px solid #d7b899; /* Bordo leggero per gli input */
+  border-radius: 5px; /* Bordi arrotondati per gli input */
+  margin-top: 5px; /* Spazio sopra gli input */
+}
+
+.btn-ricerca {
+  background-color: #5e402f; /* Colore marrone scuro per il pulsante di ricerca */
+  color: #fff;
+  padding: 10px 20px; /* Spaziatura interna del pulsante di ricerca */
+  border-radius: 5px; /* Bordi arrotondati per il pulsante di ricerca */
+  cursor: pointer;
+  margin-top: 10px; /* Spazio sopra il pulsante di ricerca */
+}
+
+.btn-ricerca:hover {
+  opacity: 0.8; /* Effetto di opacità al passaggio del mouse sul pulsante di ricerca */
+}
+
+/* Stile per il pulsante di ricerca */
+.btn-cerca {
+  background-color: #5e402f; /* Colore marrone scuro per il pulsante di ricerca */
+  color: #fff;
+  padding: 10px 20px; /* Spaziatura interna del pulsante di ricerca */
+  border-radius: 5px; /* Bordi arrotondati per il pulsante di ricerca */
+  cursor: pointer;
+  margin-top: 10px; /* Spazio sopra il pulsante di ricerca */
+  margin-bottom: 20px;
+}
+
+.btn-cerca i {
+  margin-right: 5px; /* Spazio tra l'icona e il testo del pulsante */
+}
+
+.btn-cerca:hover {
+  opacity: 0.8; /* Effetto di opacità al passaggio del mouse sul pulsante di ricerca */
 }

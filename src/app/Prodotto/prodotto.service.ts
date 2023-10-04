@@ -17,6 +17,7 @@ export class ProdottoService {
   getProdotti(): Observable<ProdottoDTO[]> {
     return this.http.get<ProdottoDTO[]>(`${this.apiUrl}/prodotto/findAll`);
   }
+  
   importaProdottiDaExcel(file: File): Observable<string> {
     const formData = new FormData();
     formData.append('file', file);
@@ -37,5 +38,18 @@ export class ProdottoService {
   aggiungiProdotto(request: ProdottoRequest): Observable<ProdottoDTO> {
     console.log('Chiamato aggiungiProdotto()');
     return this.http.post<ProdottoDTO>(`${this.apiUrl}/prodotto/add`, request);
+  }
+
+  cercaProdotti(nome?: string, descrizione?: string, prezzo?: number): Observable<ProdottoDTO[]> {
+    // Crea un oggetto per i parametri che devono essere inclusi nella richiesta
+    const params: any = {};
+    
+    // Aggiungi solo i parametri che sono definiti
+    if (nome) params['nome'] = nome;
+    if (descrizione) params['descrizione'] = descrizione;
+    if (prezzo) params['prezzo'] = prezzo.toString();
+
+    // Passa l'oggetto dei parametri alla richiesta HTTP
+    return this.http.get<ProdottoDTO[]>(`${this.apiUrl}/cercaProdotti`, { params });
   }
 } 

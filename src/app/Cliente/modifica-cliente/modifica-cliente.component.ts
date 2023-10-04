@@ -35,5 +35,6 @@ export class ModificaClienteComponent {
 
   annulla() {
     this.annullaModifica.emit();
+    window.location.href = '/clienti';
   }
 }
