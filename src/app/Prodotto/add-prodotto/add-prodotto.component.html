@@ -62,7 +62,7 @@
         <div *ngIf="prodottoForm.get('id_sottoCategoria')?.hasError('required')">Il campo ID Sotto Categoria è obbligatorio.</div>
       </div>
     </div>
-
+            
     <button type="submit">Aggiungi Prodotto</button>
     <div *ngIf="errorMessage" class="error-message fixed-top">
       {{ errorMessage }}

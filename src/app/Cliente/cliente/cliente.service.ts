@@ -7,7 +7,7 @@ import { ClienteDTO } from './clienteDTO';
   providedIn: 'root'
 })
 export class ClienteService {
-  private apiUrl = 'http://192.168.239.133:8080'; // URL di base del tuo backend
+  private apiUrl = 'http://localhost:8080'; // URL di base del tuo backend
 
   constructor(private http: HttpClient) { }
   
@@ -29,6 +29,20 @@ export class ClienteService {
   aggiungiCliente(cliente: ClienteDTO): Observable<ClienteDTO> {
     console.log('Chiamato aggiungiCliente()');
     return this.http.post<ClienteDTO>(`${this.apiUrl}/utente/add`, cliente);
+  }
+
+  cercaClienti(username?: string, nome?: string, cognome?: string, email?: string): Observable<ClienteDTO[]> {
+    // Crea un oggetto per i parametri che devono essere inclusi nella richiesta
+    const params: any = {};
+    
+    // Aggiungi solo i parametri che sono definiti
+    if (username) params['username'] = username;
+    if (nome) params['nome'] = nome;
+    if (cognome) params['cognome'] = cognome;
+    if (email) params['email'] = email;
+
+    // Passa l'oggetto dei parametri alla richiesta HTTP
+    return this.http.get<ClienteDTO[]>(`${this.apiUrl}/cercaClienti`, { params });
   }
     
 }
