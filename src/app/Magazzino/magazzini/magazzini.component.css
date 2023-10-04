@@ -58,15 +58,13 @@ table .btn {
 .form-row {
   display: flex;
   flex-wrap: wrap;
+  justify-content: flex-start; /* Allinea i campi a sinistra */
 }
 
 .form-group {
-  flex: 0 0 calc(25% - 10px); /* Imposta la larghezza desiderata per i campi, con margine tra di essi */
+  flex: 1;
   margin-right: 10px;
-}
-
-.form-group:last-child {
-  margin-right: 0; /* Rimuove il margine dal l'ultimo campo del form */
+  margin-bottom: 10px;
 }
 
 .form-ricerca label {
@@ -76,11 +74,7 @@ table .btn {
 
 .form-ricerca input[type="text"],
 .form-ricerca input[type="number"] {
-  width: 100%;
-  padding: 6px;
-  margin-bottom: 10px;
-  border: 1px solid #d7b899;
-  border-radius: 3px;
+  width: calc(50% - 5px); /* Imposta la larghezza al 50% con uno spazio tra di essi */
 }
 
 .form-ricerca button.btn-ricerca {
@@ -91,6 +85,7 @@ table .btn {
   border-radius: 3px;
   padding: 8px 12px;
   cursor: pointer;
+  margin-top: 10px; /* Aggiunto margine sopra il pulsante per separarlo dai campi di ricerca */
 }
 
 .form-ricerca button.btn-ricerca:hover {
