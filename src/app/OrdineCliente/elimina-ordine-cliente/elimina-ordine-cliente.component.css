@@ -1,0 +1,28 @@
+/* Stile per il pulsante "Conferma Eliminazione" */
+button.conferma-eliminazione {
+    background-color: #28a745; /* Colore verde */
+    color: #fff; /* Testo bianco */
+    font-weight: bold; /* Testo in grassetto */
+    border: none;
+    border-radius: 3px; /* Bordi arrotondati leggermente */
+    padding: 8px 12px; /* Dimensioni del pulsante */
+    cursor: pointer;
+  }
+  
+  /* Stile per il pulsante "Annulla Eliminazione" */
+  button.annulla-eliminazione {
+    background-color: #dc3545; /* Colore rosso */
+    color: #fff; /* Testo bianco */
+    font-weight: bold; /* Testo in grassetto */
+    border: none;
+    border-radius: 3px; /* Bordi arrotondati leggermente */
+    padding: 8px 12px; /* Dimensioni del pulsante */
+    cursor: pointer;
+  }
+  
+  /* Stile per entrambi i pulsanti al passaggio del mouse */
+  button.conferma-eliminazione:hover,
+  button.annulla-eliminazione:hover {
+    opacity: 0.9; /* Leggero aumento dell'opacità al passaggio del mouse */
+  }
+  

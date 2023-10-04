@@ -26,8 +26,8 @@ export class AddProdottoComponent {
       marca: ['', [Validators.required]],
       descrizione: ['', [Validators.required, Validators.minLength(5)]],
       prezzo: ['', [Validators.required]],
-      iva: ['', [Validators.required, Validators.minLength(11), Validators.maxLength(11)]],
       quantita: ['', [Validators.required, Validators.pattern(/^\d+$/)]],
+      iva: ['4', Validators.required],
       id_fornitore: ['', [Validators.required]],
       id_sottoCategoria: [[Validators.required]],
     });
@@ -52,6 +52,7 @@ export class AddProdottoComponent {
           this.successMessage = 'Prodotto aggiunto con successo!';
           this.errorMessage = null;
           this.prodottoForm.reset();
+          window.location.href = '/prodotti';
         },
         (error) => {
           this.errorMessage = 'Errore durante l\'aggiunta del prodotto:';
