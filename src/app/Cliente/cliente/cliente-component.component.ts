@@ -29,6 +29,7 @@ export class ClienteComponent {
   eliminaCliente(username: string) {
     this.clienteService.eliminaCliente(username).subscribe((data: ClienteDTO) => {
       this.clienti = this.clienti.filter(c => c.username !== username);
+      alert("Cliente eliminato con successo!");
     });
   }
 
