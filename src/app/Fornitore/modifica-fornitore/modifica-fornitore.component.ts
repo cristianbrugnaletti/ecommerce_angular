@@ -18,7 +18,7 @@ export class ModificaFornitoreComponent {
   erroreModifica: string = '';
   partitaIVA: string = '';
   fornitoreInModifica: FornitoreDTO | null = null;
-  partitaIVAOld: string = ''; 
+  
   errorMessage: string | null = null;
   telefonoInvalid = false;
   partitaIVAInvalid = false;
@@ -145,6 +145,7 @@ if (this.fornitore && this.fornitore.email) {
     const lunghezzaMinima = 8;
     // Verifica se il telefono è valido
     return telefono !== undefined && telefono !== null && telefonoRegex.test(telefono) && telefono.length <= lunghezzaMassima && telefono.length >= lunghezzaMinima;
+
   }
 
 
