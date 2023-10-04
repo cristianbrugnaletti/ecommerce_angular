@@ -26,8 +26,8 @@ export class FornitoreService {
     return this.http.delete<void>(url);
   }
 
-  modificaFornitore(partitaIVA: string, fornitore: FornitoreDTO): Observable<FornitoreDTO> {
-    const url = `${this.apiUrl}/modificafornitore/${partitaIVA}`;
+  modificaFornitore(id: number, fornitore: FornitoreDTO): Observable<FornitoreDTO> {
+    const url = `${this.apiUrl}/modificafornitore/${id}`;
     return this.http.put<FornitoreDTO>(url, fornitore);
   }
   caricaFornitoreOrdine(): Observable<FornitoreOrdineDTO[]> {
