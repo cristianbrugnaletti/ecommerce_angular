@@ -131,7 +131,7 @@ font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   color: #000000; /* Cambia il colore delle icone delle voci attive nei sottomenu */
 }
 
-li.search input[type="text"] {
+ input[type="text"] {
  
   width: 70%; /* Imposta la larghezza desiderata */
 }
