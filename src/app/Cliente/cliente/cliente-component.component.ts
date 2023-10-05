@@ -42,7 +42,10 @@ export class ClienteComponent {
     this.clienteService.eliminaCliente(username).subscribe((data: ClienteDTO) => {
       this.clienti = this.clienti.filter(c => c.username !== username);
       alert("Cliente eliminato con successo!");
-    });
+    },
+     (error) => {
+      alert("Impossibile eliminare il cliente perchè ha degli ordini associati!");
+     })
   }
 
   modificaCliente(index: number) {
