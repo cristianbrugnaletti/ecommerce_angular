@@ -34,6 +34,7 @@ const routes: Routes = [
   { path: 'modifica-fornitore/:partitaIVA', component: ModificaFornitoreComponent },
   { path: 'elimina-fornitore/:id', component: EliminaFornitoreComponent },
   { path: 'add-prodotto', component: AddProdottoComponent },
+  { path: 'prodotti/:nomeProdotto', component: ProdottiComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
 ];
 

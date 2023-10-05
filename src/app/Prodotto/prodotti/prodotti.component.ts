@@ -4,7 +4,7 @@ import { ProdottoDTO } from '../prodottoDTO'; // Assicurati di importare il tipo
 import { ModificaProdottoComponent } from './../modifica-prodotto/modifica-prodotto.component';
 import { ToastrService } from 'ngx-toastr';
 import { FormBuilder, FormGroup } from '@angular/forms';
-
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-prodotti',
   templateUrl: './prodotti.component.html',
@@ -22,7 +22,9 @@ export class ProdottiComponent implements OnInit {
   constructor
   (private prodottoService: ProdottoService,
    private toastr: ToastrService, 
-   private formBuilder: FormBuilder) {
+   private formBuilder: FormBuilder,
+   private route: ActivatedRoute
+   ) {
     this.nomeOriginale = null;  
     this.searchForm = this.formBuilder.group({
       nome: [''],
@@ -33,9 +35,12 @@ export class ProdottiComponent implements OnInit {
 
    }
 
-  ngOnInit() {
+   
+   ngOnInit() {
     this.trovaProdotti();
   }
+
+
 
   trovaProdotti() {
     // Chiamata al servizio per recuperare i dati dei prodotti

@@ -78,6 +78,7 @@ table tbody tr:not(:last-child) {
   
   font-size: 1.1em; /* Modifica la dimensione dell'icona a tuo piacimento */
 }
+
 .btn-cerca i {
   margin-right: 5px; /* Spazio tra l'icona e il testo del pulsante */
 }

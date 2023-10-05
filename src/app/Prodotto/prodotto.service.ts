@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ProdottoDTO } from './prodottoDTO';
 import { ProdottoRequest } from './prodottoRequest';
-
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -51,5 +51,23 @@ export class ProdottoService {
 
     // Passa l'oggetto dei parametri alla richiesta HTTP
     return this.http.get<ProdottoDTO[]>(`${this.apiUrl}/cercaProdotti`, { params });
+  }
+
+  cercaProdottoPerNome(searchTerm: string): Observable<string[]> {
+    return this.http
+      .get<ProdottoDTO[]>(`${this.apiUrl}/cercaProdottoPerNome?nome=${searchTerm}`)
+      .pipe(
+        map((prodotti: ProdottoDTO[]) => prodotti.map(prodotto => prodotto.nome || '')) // Assicurati che il nome non sia undefined
+      );
+  }
+
+  private selectedProductName: string = '';
+
+  setSelectedProductName(productName: string) {
+    this.selectedProductName = productName;
+  }
+
+  getSelectedProductName(): string {
+    return this.selectedProductName;
   }
 } 
