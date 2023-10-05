@@ -57,6 +57,7 @@ table tbody tr:nth-child(odd) {
 .btn-primary {
   background-color: #5e402f; /* Marrone scuro per il pulsante Modifica */
   color: #fff;
+  margin-bottom: 3px;
 }
 
 .btn-danger {
