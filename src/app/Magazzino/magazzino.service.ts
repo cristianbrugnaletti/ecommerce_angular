@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { MagazzinoDTO } from './MagazzinoDTO';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MagazzinoService {
-  private apiUrl = 'http://192.168.239.133:8080/MagazzinoController';
+  private apiUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) { }
 

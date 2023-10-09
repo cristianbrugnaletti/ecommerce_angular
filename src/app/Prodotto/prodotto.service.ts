@@ -4,12 +4,13 @@ import { Observable } from 'rxjs';
 import { ProdottoDTO } from './prodottoDTO';
 import { ProdottoRequest } from './prodottoRequest';
 import { map } from 'rxjs/operators';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProdottoService {
-  private apiUrl = 'http://192.168.239.133:8080';
+  private apiUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) { }
 
