@@ -4,11 +4,12 @@ import { Observable } from 'rxjs';
 import { FornitoreDTO } from './fornitoreDTO';
 import { FornitoreOrdineDTO } from 'src/app/OrdineFornitore/fornitoreOrdineDTO';
 import { HttpParams } from '@angular/common/http';
+import { environment } from '../../../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
 export class FornitoreService {
-  private apiUrl = 'http://192.168.239.133:8080'; // URL di base del tuo backend
+  private apiUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) { }
   
