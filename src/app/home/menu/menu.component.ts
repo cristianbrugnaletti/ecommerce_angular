@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { Router } from '@angular/router';
-import { FornitoreDTO } from 'src/app/Fornitore/fornitori/fornitoreDTO';
-import { FornitoreService } from 'src/app/Fornitore/fornitori/fornitore.service';
+import { ProdottoDTO } from 'src/app/Prodotto/prodottoDTO';
+import { ProdottoService } from 'src/app/Prodotto/prodotto.service';
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
@@ -12,16 +12,14 @@ export class MenuComponent implements OnInit {
 
   isMenuOpen: boolean = false;  // Variabile di stato per indicare se il menu è aperto
 
-  toggleMenu() {
-    this.isMenuOpen = !this.isMenuOpen;  // Cambia lo stato del menu (aperto/chiuso)
-  }
 
   items: MenuItem[] = [];
+  
+  prodotti: ProdottoDTO[] = [];
+ 
   searchTerm: string = '';
-  fornitori: FornitoreDTO[] = [];
-  searchResults: FornitoreDTO[] = [];
-
-  constructor(private router: Router, private fornitoreService: FornitoreService) { }
+  
+  constructor(private router: Router, private prodottoService: ProdottoService) { }
 
   ngOnInit() {
     this.items = [
@@ -159,18 +157,36 @@ export class MenuComponent implements OnInit {
     this.router.navigate(['/']);
   }
 
-  ricercaFornitori() {
-    // Chiama il metodo del servizio per ottenere i fornitori
-    this.fornitoreService.getFornitori().subscribe(
-      (fornitori: FornitoreDTO[]) => {
-        // Filtra i fornitori in base a ciò che ha digitato l'utente
-        this.searchResults = fornitori.filter((fornitore) => {
-          return fornitore.nome?.toLowerCase().includes(this.searchTerm.toLowerCase());
-        });
+  searchResults: string[] = [];  // Inizializzazione a un array vuoto
+
+  searchProducts() {
+    if (this.searchTerm.trim() === '') {
+      this.searchResults = []; // Svuota l'array se il termine di ricerca è vuoto
+      return;
+    }
+  
+    this.prodottoService.cercaProdottoPerNome(this.searchTerm).subscribe(
+      (data: string[]) => {
+        this.searchResults = data;
       },
       (error) => {
-        console.error('Si è verificato un errore durante il recupero dei fornitori:', error);
+        console.error('Errore durante la ricerca dei prodotti:', error);
       }
     );
+  }
+ 
+  goToProductPage() {
+    
+    this.searchResults = [];
+  }
+
+  selectProduct(productName: string) {
+    this.prodottoService.setSelectedProductName(productName);
+  }
+
+
+  eseguiRicerca() {
+    // Esegui la ricerca quando l'utente preme "Enter" o modifica l'input
+    this.searchProducts();
   }
 }

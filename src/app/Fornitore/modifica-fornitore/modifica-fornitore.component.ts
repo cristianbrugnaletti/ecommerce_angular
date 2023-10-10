@@ -18,10 +18,10 @@ export class ModificaFornitoreComponent {
   erroreModifica: string = '';
   partitaIVA: string = '';
   fornitoreInModifica: FornitoreDTO | null = null;
-  partitaIVAOld: string = ''; 
+  
   errorMessage: string | null = null;
   telefonoInvalid = false;
-  
+  partitaIVAInvalid = false;
   emailInvalid = false;
 
   constructor(
@@ -56,8 +56,16 @@ export class ModificaFornitoreComponent {
       return;
     }
 
+    if (!this.isPartitaIVAvalid()) {
+      this.partitaIVAInvalid = true;
+      return;
+    }
 
-  
+    if (this.fornitore && this.fornitore.partitaIVA) {
+      this.partitaIVAInvalid = !/^[0-9]*$/.test(this.fornitore.partitaIVA) || this.fornitore.partitaIVA.length !== 11;
+    } else {
+      this.partitaIVAInvalid = true;
+    }
 
 if (this.fornitore && this.fornitore.email) {
   // Espressione regolare per verificare il formato dell'email
@@ -82,12 +90,12 @@ if (this.fornitore && this.fornitore.email) {
 
 
 
-    if (this.fornitore && this.fornitore.partitaIVA) {
+    if (this.fornitore && this.fornitore.id) {
       
       this.erroreModifica = '';
       this.modificaInCorso = true;
 
-      this.fornitoreService.modificaFornitore(this.fornitore.partitaIVA, this.fornitore).subscribe(
+      this.fornitoreService.modificaFornitore(this.fornitore.id, this.fornitore).subscribe(
         () => {
 
           this.modificaInCorso = false;
@@ -137,6 +145,18 @@ if (this.fornitore && this.fornitore.email) {
     const lunghezzaMinima = 8;
     // Verifica se il telefono è valido
     return telefono !== undefined && telefono !== null && telefonoRegex.test(telefono) && telefono.length <= lunghezzaMassima && telefono.length >= lunghezzaMinima;
+
   }
 
+
+  isPartitaIVAvalid(): boolean {
+    // Verifica se la Partita IVA è presente e contiene esattamente 11 cifre
+    if (this.fornitore && this.fornitore.partitaIVA) {
+      const partitaIVARegex = /^\d{11}$/;
+      return partitaIVARegex.test(this.fornitore.partitaIVA);
+    }
+  
+    // Se la Partita IVA è mancante, ritornala come non valida
+    return false;
+  }
 }

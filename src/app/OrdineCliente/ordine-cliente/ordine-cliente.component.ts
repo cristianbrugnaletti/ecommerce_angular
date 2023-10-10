@@ -34,8 +34,6 @@ export class OrdineClienteComponent implements OnInit {
 
   confermaEliminazione() {
     if (this.ordineInEliminazione) {
-      // Chiamata al servizio per confermare l'eliminazione dell'ordine cliente
-      // Gestione dell'eliminazione completata
       this.caricaOrdiniCliente(); // Aggiorna la lista degli ordini cliente
       this.ordineInEliminazione = null; // Resetta la variabile di stato
     }

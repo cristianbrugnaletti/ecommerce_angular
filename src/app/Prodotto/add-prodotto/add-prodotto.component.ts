@@ -28,15 +28,14 @@ export class AddProdottoComponent {
       prezzo: ['', [Validators.required]],
       quantita: ['', [Validators.required, Validators.pattern(/^\d+$/)]],
       iva: ['4', Validators.required],
-      id_fornitore: ['', [Validators.required]],
       id_sottoCategoria: [[Validators.required]],
     });
   }
 
   aggiungiProdotto() {
     if (this.prodottoForm.valid) {
-      this.nuovoProdotto = this.prodottoForm.value as ProdottoRequest; // Ottieni i dati dal form
-      console.log('Dati del form:', this.nuovoProdotto);
+      this.nuovoProdotto = this.prodottoForm.value as ProdottoRequest; 
+      this.nuovoProdotto.id_fornitore = 1;
   
       // Assicura che id_sottoCategoria sia un array anche se è un solo valore
       if (!Array.isArray(this.nuovoProdotto.id_sottoCategoria)) {
@@ -50,14 +49,17 @@ export class AddProdottoComponent {
         (prodottoAggiunto) => {
           console.log('Prodotto aggiunto con successo:', prodottoAggiunto);
           this.successMessage = 'Prodotto aggiunto con successo!';
+          this.errorMessage = null;
           this.prodottoForm.reset();
           window.location.href = '/prodotti';
         },
         (error) => {
+          this.errorMessage = 'Errore durante l\'aggiunta del prodotto:';
           console.error('Errore durante l\'aggiunta del prodotto:', error);
         }
       );
     } else {
+      this.errorMessage = 'Il form non è valido. Controlla i campi.:';
       console.log('Il form non è valido. Controlla i campi.');
     }
   }

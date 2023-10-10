@@ -56,14 +56,6 @@
     </div>
 
     <div class="form-group">
-      <label for="id_fornitore">ID Fornitore:</label>
-      <input type="number" id="id_fornitore" name="id_fornitore" formControlName="id_fornitore">
-      <div *ngIf="prodottoForm.get('id_fornitore')?.invalid && prodottoForm.get('id_fornitore')?.touched">
-        <div *ngIf="prodottoForm.get('id_fornitore')?.hasError('required')">Il campo ID Fornitore è obbligatorio.</div>
-      </div>
-    </div>
-
-    <div class="form-group">
       <label for="id_sottoCategoria">Sotto Categoria:</label>
       <input type="number" id="id_sottoCategoria" name="id_sottoCategoria" formControlName="id_sottoCategoria">
       <div *ngIf="prodottoForm.get('id_sottoCategoria')?.invalid && prodottoForm.get('id_sottoCategoria')?.touched">
@@ -72,8 +64,13 @@
     </div>
             
     <button type="submit">Aggiungi Prodotto</button>
+    <div *ngIf="errorMessage" class="error-message fixed-top">
+      {{ errorMessage }}
+    </div>
+    <div *ngIf="successMessage" class="alert alert-success fixed-top">
+      {{ successMessage }}
+    </div>
   </form>
-</div>
-<div *ngIf="successMessage" class="alert alert-success">
-  {{ successMessage }}
+
+ 
 </div>

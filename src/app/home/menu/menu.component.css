@@ -131,7 +131,7 @@ font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   color: #000000; /* Cambia il colore delle icone delle voci attive nei sottomenu */
 }
 
-li.search input[type="text"] {
+ input[type="text"] {
  
   width: 70%; /* Imposta la larghezza desiderata */
 }
@@ -140,4 +140,29 @@ li.search{
   margin-left: 3%;
 }
 
+.topbar1 {
+  position: relative;
+}
 
+.ul1 {
+  position: absolute;
+  top: 100%; /* Posiziona l'ul sotto la barra di ricerca */
+  left: 0;
+  width: 100%; /* Usa tutta la larghezza disponibile */
+  background-color: #fff; /* Colore di sfondo bianco o quello che preferisci */
+  border: 1px solid #ccc; /* Un bordo opzionale per separare dall'input */
+  list-style: none;
+  padding: 0;
+  display: flex; /* Layout a colonna per gli elementi */
+  flex-direction: column; /* Layout a colonna per gli elementi */
+}
+
+.li1 {
+  padding: 10px;
+  cursor: pointer;
+}
+
+/* Stile per ogni elemento li */
+.li1:hover {
+  background-color: #f0f0f0; /* Cambia il colore quando l'utente ci passa sopra */
+}

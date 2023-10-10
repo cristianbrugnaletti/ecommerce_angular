@@ -5,7 +5,6 @@
     <table>
       <thead>
         <tr>
-          <th>Cliente</th>
           <th>Data Invio Ordine</th>
           <th>Prezzo Totale</th>
           <th>Azioni</th>
@@ -14,7 +13,6 @@
       <tbody>
         <ng-container *ngFor="let ordine of ordiniCliente; let i = index">
           <tr>
-            <td>{{ ordine.cliente?.nome }} {{ ordine.cliente?.cognome }}</td>
             <td>{{ ordine.dataInvioOrdine | date:'dd/MM/yyyy HH:mm:ss' }}</td>
             <td>{{ ordine.prezzoTotale | number:'1.2-2' }}</td>
             <td>

@@ -78,6 +78,7 @@ export class MagazziniComponent implements OnInit {
   annullaModifica() {
     this.magazzinoDaModificareIndex = null;
     this.nomeOriginale = null;
+    this.getMagazzini();
   }
 
   eliminaMagazzino(nomeMagazzino: string | undefined, index: number) {
@@ -94,19 +95,11 @@ export class MagazziniComponent implements OnInit {
 
   eliminazioneConfermata() {
     if (this.nomeOriginale && this.magazzinoDaEliminareIndex !== null) {
-      this.magazzinoService.eliminaMagazzino(this.nomeOriginale).subscribe(
-        () => {
-          this.nomeOriginale = null;
-          this.magazzinoDaEliminareIndex = null;
-          this.getMagazzini();
-        },
-        (error) => {
-          console.error('Si è verificato un errore durante l\'eliminazione del magazzino:', error);
-        }
-      );
+      this.nomeOriginale = null;
+      this.magazzinoDaEliminareIndex = null;
     }
   }
-
+  
   annullaEliminazioneMagazzino() {
     this.magazzinoDaEliminareIndex = null;
     this.nomeOriginale = null;
