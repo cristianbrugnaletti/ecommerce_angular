@@ -8,6 +8,8 @@ import { environment } from '../../environments/environment';
   providedIn: 'root'
 })
 export class MagazzinoService {
+  
+  
   private apiUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) { }
