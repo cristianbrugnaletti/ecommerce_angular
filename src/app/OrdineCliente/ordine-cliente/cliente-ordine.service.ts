@@ -11,35 +11,35 @@ import { environment } from '../../../environments/environment';
   providedIn: 'root'
 })
 export class ClienteOrdineService {
-  private apiUrl = environment.apiUrl; 
+  private apiUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) { }
 
+  private buildUrl(path: string): string {
+    return `${this.apiUrl}/${path}`;
+  }
+
   aggiungiClienteRigaDOrdine(request: ClienteRigaDOrdineRequest): Observable<ClienteRigaDOrdineDTO> {
-    const url = `${this.apiUrl}/ClienteRigaDOrdineController/clienteRigaDOrdine/add`;
-    return this.http.post<ClienteRigaDOrdineDTO>(url, request);
+    return this.http.post<ClienteRigaDOrdineDTO>(this.buildUrl('clienteRigaDOrdine/add'), request);
   }
 
   confermaOrdineCliente(request: ClienteOrdineRequest): Observable<ClienteOrdineDTO> {
-    const url = `${this.apiUrl}/ClienteController/clienteOrdine/conferma`;
-    return this.http.post<ClienteOrdineDTO>(url, request);
+    return this.http.post<ClienteOrdineDTO>(this.buildUrl('clienteOrdine/conferma'), request);
   }
 
   trovaOrdiniCliente(): Observable<ClienteOrdineDTO[]> {
-    console.log('Chiamato getOrdiniCliente()');
-    return this.http.get<ClienteOrdineDTO[]>(`${this.apiUrl}/ClienteController/clienteOrdine/findAll`);
+    return this.http.get<ClienteOrdineDTO[]>(this.buildUrl('clienteOrdine/findAll'));
   }
- trovaClienti(): Observable<ClienteOrdineDTO[]> {
-  console.log('Chiamato getOrdiniCliente()');
-  return this.http.get<ClienteOrdineDTO[]>(`${this.apiUrl}/utente/findAll`);
-}
-deleteOrdine(usernameCliente: string, dataInvioOrdine: string): Observable<void> {
-  console.log('Chiamato delete');
-  const url = `${this.apiUrl}/ClienteController/clienteOrdine/delete`; 
-  const params = new HttpParams()
-    .set('usernameCliente', usernameCliente)
-    .set('dataInvioOrdine', dataInvioOrdine);
-  
-  return this.http.delete<void>(url, { params });
-}
+
+  trovaClienti(): Observable<ClienteOrdineDTO[]> {
+    return this.http.get<ClienteOrdineDTO[]>(this.buildUrl('utente/findAll'));
+  }
+
+  deleteOrdine(usernameCliente: string, dataInvioOrdine: string): Observable<void> {
+    const params = new HttpParams()
+      .set('usernameCliente', usernameCliente)
+      .set('dataInvioOrdine', dataInvioOrdine);
+
+    return this.http.delete<void>(this.buildUrl('clienteOrdine/delete'), { params });
+  }
 }
